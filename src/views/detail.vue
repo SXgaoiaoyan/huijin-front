@@ -255,10 +255,10 @@ export default {
         .get("/api/goods/" + self.$route.params.id)
         .then(response => {
           self.good = response.data.good;
-
-          if (self.good.goods_type.length > 0) {
-            var object = (self.order_attr = self.good.goods_type.order_attr);
-
+          
+          if (self.good.goods_type) {
+            var object = self.order_attr = self.good.goods_type.order_attr;
+            
             for (const key in object) {
               if (object.hasOwnProperty(key)) {
                 const element = object[key];
