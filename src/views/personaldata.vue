@@ -41,7 +41,7 @@
                                     <a href="">我的主页</a>
                                 </li>
                                 <li>
-                                    <a href="">我的收藏</a>
+                                    <a href="">我的账户</a>
                                 </li>
                                 <li>
                                     <a href="">我的购物车</a>
@@ -516,7 +516,7 @@ export default {
 .ivu-layout {
   width: 100%;
   height: 1368px;
-  background: url(../static.huijinjiu.com/personal/personImg.jpg) no-repeat;
+  background: url(http://i2.bvimg.com/653324/5ac096c43b284be1.jpg) no-repeat;
   background-size: 100% 1368px;
   font-size: 16px;
 }
@@ -584,7 +584,7 @@ export default {
   margin-left: 24px;
   height: 1236px;
   margin-top: 10px;
-  background: url(../static.huijinjiu.com/personaldata/bj.png) no-repeat;
+  background: url(http://i2.bvimg.com/653324/d12b97be34dcdb08.png) no-repeat;
   background-size: 100% 100%;
 }
 .content .redact {

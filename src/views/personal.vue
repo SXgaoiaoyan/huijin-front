@@ -42,7 +42,7 @@
 						<a href="">我的主页</a>
 					</li>
 					<li>
-						<a href="">我的收藏</a>
+						<a href="">我的账户</a>
 					</li>
 					<li>
 						<a href="">我的购物车</a>
@@ -101,7 +101,7 @@
 						<!--个人主页的英文-->
 						<div class="eg">
 							<Row>
-								<i-col span="6" offset="10" class="wrap"> 
+								<i-col span="6"  offset="10" class="wrap"> 
 									PERSONAL HOMEPAGE
 								</i-col>
 								<i-col span="8">&nbsp;</i-col>
@@ -266,7 +266,7 @@ export default {};
 .ivu-layout {
   width: 100%;
   height: 100%;
-  background: url(../static.huijinjiu.com/personal/personImg.jpg) no-repeat;
+  background: url(http://i2.bvimg.com/653324/5ac096c43b284be1.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }
@@ -337,7 +337,7 @@ export default {};
 .content .zt {
   width: 100%;
   height: 300px;
-  background: url(../static.huijinjiu.com/personal/theme.png) no-repeat;
+  background: url(http://i2.bvimg.com/653324/b555df36792e44cds.png) no-repeat;
   background-size: 100% 300px;
   float: left;
   font-size: 20px;
@@ -411,18 +411,18 @@ export default {};
   box-shadow: 0 0 5px #b5b5b5;
 }
 
-.wrap{
-	white-space: nowrap;
+.wrap {
+  white-space: nowrap;
 }
-	@media only screen and (min-width :1366px) and (max-width:1900px) {
-		 .eg{
-			letter-spacing: 3px;
-		};
-		.footer .xd{
-			letter-spacing: 3px;
-		};
-		.introduce{
-			letter-spacing: 5px;
-		}
-	}
+@media only screen and (min-width: 1366px) and (max-width: 1920px) {
+  .eg {
+    letter-spacing: 3px;
+  }
+  .footer .xd {
+    letter-spacing: 3px;
+  }
+  .introduce {
+    letter-spacing: 5px;
+  }
+}
 </style>

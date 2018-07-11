@@ -39,7 +39,7 @@
                                     <a href="">我的主页</a>
                                 </li>
                                 <li>
-                                    <a href="">我的收藏</a>
+                                    <a href="">我的账户</a>
                                 </li>
                                 <li>
                                     <a href="">我的购物车</a>
@@ -387,7 +387,7 @@ export default {
   width: 100%;
   height:960px;
   font-size: 16px;
-  background: url(../static.huijinjiu.com/shopcart/beijing.jpg) no-repeat;
+  background: url(http://i1.bvimg.com/653324/31f1a05c04235f41.jpg) no-repeat;
   background-size: 100% 100%;
 }
 /* 侧边栏 */

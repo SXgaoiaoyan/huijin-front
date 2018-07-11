@@ -17,10 +17,10 @@
 	    					<li><a href="">最新资讯</a></li>
 	    				</i-col>
 	    				<i-col span="6">
-	    					<li><a href="">酒品分类</a></li>
+	    					<li><a  @click="wineclass_m">酒品分类</a></li>
 	    				</i-col>
 	    				<i-col span="6">
-	    					<li><a href="">个人中心</a></li>
+	    					<li><a  @click="personaldata_m">个人中心</a></li>
 	    				</i-col>
 	    			</ul>
 	    		</i-col>
@@ -64,7 +64,7 @@
 	    		</i-col>
 
 	    		<i-col span="14" offset="1">
-	    			<img src="../static.huijinjiu.com/mall/banner.png" class="img1"/>
+	    			<img src="http://p8htjuaac.bkt.clouddn.com/jiu.png" class="img1"/>
 	    		</i-col>
 	    		<i-col span="1">&nbsp;</i-col>
    			</Row>
@@ -233,13 +233,25 @@
 </template>
 <script>
     export default {
-        
+        methods: {
+			wineclass_m() {
+				// var self = this;
+				this.$router.push({
+					name:"wineclass"
+				})
+			},
+			personaldata_m() {
+				this.$router.push({
+					name:"personal"
+				})
+			}
+		}
     }
 </script>
 <style scoped>
 	.mall{
 		width: 100%;
-		background:url(../static.huijinjiu.com/mall/bg.png) no-repeat;
+		background:url(http://i1.bvimg.com/653324/5dde6a60be597748.png) no-repeat;
 		background-size: 100% 100%;
 	}
 	/*头部*/
@@ -283,6 +295,7 @@
 	
 	.text1 .img1{
 		width: 100%;
+		height:500px
 	}
 	/*内容2*/
 	.text2{

@@ -6,7 +6,6 @@
 				<i-col span="1"> &nbsp;
 				</i-col>
 				<i-col span="3">
-					<!--<img src="../../../../static.huijinjiu.com/mall/LOGO.png" class="logo"/>-->
 				</i-col>
 				<i-col span="3">&nbsp;</i-col>
 				<i-col span="17">
@@ -191,7 +190,7 @@ export default {
   methods: {
     selectChange() {
       var object = this.selects;
-      var basePrice = parseInt(this.good.market_price);
+      var basePrice = parseFloat(this.good.market_price);
       for (const key in object) {
         if (object.hasOwnProperty(key)) {
           var select = object[key];
@@ -202,7 +201,7 @@ export default {
               const element = attrs[key];
 
               if (element.id == select) {
-                basePrice += parseInt(element.attr_price);
+                basePrice += parseFloat(element.attr_price);
               }
             }
           }
@@ -267,7 +266,7 @@ export default {
             }
           }
 
-          self.price = parseInt(self.good.market_price);
+          self.price = parseFloat(self.good.market_price);
           self.img = self.good.goods_img;
         })
         .catch(error => {
@@ -355,7 +354,7 @@ export default {
 .detail {
   width: 100%;
   height: 2164px;
-  background: url(../static.huijinjiu.com/detail/bg.jpg) no-repeat;
+  background: url(http://i1.bvimg.com/653324/5dde6a60be597748.png) no-repeat;
   background-size: 100% 2164px;
 }
 /*头部*/

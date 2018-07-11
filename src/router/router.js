@@ -55,14 +55,7 @@ const routers = [
 	    },
 	    component: (resolve) => require(['../views/personal.vue'], resolve)
     },
-	{
-		path: '/mall',
-		name:"mall",
-	    meta: {
-	        title: '商城首页'
-	    },
-	    component: (resolve) => require(['../views/mall.vue'], resolve)
-	},
+	
 	{
     path: '/detail/:id',
     name:'detail',

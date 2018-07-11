@@ -20,16 +20,16 @@
             <Row style="border-bottom:2px solid #bfbfbf;height:49px">
               <i-col span="18" offset="3">
               <ul>
-                <i-col span="12">
+                <i-col span="24">
                 <li @click="phone_login_d=true" class="phone_login" v-bind:class="{select : phone_login_d}">
                   手机登录
                 </li>
                 </i-col>
-                <i-col span="12">
+                <!-- <i-col span="12">
                 <li @click="phone_login_d=false" class="account_login" v-bind:class="{select : !phone_login_d}">
                   账户登录
                 </li>
-                </i-col>
+                </i-col> -->
               </ul>
               </i-col>
               <i-col span="3">&nbsp;</i-col>
@@ -70,6 +70,8 @@
                   <i-col span="1">&nbsp;</i-col>
                 </Row>
 
+               
+
                 <FormItem>
                   <Row>
                     <i-col span="22" offset="1">
@@ -89,6 +91,21 @@
                     <i-col span="1">&nbsp;</i-col>
                   </Row>
                 </FormItem>
+
+                 <Row>
+                <i-col span="4">
+                <div>
+                  <a href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;padding-left:18px" />QQ</a>
+                </div>
+                </i-col>
+                <i-col span="5" offset="2">
+                <div>
+                  <img src="../static.huijinjiu.com/login/wchat.png" style="vertical-align: middle;" />微信
+                </div>
+                </i-col>
+                <i-col span="13">
+                </i-col>
+              </Row>
               </Form>
             </div>
             <!-- 账号登录 -->
@@ -131,7 +148,7 @@
                 </FormItem>
               </Form>
 
-              <Row>
+              <!-- <Row>
                 <i-col span="4">
                 <div>
                   <a href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;" />QQ</a>
@@ -145,7 +162,7 @@
                 <i-col span="5" offset="8">
                 <button class="reg">立即注册</button>
                 </i-col>
-              </Row>
+              </Row> -->
 
             </div>
 
@@ -427,7 +444,7 @@ export default {
   font-size: 18px;
   /* color: #ff6f6e; */
   margin-top: 12px;
-  border-right: 2px solid #a6a6a6;
+  /* border-right: 2px solid #a6a6a6; */
 }
 /* 账户登录 */
 .content .account_login {
@@ -484,7 +501,7 @@ export default {
   background-color: #fe706e;
   font-size: 19px;
   color: white;
-  margin-top: 26px;
+  margin-top: 15px;
   letter-spacing: 10px;
 }
 .content .login1 {
