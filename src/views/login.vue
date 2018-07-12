@@ -95,12 +95,12 @@
                  <Row>
                 <i-col span="4">
                 <div>
-                  <a href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;padding-left:18px" />QQ</a>
+                  <a style="color:black;" href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;padding-left:18px" />QQ</a>
                 </div>
                 </i-col>
                 <i-col span="5" offset="2">
                 <div>
-                  <img src="../static.huijinjiu.com/login/wchat.png" style="vertical-align: middle;" />微信
+                  <a style="color:black;"><img src="../static.huijinjiu.com/login/wchat.png" style="vertical-align: middle;" />微信</a>
                 </div>
                 </i-col>
                 <i-col span="13">

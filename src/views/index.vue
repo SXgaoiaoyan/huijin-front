@@ -231,11 +231,11 @@
    		</div>
     </div>
 </template>
+
 <script>
     export default {
         methods: {
 			wineclass_m() {
-				// var self = this;
 				this.$router.push({
 					name:"wineclass"
 				})
@@ -248,6 +248,7 @@
 		}
     }
 </script>
+
 <style scoped>
 	.mall{
 		width: 100%;

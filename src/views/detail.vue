@@ -42,8 +42,7 @@
 					</ul>
 				</i-col>
         <i-col span="3" style="font-size:20px"> 
-          <!-- <Icon type="ios-cart-outline" size="1000px"></Icon> -->
-          <a @click="tz">购物车</a>
+          <a @click="tz">购物车</a> 
 				</i-col>
 			</Row>
 		</div>
@@ -272,7 +271,7 @@ export default {
             }
           }
 
-          self.price = parseInt(self.good.market_price);
+          self.price = parseFloat(self.good.market_price);
           self.img = self.good.goods_img;
         })
         .catch(error => {
@@ -319,7 +318,7 @@ export default {
         return false;
       }
       var self = this;
-
+      var data = {}
       if (this.good.attrs.length > 0) {
         data.good_id = self.good.id;
         data.spe = this.selects;

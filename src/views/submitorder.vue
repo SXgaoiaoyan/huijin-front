@@ -390,7 +390,7 @@ export default {
       pca: {},
       btn: true, //确认修改按钮的状态
       rowId: "",
-      pay_d: false,
+      pay_d: true,
       pay1_d: false,
       pay2_d: false,
       pay3_d: false,
@@ -571,7 +571,7 @@ export default {
     // 支付宝
     alipay_m() {
       var self = this;
-      self.pay_d = true;
+    //   self.pay_d = true;
       self.pay1_d = false;
       self.pay2_d = false;
       self.pay3_d = false;
