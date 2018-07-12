@@ -6,9 +6,10 @@
 				<i-col span="1"> &nbsp;
 				</i-col>
 				<i-col span="3">
+	    			<img src="http://static.huijinjiu.com/805351264090795932.png" class="logo"/>
 				</i-col>
-				<i-col span="3">&nbsp;</i-col>
-				<i-col span="17">
+				<i-col span="2">&nbsp;</i-col>
+				<i-col span="15">
 					<ul>
 						<i-col span="5">
 							<li>
@@ -26,23 +27,21 @@
 							</li>
 						</i-col>
 						<i-col span="5">
-							<!-- <i-col span="12"> -->
 							<li>
 								<a href="">个人中心</a>
 							</li>
-							<!-- </i-col> -->
-							<!-- <i-col span='12'> -->
 						</i-col>
 						<i-col span="4">
 							<li>
-								<a href="" @click='logout_m'>退出</a>
+								<a href="" @click='logout_m'>退出</a>&nbsp;&nbsp;&nbsp;
 								<a href="">{{user.userinfo.qq_user?user.userinfo.qq_user.nickname:user.userinfo.name}}</a>
-								<a href="" v-show="user.userinfo.qq_user"><img :src="user.userinfo.qq_user?user.userinfo.qq_user.figureurl_qq_1:''" /></a>
+								<a href="" v-show="user.userinfo.qq_user"><img :src="user.userinfo.qq_user?user.userinfo.qq_user.figureurl_qq_1:''"  /></a>
 							</li>
-							<!-- </i-col> -->
 						</i-col>
 
 					</ul>
+				</i-col>
+        <i-col span="3"> &nbsp;
 				</i-col>
 			</Row>
 		</div>
@@ -266,7 +265,7 @@ export default {
             }
           }
 
-          self.price = parseFloat(self.good.market_price);
+          self.price = parseInt(self.good.market_price);
           self.img = self.good.goods_img;
         })
         .catch(error => {
@@ -354,7 +353,7 @@ export default {
 .detail {
   width: 100%;
   height: 2164px;
-  background: url(http://i1.bvimg.com/653324/5dde6a60be597748.png) no-repeat;
+  background: url(http://static.huijinjiu.com/bg.png) no-repeat;
   background-size: 100% 2164px;
 }
 /*头部*/
@@ -419,13 +418,13 @@ ol li {
 /*中部内容*/
 .center {
   width: 100%;
-  height: 1185px;
+  height: 1165px;
   /* border: 1px solid red; */
 }
 /*脚部*/
 .footer {
   width: 100%;
-  height: 252px;
+  /* height: 200px; */
   /* border: 1px solid red */
 }
 

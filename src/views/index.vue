@@ -5,10 +5,10 @@
 	    	<Row>
 	    		<i-col span="1">&nbsp;</i-col>
 	    		<i-col span="3">
-	    			<img src="../static.huijinjiu.com/mall/LOGO.png" class="logo"/>
+	    			<img src="http://static.huijinjiu.com/805351264090795932.png" class="logo"/>
 	    		</i-col>
-	    		<i-col span="3">&nbsp;</i-col>
-	    		<i-col span="12">
+	    		<i-col span="2">&nbsp;</i-col>
+	    		<i-col span="13">
 	    			<ul>
 	    				<i-col span="6">
 	    					<li><a href="">商城首页</a></li>
@@ -64,7 +64,7 @@
 	    		</i-col>
 
 	    		<i-col span="14" offset="1">
-	    			<img src="http://p8htjuaac.bkt.clouddn.com/jiu.png" class="img1"/>
+	    			<img src="http://static.huijinjiu.com/banner.png" class="img1"/>
 	    		</i-col>
 	    		<i-col span="1">&nbsp;</i-col>
    			</Row>
@@ -251,7 +251,7 @@
 <style scoped>
 	.mall{
 		width: 100%;
-		background:url(http://i1.bvimg.com/653324/5dde6a60be597748.png) no-repeat;
+		background:url(http://static.huijinjiu.com/bg.png) no-repeat;
 		background-size: 100% 100%;
 	}
 	/*头部*/
@@ -295,15 +295,14 @@
 	
 	.text1 .img1{
 		width: 100%;
-		height:500px
+		height:521px
 	}
 	/*内容2*/
 	.text2{
 		width: 100%;
-		/*height: 356px;*/
 		height: 482px;
 		margin-top: 90px;
-		background: url(../static.huijinjiu.com/mall/bird.png) no-repeat;
+		background: url(http://static.huijinjiu.com/bird.png) no-repeat;
 		background-size: 100% 100%;
 	}
 	.text2 .hz{
@@ -323,7 +322,7 @@
 	/*内容3*/
 	.text3{
 		width: 100%;
-		background: url(../static.huijinjiu.com/mall/img.png) no-repeat;
+		background: url(http://static.huijinjiu.com/bell.png) no-repeat;
 		background-size: 100% 100%;
 		margin-top: 108px;
 	}
@@ -373,7 +372,7 @@
 	.footer{
 		width: 100%;
 		height: 248px;
-		margin-top: 168px;
+		margin-top: 165px;
 	}
 	.footer ul{
 		width: 70px;

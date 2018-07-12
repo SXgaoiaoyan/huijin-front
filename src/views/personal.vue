@@ -24,7 +24,6 @@
 			</i-col>
 			<i-col span="6">&nbsp;</i-col>
 		</Row>
-	<!--<img src="../../../../static.huijinjiu.com/personal/border0.png"/>-->
 		<div class="bottom">
 			<Row>
 				<i-col span="11" offset="7">
@@ -62,7 +61,7 @@
 		<!--头部-->
 		<div class="header">
 			<Row>
-				<i-col span="3" offset="1">
+				<i-col span="3" style="margin-left:32px">
 				<img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
 				</i-col>
 				<i-col span="13" offset="3">
@@ -89,14 +88,14 @@
 					</i-col>
 				</ul>
 				</i-col>
-				<i-col span="4">&nbsp;</i-col>
+				<i-col span="5">&nbsp;</i-col>
 			</Row>
 		</div>
 		<!--中部内容-->
 		<div class="content">
 			<Row>
 				<!--主题图-->
-				<i-col span="20" offset="1">
+				<i-col span="20" style="margin-left:32px">
 					<div class="zt">
 						<!--个人主页的英文-->
 						<div class="eg">
@@ -122,13 +121,13 @@
 				<i-col span="2">
 				<button type="button" class="fx"></button>
 				</i-col>
-				<i-col span="1">&nbsp;</i-col>
+				<i-col span="2">&nbsp;</i-col>
 			</Row>
 		</div>
 
 		<!--脚部-->
 		<!--<Row>-->
-			<i-col span="20" offset="1"class="footer">
+			<i-col span="20" class="footer">
 				<!--头像图片-->
 				<Row>
 					<i-col span="3" offset="11">
@@ -252,7 +251,7 @@
 				</Row>
 				
 			</i-col>
-			<i-col span="3">&nbsp;</i-col>
+			<i-col span="4">&nbsp;</i-col>
 		<!--</Row>-->
 		
 	</Layout>
@@ -265,15 +264,14 @@ export default {};
 <style scoped>
 .ivu-layout {
   width: 100%;
-  height: 100%;
-  background: url(http://i2.bvimg.com/653324/5ac096c43b284be1.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }
 
 /*侧边栏*/
 .sider {
-  height: 1568px;
+  height: 1584px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }
@@ -337,7 +335,7 @@ export default {};
 .content .zt {
   width: 100%;
   height: 300px;
-  background: url(http://i2.bvimg.com/653324/b555df36792e44cds.png) no-repeat;
+  background: url(http://static.huijinjiu.com/theme.png) no-repeat;
   background-size: 100% 300px;
   float: left;
   font-size: 20px;
@@ -365,6 +363,7 @@ export default {};
 .footer {
   background: white;
   height: 1131px;
+	margin-left:32px
 }
 .footer .img1 {
   /*width: 100%;*/

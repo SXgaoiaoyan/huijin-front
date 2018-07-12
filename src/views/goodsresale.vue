@@ -121,7 +121,7 @@ export default {
 <style scoped>
 .ivu-layout {
   width: 100%;
-  background: url(../static.huijinjiu.com/shopcart/beijing.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }
@@ -184,9 +184,8 @@ export default {
   border-bottom: 4px solid #a8d3fe;
 }
 .content {
-  height:937px;
   margin-top: 10px;
-  background: url(../static.huijinjiu.com/shopcart/diwen.png) no-repeat;
+  background: url(http://static.huijinjiu.com/diwen.png) no-repeat;
   background-size: 100% 100%;
   margin-left: 32px;
   padding:50px

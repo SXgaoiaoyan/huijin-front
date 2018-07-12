@@ -125,8 +125,9 @@
                                 </div>
                             </div>
                         </div>
+
                         <div style="margin-top:50px;margin-left:46px">
-                        <Button style="font-size:20px;color:white;background:#fe706e;border-color:#ff4948;" @click="payment">立即付款</Button>
+                            <Button style="font-size:20px;color:white;background:#fe706e;border-color:#ff4948;" @click="payment">立即付款</Button>
                         </div>
                     </i-col>
                     <!-- <i-col span="2">&nbsp;</i-col> -->
@@ -176,7 +177,7 @@ export default {
             })
         },
         payment() {
-            window.location = "http://api.huijinjiu.com/alipay?order_sn="+this.ordershow.order_sn            
+            window.location = "http://api.huijinjiu.com/alipay?order_sn="+this.ordershow.order_info.order_sn            
         }
 
     }
@@ -185,7 +186,7 @@ export default {
 <style scoped>
 .ivu-layout {
   width: 100%;
-  background: url(../static.huijinjiu.com/shopcart/beijing.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }

@@ -345,7 +345,7 @@
 	.layout {
 		width: 100%;
 		height: 2554px;
-		background: url(http://i1.bvimg.com/653324/5dde6a60be597748.png) no-repeat;
+		background: url(http://static.huijinjiu.com/bg.png) no-repeat;
 		background-size: 100% 2554px;
 	}
 	

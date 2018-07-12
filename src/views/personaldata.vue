@@ -515,8 +515,8 @@ export default {
 <style scoped>
 .ivu-layout {
   width: 100%;
-  height: 1368px;
-  background: url(http://i2.bvimg.com/653324/5ac096c43b284be1.jpg) no-repeat;
+  height: 100%px;
+  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
   background-size: 100% 1368px;
   font-size: 16px;
 }
@@ -584,7 +584,7 @@ export default {
   margin-left: 24px;
   height: 1236px;
   margin-top: 10px;
-  background: url(http://i2.bvimg.com/653324/d12b97be34dcdb08.png) no-repeat;
+  background: url(http://static.huijinjiu.com/dw.png) no-repeat;
   background-size: 100% 100%;
 }
 .content .redact {

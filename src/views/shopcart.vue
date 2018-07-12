@@ -385,14 +385,15 @@ export default {
 
 .ivu-layout {
   width: 100%;
-  height:960px;
+  /* height:960px; */
   font-size: 16px;
-  background: url(http://i1.bvimg.com/653324/31f1a05c04235f41.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
   background-size: 100% 100%;
 }
 /* 侧边栏 */
 .sider {
   width: 100%;
+  height:970px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }
@@ -448,8 +449,7 @@ export default {
 }
 /* 内容 */
 .content {
-  /* height: 637px; */
-  background: url(../static.huijinjiu.com/shopcart/diwen.png) no-repeat;
+  background: url(http://static.huijinjiu.com/diwen.png) no-repeat;
   background-size: 100% 100%;
   margin-top: 10px;
   padding: 6px;
@@ -465,12 +465,11 @@ export default {
   line-height: 42px;
 }
 .content .tab1 {
-  height: 150px;
+  height: 120px;
   color: #939393;
   font-size: 12px;
   border-top: 2px solid #aaa;
   border-bottom: 2px solid #aaa;
-  /* padding-top: 20px; */
 }
 
 .content .minus {

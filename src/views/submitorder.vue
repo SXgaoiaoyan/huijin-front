@@ -662,7 +662,7 @@ export default {
 .ivu-layout {
   width: 100%;
   height: 100%;
-  background: url(http://i2.bvimg.com/653324/5ac096c43b284be1.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
   background-size: 100% 1768px;
   font-size: 16px;
 }

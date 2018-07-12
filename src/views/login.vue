@@ -413,7 +413,7 @@ export default {
 }
 .layout {
   width: 100%;
-  height: 918px;
+  height: 968px;
   background: url(http://static.huijinjiu.com/467763290700598377.png) no-repeat;
   background-size: 100% 100%;
 }
