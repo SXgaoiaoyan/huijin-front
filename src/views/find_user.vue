@@ -2,6 +2,7 @@
   <div>登陆中..........</div>
 </template>
 <script>
+import Cookies from 'js-cookie';
 export default {
   data() {
     return {};
