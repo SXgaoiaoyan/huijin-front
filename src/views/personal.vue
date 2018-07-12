@@ -24,7 +24,6 @@
 			</i-col>
 			<i-col span="6">&nbsp;</i-col>
 		</Row>
-	<!--<img src="../../../../static.huijinjiu.com/personal/border0.png"/>-->
 		<div class="bottom">
 			<Row>
 				<i-col span="11" offset="7">
@@ -42,7 +41,7 @@
 						<a href="">我的主页</a>
 					</li>
 					<li>
-						<a href="">我的收藏</a>
+						<a href="">我的账户</a>
 					</li>
 					<li>
 						<a href="">我的购物车</a>
@@ -62,7 +61,7 @@
 		<!--头部-->
 		<div class="header">
 			<Row>
-				<i-col span="3" offset="1">
+				<i-col span="3" style="margin-left:32px">
 				<img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
 				</i-col>
 				<i-col span="13" offset="3">
@@ -89,19 +88,19 @@
 					</i-col>
 				</ul>
 				</i-col>
-				<i-col span="4">&nbsp;</i-col>
+				<i-col span="5">&nbsp;</i-col>
 			</Row>
 		</div>
 		<!--中部内容-->
 		<div class="content">
 			<Row>
 				<!--主题图-->
-				<i-col span="20" offset="1">
+				<i-col span="20" style="margin-left:32px">
 					<div class="zt">
 						<!--个人主页的英文-->
 						<div class="eg">
 							<Row>
-								<i-col span="6" offset="10" class="wrap"> 
+								<i-col span="6"  offset="10" class="wrap"> 
 									PERSONAL HOMEPAGE
 								</i-col>
 								<i-col span="8">&nbsp;</i-col>
@@ -122,13 +121,13 @@
 				<i-col span="2">
 				<button type="button" class="fx"></button>
 				</i-col>
-				<i-col span="1">&nbsp;</i-col>
+				<i-col span="2">&nbsp;</i-col>
 			</Row>
 		</div>
 
 		<!--脚部-->
 		<!--<Row>-->
-			<i-col span="20" offset="1"class="footer">
+			<i-col span="20" class="footer">
 				<!--头像图片-->
 				<Row>
 					<i-col span="3" offset="11">
@@ -252,7 +251,7 @@
 				</Row>
 				
 			</i-col>
-			<i-col span="3">&nbsp;</i-col>
+			<i-col span="4">&nbsp;</i-col>
 		<!--</Row>-->
 		
 	</Layout>
@@ -265,15 +264,14 @@ export default {};
 <style scoped>
 .ivu-layout {
   width: 100%;
-  height: 100%;
-  background: url(../static.huijinjiu.com/personal/personImg.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }
 
 /*侧边栏*/
 .sider {
-  height: 1568px;
+  height: 1584px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }
@@ -337,7 +335,7 @@ export default {};
 .content .zt {
   width: 100%;
   height: 300px;
-  background: url(../static.huijinjiu.com/personal/theme.png) no-repeat;
+  background: url(http://static.huijinjiu.com/theme.png) no-repeat;
   background-size: 100% 300px;
   float: left;
   font-size: 20px;
@@ -365,6 +363,7 @@ export default {};
 .footer {
   background: white;
   height: 1131px;
+	margin-left:32px
 }
 .footer .img1 {
   /*width: 100%;*/
@@ -411,18 +410,18 @@ export default {};
   box-shadow: 0 0 5px #b5b5b5;
 }
 
-.wrap{
-	white-space: nowrap;
+.wrap {
+  white-space: nowrap;
 }
-	@media only screen and (min-width :1366px) and (max-width:1900px) {
-		 .eg{
-			letter-spacing: 3px;
-		};
-		.footer .xd{
-			letter-spacing: 3px;
-		};
-		.introduce{
-			letter-spacing: 5px;
-		}
-	}
+@media only screen and (min-width: 1366px) and (max-width: 1920px) {
+  .eg {
+    letter-spacing: 3px;
+  }
+  .footer .xd {
+    letter-spacing: 3px;
+  }
+  .introduce {
+    letter-spacing: 5px;
+  }
+}
 </style>

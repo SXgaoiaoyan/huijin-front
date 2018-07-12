@@ -28,9 +28,9 @@ export default {
         if (error.status_code == 403) {
           self.$Message.error(error.message);
         }
-        self.$router.push({
-          name: "login"
-        });
+        // self.$router.push({
+        //   name: "login"
+        // });
       });
   }
 };

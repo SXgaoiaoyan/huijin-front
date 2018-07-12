@@ -1,4 +1,13 @@
 const routers = [
+
+    {
+		path: '/paycallback',
+		name: 'paycallback',
+	    meta: {
+	        title: '付款成功跳转'
+	    },
+	    component: (resolve) => require(['../views/paycallback.vue'], resolve)
+	},
     {
 		path: '/goodsresale',
 		name: 'goodsresale',
@@ -55,14 +64,7 @@ const routers = [
 	    },
 	    component: (resolve) => require(['../views/personal.vue'], resolve)
     },
-	{
-		path: '/mall',
-		name:"mall",
-	    meta: {
-	        title: '商城首页'
-	    },
-	    component: (resolve) => require(['../views/mall.vue'], resolve)
-	},
+	
 	{
     path: '/detail/:id',
     name:'detail',

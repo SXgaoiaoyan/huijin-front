@@ -6,10 +6,10 @@
 				<i-col span="1"> &nbsp;
 				</i-col>
 				<i-col span="3">
-					<!--<img src="../../../../static.huijinjiu.com/mall/LOGO.png" class="logo"/>-->
+	    			<img src="http://static.huijinjiu.com/805351264090795932.png" class="logo"/>
 				</i-col>
-				<i-col span="3">&nbsp;</i-col>
-				<i-col span="17">
+				<i-col span="2">&nbsp;</i-col>
+				<i-col span="15">
 					<ul>
 						<i-col span="5">
 							<li>
@@ -27,23 +27,22 @@
 							</li>
 						</i-col>
 						<i-col span="5">
-							<!-- <i-col span="12"> -->
 							<li>
 								<a href="">个人中心</a>
 							</li>
-							<!-- </i-col> -->
-							<!-- <i-col span='12'> -->
 						</i-col>
 						<i-col span="4">
 							<li>
-								<a href="" @click='logout_m'>退出</a>
+								<a href="" @click='logout_m'>退出</a>&nbsp;&nbsp;&nbsp;
 								<a href="">{{user.userinfo.qq_user?user.userinfo.qq_user.nickname:user.userinfo.name}}</a>
-								<a href="" v-show="user.userinfo.qq_user"><img :src="user.userinfo.qq_user?user.userinfo.qq_user.figureurl_qq_1:''" /></a>
+								<a href="" v-show="user.userinfo.qq_user"><img :src="user.userinfo.qq_user?user.userinfo.qq_user.figureurl_qq_1:''"  /></a>
 							</li>
-							<!-- </i-col> -->
 						</i-col>
 
 					</ul>
+				</i-col>
+        <i-col span="3" style="font-size:20px"> 
+          <a @click="tz">购物车</a> 
 				</i-col>
 			</Row>
 		</div>
@@ -189,9 +188,14 @@ export default {
     ...mapState(["user"])
   },
   methods: {
+    tz() {
+      this.$router.push({
+        name:"shopcart"
+      })
+    },
     selectChange() {
       var object = this.selects;
-      var basePrice = parseInt(this.good.market_price);
+      var basePrice = parseFloat(this.good.market_price);
       for (const key in object) {
         if (object.hasOwnProperty(key)) {
           var select = object[key];
@@ -202,7 +206,7 @@ export default {
               const element = attrs[key];
 
               if (element.id == select) {
-                basePrice += parseInt(element.attr_price);
+                basePrice += parseFloat(element.attr_price);
               }
             }
           }
@@ -267,7 +271,7 @@ export default {
             }
           }
 
-          self.price = parseInt(self.good.market_price);
+          self.price = parseFloat(self.good.market_price);
           self.img = self.good.goods_img;
         })
         .catch(error => {
@@ -314,7 +318,7 @@ export default {
         return false;
       }
       var self = this;
-
+      var data = {}
       if (this.good.attrs.length > 0) {
         data.good_id = self.good.id;
         data.spe = this.selects;
@@ -355,7 +359,7 @@ export default {
 .detail {
   width: 100%;
   height: 2164px;
-  background: url(../static.huijinjiu.com/detail/bg.jpg) no-repeat;
+  background: url(http://static.huijinjiu.com/bg.png) no-repeat;
   background-size: 100% 2164px;
 }
 /*头部*/
@@ -420,13 +424,13 @@ ol li {
 /*中部内容*/
 .center {
   width: 100%;
-  height: 1185px;
+  height: 1165px;
   /* border: 1px solid red; */
 }
 /*脚部*/
 .footer {
   width: 100%;
-  height: 252px;
+  /* height: 200px; */
   /* border: 1px solid red */
 }
 
