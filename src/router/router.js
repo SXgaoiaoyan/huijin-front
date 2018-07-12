@@ -1,4 +1,13 @@
 const routers = [
+
+    {
+		path: '/paycallback',
+		name: 'paycallback',
+	    meta: {
+	        title: '付款成功跳转'
+	    },
+	    component: (resolve) => require(['../views/paycallback.vue'], resolve)
+	},
     {
 		path: '/goodsresale',
 		name: 'goodsresale',

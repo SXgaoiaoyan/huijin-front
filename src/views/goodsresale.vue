@@ -104,7 +104,8 @@
                             产品年限: &nbsp;&nbsp;&nbsp;10年 <Br />
                             商品描述: &nbsp;&nbsp;&nbsp;<Input type="textarea" style="width:300px"></Input><Br />
                             收款方式: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="现金结算(收取服务费)"></Input> 服务说明 <a>查看说明>></a> <Br />
-                            商品价格: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder=""></Input><Br />
+                            商品价格: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" ></Input><Br />
+                            商品图片: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="请上传商品的亮点图片,吸引买家更快下单."></Input><Br />
                             
                         </Card>
                     </i-col>

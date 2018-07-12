@@ -41,7 +41,9 @@
 
 					</ul>
 				</i-col>
-        <i-col span="3"> &nbsp;
+        <i-col span="3" style="font-size:20px"> 
+          <!-- <Icon type="ios-cart-outline" size="1000px"></Icon> -->
+          <a @click="tz">购物车</a>
 				</i-col>
 			</Row>
 		</div>
@@ -187,6 +189,11 @@ export default {
     ...mapState(["user"])
   },
   methods: {
+    tz() {
+      this.$router.push({
+        name:"shopcart"
+      })
+    },
     selectChange() {
       var object = this.selects;
       var basePrice = parseFloat(this.good.market_price);
