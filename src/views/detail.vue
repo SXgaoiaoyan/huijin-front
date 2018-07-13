@@ -425,13 +425,11 @@ ol li {
 .center {
   width: 100%;
   height: 1165px;
-  /* border: 1px solid red; */
 }
 /*脚部*/
 .footer {
   width: 100%;
-  /* height: 200px; */
-  /* border: 1px solid red */
+
 }
 
 .footer ul {

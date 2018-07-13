@@ -7,6 +7,14 @@ const routers = [
 	        title: '付款成功跳转'
 	    },
 	    component: (resolve) => require(['../views/paycallback.vue'], resolve)
+    },
+    {
+		path: '/allorders',
+		name: 'allorders',
+	    meta: {
+	        title: '全部订单'
+	    },
+	    component: (resolve) => require(['../views/allorders.vue'], resolve)
 	},
     {
 		path: '/goodsresale',

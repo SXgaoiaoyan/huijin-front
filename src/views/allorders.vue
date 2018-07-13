@@ -1,5 +1,6 @@
 <template>
-    <div class="layout">
+     <div>
+
         <Layout>
             <!-- 侧边栏 -->
             <Sider class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
@@ -40,7 +41,7 @@
                                     <a href="">我的主页</a>
                                 </li>
                                 <li>
-                                    <a href="">我的收藏</a>
+                                    <a href="">我的账户</a>
                                 </li>
                                 <li>
                                     <a href="">我的购物车</a>
@@ -54,9 +55,10 @@
                     </Row>
                 </div>
             </Sider>
+
             <Layout>
                 <!-- 头部 -->
-                <div class="header">                                                                                                                                            
+                <div class="header">
                     <Row>
                         <i-col span="3" style="padding-left:32px">
                             <img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
@@ -88,109 +90,86 @@
                         <i-col span="5">&nbsp;</i-col>
                     </Row>
                 </div>
-                <!-- 中部内容 -->
-                 <Row>
-                    <i-col span="22"  class="content">
-                        <div style="height:95px;border-bottom:4px solid #4a5b77;padding:45px;font-weight:bold">
-                           <span style="float:left">提交订单</span>
-                            <img style="float:right" src="../static.huijinjiu.com/submitorder/web2.png" />
-                        </div>
-                        <!-- 渲染的数据 -->
-                        <div v-for="i in ordershow">
-                            <!-- 收货人 -->
-                            <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;border-bottom:1px solid #bfbfbf">
-                                <div style="font-size:17px;float:left">
-                                收货人
-                                </div>
-                                <div style="padding:4px;width:400px;line-height:30px;margin-left:160px;border:1px solid #b1c1e2;font-size:15px">
-                                    {{i.consignee}} &nbsp;&nbsp; {{areaData[i.country][i.province]+areaData[i.province][i.city]+areaData[i.city][i.district]+areaData[i.district][i.street]}}&nbsp;&nbsp;{{i.mobile}}
-                                </div>
-                            </div>
-                            <!-- 配送方式 -->
-                            <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;border-bottom:1px solid #bfbfbf">
-                                <div style="font-size:17px;float:left">
-                                配送方式
-                                </div>
-                                <div style="width:250px;line-height:30px;margin-left:160px;font-size:15px">
-                                    申通快递 &nbsp;&nbsp;运费 &nbsp;¥ 800.00
-                                </div>
-                            </div>
-                            <!-- 发票信息 -->
-                            <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;">
-                                <div style="font-size:17px;float:left">
-                                发票信息
-                                </div>
-                                <div style="width:250px;line-height:30px;margin-left:160px;font-size:15px">
-                                    普通发票 &nbsp;&nbsp;(电子) &nbsp;&nbsp;个人发票 &nbsp;&nbsp;<a>查看</a>
-                                </div>
-                            </div>
-                        </div>
+                <!-- 内容 -->
+                <div>
+                    <Row>
+                        <i-col span="22" class="content">
+                             <ul>
+                                <li><a >全部订单</a></li>
+                                <li><a >待付款</a></li>
+                                <li><a >待收货</a></li>
+                            </ul>
+                            
+                            <table style="width:100%;padding:16px;border-collapse:collapse;">
+                                <tr style="height:35px;color:#a7a7a7;background:#f5f5f5;">
+                                    <td style="padding-left:20px">时间</td>
+                                    <td>订单详情</td>
+                                    <td style="text-align:center">收货人</td>
+                                    <td style="text-align:center">金额</td>
+                                    <td style="text-align:center">全部状态</td>
+                                    <td style="text-align:center">操作</td>
+                                </tr>
+                                <Br />
+                                <tr style="height:35px;color:#7e7e7e;background:#f5f5f5;">
+                                <td style="padding-left:20px">2018-07-13</td>
+                                <td colspan="4">订单号: 73546213656</td>
+                                <td style="text-align:center">删除</td>
+                                </tr>
+                                <!-- <Br /> -->
+                                <tr style="height:95px;">
+                                    <td>
+                                        <div style="width:60px;height:60px;margin-left:20px;float:left;background:#000">
+                                            <!-- <img :src="item.model.goods_img+'?imageView2/1/w/100/h/100'" style="width:100%"> -->
+                                        </div>
+                                        <div style="flaot:left;margin-left:90px"> 
+                                            <span> 精装酒</span><Br />
+                                            <span>官方商品</span>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        X1
+                                    </td>
+                                    <td style="border-left:2px solid grey;text-align:center">
+                                        gxy<Br />
+                                        ID: 410***123
+                                    </td>
+                                    <td style="border-left:2px solid grey;text-align:center">
+                                        总额<Br />
+                                        ￥10000.00<Br />
+                                        在线支付
+                                    </td>
+                                    <td style="border-left:2px solid grey;text-align:center">
+                                        已完成<Br />
+                                        订单详情
+                                    </td>
+                                    <td style="border-left:2px solid grey;text-align:center">
+                                        再次购买<Br />
+                                        回购<Br />
+                                        代售
+                                    </td>
+                                </tr>
+                            </table> 
+                        </i-col>
+                    </Row>
+                   
+                              
+                </div>
 
-                        <div style="margin-top:50px;margin-left:46px">
-                            <Button style="font-size:20px;color:white;background:#fe706e;border-color:#ff4948;" @click="payment">立即付款</Button>
-                        </div>
-                    </i-col>
-                    <!-- <i-col span="2">&nbsp;</i-col> -->
-                </Row>
             </Layout>
         </Layout>
     </div>
 </template>
-
 <script>
-import areaData from "area-data";
-export default {
-    data() {
-        return {
-            orderlist :[],
-            ordershow :[],
-        }
-    }, 
-    mounted() {
-        this.ordershow_m();
-        this.orderlist_m();
-        this.areaData = areaData
-    },
-    methods:{
-        orderlist_m() {
-            var self = this;
-            this.ajax.get("/api/order")
-            .then(function(res){
-                console.log(res.data)
-                self.orderlist = res.data.orders
-            }).catch(function(err){
-                 if (err.status_code == 404) {
-                    alert(err.message);
-                }
-            })
-        },
-        ordershow_m(){
-            var self =this;
-            this.ajax.get("/api/order/"+self.$route.query.id)
-            .then(function(res){
-                // console.log(res.data.order_info)
-                self.ordershow = res.data
-            }).catch(function(err){
-                 if (err.status_code == 404) {
-                    alert(err.message);
-                }
-            })
-        },
-        payment() {
-            window.location = "http://api.huijinjiu.com/alipay?order_sn="+this.ordershow.order_info.order_sn            
-        }
-
-    }
-}
+export default {};
 </script>
 <style scoped>
 .ivu-layout {
   width: 100%;
-  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
-  background-size: 100% 100%;
   font-size: 16px;
+  background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
+  background-size: 100% 100%;
 }
-
+/* 侧边栏 */
 .sider {
   width: 100%;
   height: 970px;
@@ -226,12 +205,11 @@ export default {
   font-weight: bold;
   color: #000000;
 }
-
+/* 头部 */
 .header {
   width: 100%;
   height: 120px;
   box-shadow: 0 5px 5px #b5b5b5;
-  background: transparent
 }
 .header .logo {
   margin-top: 32px;
@@ -249,9 +227,27 @@ export default {
   border-bottom: 4px solid #a8d3fe;
 }
 .content {
+  background: url(http://static.huijinjiu.com/diwen.png) no-repeat;
+  background-size: 100% 100%;
   margin-top: 10px;
-  background: #fff;
   margin-left: 32px;
+  font-size: 14px;
+}
+.content ul {
+  height: 20px;
+  padding: 30px;
+}
+.content ul li {
+  list-style: none;
+  float: left;
+  margin-left: 20px;
+}
+.content ul li a {
+  color: black;
+}
+.content ul li a:hover {
+  color: red;
+  border-bottom: 1px solid red;
 }
 </style>
 
