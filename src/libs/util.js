@@ -1,5 +1,6 @@
 import axios from 'axios';
-import env from '../config/env';
+// import env from '../config/env';
+import api from './selectapi';
 import store from '../store/index';
 import {router} from '../router/index';
 import qs from 'qs';
@@ -13,11 +14,12 @@ util.title = function(title) {
     window.document.title = title;
 };
 
-const ajaxUrl = env === 'development' ?
-    'http://api.huijinjiu.com' :
-    env === 'production' ?
-    'http://api.huijinjiu.com' :
-    'https://debug.url.com';
+// const ajaxUrl = env === 'development' ?
+//     'http://api.huijinjiu.com' :
+//     env === 'production' ?
+//     'http://api.huijinjiu.com' :
+//     'https://debug.url.com';
+const ajaxUrl =api;
 
 var ajax = axios.create({
     baseURL: ajaxUrl,

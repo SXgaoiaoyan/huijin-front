@@ -82,6 +82,14 @@ const routers = [
         component: (resolve) => require(['../views/test.vue'], resolve)
     },
     {
+        path: '/test5',
+        name:'test5',
+        meta: {
+            title: '订单'
+        },
+        component: (resolve) => require(['../views/test5.vue'], resolve)
+    },
+    {
 		path: '/login',
 		name:"login",
         meta: {
