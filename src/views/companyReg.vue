@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div>
     <Layout class="layout">
       <!--头部-->
@@ -17,7 +17,7 @@
 
       <!--内容-->
       <div class="content">
-        <div >
+        <div>
           <!-- 验证手机号 -->
           <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="false">
             <!-- 手机登录 -->
@@ -82,23 +82,23 @@
           </Card>
 
           <!-- 公司信息 -->
-          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto">
+          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;">
             <img src="../static.huijinjiu.com/companyReg/company.png" />
-            <Form>
+            <Form >
                 <FormItem>
-                    公司名称: &nbsp;&nbsp;<Input type="text" style="width:300px">
+                    公司名称: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
                     </Input>
                 </FormItem>
 
                 <FormItem>
                     <div style="float:left">
-                        公司所在地: 
+                        公司所在地: &nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
-                    <al-selector v-model="resArr" level="2" style="width:330px;float:left"/>
+                    <al-selector v-model="resArr" level="2" style="width:300px;float:left"/>
                 </FormItem>
 
                 <FormItem>
-                    公司详细地址: <Input type="text" style="width:314px">
+                    公司详细地址: <Input type="text" style="width:300px">
                     </Input>
                 </FormItem>
 
@@ -124,37 +124,37 @@
                 </FormItem>
 
                 <FormItem>
-                    公司人数: <Input type="text" style="width:335px">
+                    公司人数: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
                     </Input>
                 </FormItem>
                 <FormItem>
-                    公司行业: <Input type="text" style="width:335px">
+                    公司行业: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
                     </Input>
                 </FormItem>  
                 <FormItem>
-                    公司性质: <Input type="text" style="width:335px">
+                    公司性质: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
                     </Input>
                 </FormItem>
                 <FormItem>
-                    公司营业额:
-                     <Input type="text" style="width:314px">
+                    公司营业额: &nbsp;&nbsp;&nbsp;
+                     <Input type="text" style="width:300px">
                     </Input>
                 </FormItem>
                 <FormItem>
-                        联系人姓名: 
-                    <Input type="text" style="width:314px">
+                        联系人姓名: &nbsp;&nbsp;&nbsp;
+                    <Input type="text" style="width:300px">
                     </Input>
                 </FormItem> 
                 <FormItem>
-                    所在部门: <Input type="text" style="width:335px">
+                    所在部门: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
                     </Input>
                 </FormItem> 
                 <FormItem>
-                    验证手机: <Input type="text" style="width:335px">
+                    验证手机: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
                     </Input>
                 </FormItem> 
                 <FormItem>
-                   <Button style="width:335px;margin-left:55px">立即验证</Button>
+                   <Button style="width:300px;margin-left:78px">立即验证</Button>
                 </FormItem>
                  <FormItem>
                     <Checkbox >
@@ -532,16 +532,7 @@ export default {
   color: #626262;
 }
 
-@media screen and (min-width: 1920px) {
-  .phone_login {
-    letter-spacing: 10px;
-  }
-}
-@media screen and (min-width: 1366px) {
-  .phone_login {
-    letter-spacing: 2px;
-  }
-}
+
 </style>
 
 
