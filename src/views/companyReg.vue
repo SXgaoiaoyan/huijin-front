@@ -5,217 +5,206 @@
       <Header class="header">
         <Row>
           <i-col span="3" offset="1">
-          <img src="http://static.huijinjiu.com/LOGO.png" class="logo" />
+            <img src="http://static.huijinjiu.com/LOGO.png" class="logo" />
           </i-col>
           <i-col span="3" offset="1" style="font-size: 23px;margin-top: 30px;"> 欢迎登录
           </i-col>
-          <i-col span="16"></i-col>
+          <i-col span="2" offset="14" style="font-size:16px;margin-top:60px">
+              已有帐号? &nbsp;<a style="color:red;">请登录</a>
+          </i-col>
         </Row>
       </Header>
 
       <!--内容-->
       <div class="content">
-        <div style="width:405px;margin-left:auto;margin-right:auto">
-          <Card style="margin-top:76px;">
-            <Row style="border-bottom:2px solid #bfbfbf;height:49px">
-              <i-col span="18" offset="3">
-              <ul>
-                <i-col span="24">
-                <li @click="phone_login_d=true" class="phone_login" v-bind:class="{select : phone_login_d}">
-                  手机登录
-                </li>
-                </i-col>
-                <!-- <i-col span="12">
-                <li @click="phone_login_d=false" class="account_login" v-bind:class="{select : !phone_login_d}">
-                  账户登录
-                </li>
-                </i-col> -->
-              </ul>
-              </i-col>
-              <i-col span="3">&nbsp;</i-col>
-            </Row>
+        <div >
+          <!-- 验证手机号 -->
+          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="false">
             <!-- 手机登录 -->
+            <img src="../static.huijinjiu.com/companyReg/verify.png" />
             <div v-show='phone_login_d'>
               <!--手机号-->
               <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
-
-                <Row>
-                  <i-col span="22" offset="1">
                   <FormItem prop='phone_d'>
-                    <Input type="text" placeholder="请输入手机号码" class="phone" v-model="phoneFormValidate.phone_d" clearable size="large">
-                    <Icon type="android-phone-portrait" slot="prepend"></Icon>
+                    <Input type="text" placeholder="请输入常用手机号" class="phone" v-model="phoneFormValidate.phone_d" clearable size="large">
+                        <span slot="prepend"> 中国+86 </span>
                     </Input>
                   </FormItem>
-                  </i-col>
-                  <i-col span="1">&nbsp;</i-col>
-                </Row>
 
                 <Row v-show="phoneFormValidate.phone_d.length==11" style="margin:0 4%;margin-bottom:18px">
-
                   <div class="l-captcha" data-site-key="a61ebded8b92ba71b5272a5f60fc1be7" data-callback='getCaptchaResponse'></div>
-
                 </Row>
 
-                <Row>
-                  <i-col span="22" offset="1">
-                  <FormItem prop='code_d'>
+                <FormItem prop='code_d'>
                     <Input type="text" placeholder="请输入短信验证码" v-model="phoneFormValidate.code_d" clearable size="large">
                     <span slot="prepend">手机验证码</span>
                     <span v-show='!checked_d' slot="append" @click='send_code_m' style="cursor:pointer">请先进行人机验证</span>
                     <span v-show='checked_d&&!sended_d' slot="append" @click='send_code_m' style="cursor:pointer">发送验证码</span>
                     <span v-show='sended_d' slot="append" style="cursor:pointer">{{time_d}}s后重新获取</span>
                     </Input>
-                  </FormItem>
-                  </i-col>
-                  <i-col span="1">&nbsp;</i-col>
-                </Row>
-
-               
+                </FormItem>
 
                 <FormItem>
-                  <Row>
-                    <i-col span="22" offset="1">
-                    <Row>
-                      <i-col span='24'>
-                      <Button class='login' @click="phone_login_m('phoneFormValidate')">
-                        登录
-                      </Button>
-                      </i-col>
-                      <!-- <i-col span='12'>
-                    <Button style='width:100%;height:40px'  @click="phone_reset_m('phoneFormValidate')">
-                      重置
+                    <Checkbox >
+                        我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
+                    </Checkbox>
+                    <Button class='login' @click="phone_login_m('phoneFormValidate')">
+                        下一步
                     </Button>
-                    </i-col> -->
-                    </Row>
-                    </i-col>
-                    <i-col span="1">&nbsp;</i-col>
-                  </Row>
+                    <div style="margin-top:15px">
+                        <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+                    </div>
                 </FormItem>
-
-                 <Row>
-                <i-col span="4">
-                <div>
-                  <a style="color:black;" href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;padding-left:18px" />QQ</a>
-                </div>
-                </i-col>
-                <i-col span="5" offset="2">
-                <div>
-                  <a style="color:black;"><img src="../static.huijinjiu.com/login/wchat.png" style="vertical-align: middle;" />微信</a>
-                </div>
-                </i-col>
-                <i-col span="13">
-                </i-col>
-              </Row>
               </Form>
             </div>
-            <!-- 账号登录 -->
-            <div v-show='!phone_login_d' class="form1">
-              <Form ref="formValidate" :model="formValidate" :rules="ruleValidate">
-                <!-- 账号 -->
-                <FormItem prop="account_d">
-                  <Row style="margin-top: 28px">
-                    <i-col span="22" offset="1">
-                    <Input type="text" placeholder="请输入账号" v-model="formValidate.account_d" clearable size="large">
-                    <Icon type="person" slot="prepend"></Icon>
+          </Card>
+          <!-- 设置密码 -->
+          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="false">
+            <img src="../static.huijinjiu.com/companyReg/pass.png" />
+            <Form>
+                <FormItem style="margin-top:20px">
+                    <Input type="text" placeholder="设置数字与字母的密码">
+                    <span slot="prepend">设置密码</span>
                     </Input>
-                    </i-col>
-                    <i-col span="1">&nbsp;</i-col>
-                  </Row>
                 </FormItem>
-
-                <!-- 密码 -->
-                <FormItem prop="password_d">
-                  <Row>
-                    <i-col span="22" offset="1">
-                    <Input type="password" placeholder="请输入密码" v-model="formValidate.password_d" clearable size="large">
-                    <Icon type="locked" slot="prepend"></Icon>
-                    </Input>
-                    </i-col>
-                    <i-col span="1">&nbsp;</i-col>
-                  </Row>
-                </FormItem>
-
-                <!-- 登录 -->
                 <FormItem>
-                  <Row>
-                    <i-col span="22" offset="1">
-                    <Button class="login1" @click="account_login_m('formValidate')">
-                      登录
-                    </Button>
-                    </i-col>
-                    <i-col span="1">&nbsp;</i-col>
-                  </Row>
+                    <Input type="text" placeholder="再次输入密码">
+                    <span slot="prepend">确认密码</span>
+                    </Input>
                 </FormItem>
-              </Form>
-
-              <!-- <Row>
-                <i-col span="4">
-                <div>
-                  <a href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;" />QQ</a>
-                </div>
-                </i-col>
-                <i-col span="5" offset="2">
-                <div>
-                  <img src="../static.huijinjiu.com/login/wchat.png" style="vertical-align: middle;" />微信
-                </div>
-                </i-col>
-                <i-col span="5" offset="8">
-                <button class="reg">立即注册</button>
-                </i-col>
-              </Row> -->
-
+                <FormItem>
+                    <Button class="login">立即注册</Button>
+                </FormItem>
+            </Form>
+            <div style="margin-top:15px">
+                <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
             </div>
+          </Card>
 
-            <!--忘记密码-->
-            <!-- <Row>
-							<i-col span="4" offset="19">
-								<button type="button" class="forget">
-									忘记密码
-								</button>
-							</i-col>
-							<i-col span="1">&nbsp;</i-col>
-						</Row> -->
-            <!--登录按钮-->
+          <!-- 公司信息 -->
+          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto">
+            <img src="../static.huijinjiu.com/companyReg/company.png" />
+            <Form>
+                <FormItem>
+                    公司名称: &nbsp;&nbsp;<Input type="text" style="width:300px">
+                    </Input>
+                </FormItem>
+
+                <FormItem>
+                    <div style="float:left">
+                        公司所在地: 
+                    </div>
+                    <al-selector v-model="resArr" level="2" style="width:330px;float:left"/>
+                </FormItem>
+
+                <FormItem>
+                    公司详细地址: <Input type="text" style="width:314px">
+                    </Input>
+                </FormItem>
+
+                <FormItem>
+                    <div style="float:left">
+                    上传营业执照:
+                    </div>
+                    <Upload action="//jsonplaceholder.typicode.com/posts/">
+                    <!-- <Button>浏览</Button>  -->
+                        <Button>上传</Button>
+                    </Upload>
+                    </Input>
+                </FormItem>
+                 <FormItem>
+                    <div style="float:left">
+                    上传商标注册证:
+                    </div>
+                    <Upload action="//jsonplaceholder.typicode.com/posts/">
+                    <!-- <Button>浏览</Button>  -->
+                        <Button>上传</Button>
+                    </Upload>
+                    </Input>
+                </FormItem>
+
+                <FormItem>
+                    公司人数: <Input type="text" style="width:335px">
+                    </Input>
+                </FormItem>
+                <FormItem>
+                    公司行业: <Input type="text" style="width:335px">
+                    </Input>
+                </FormItem>  
+                <FormItem>
+                    公司性质: <Input type="text" style="width:335px">
+                    </Input>
+                </FormItem>
+                <FormItem>
+                    公司营业额:
+                     <Input type="text" style="width:314px">
+                    </Input>
+                </FormItem>
+                <FormItem>
+                        联系人姓名: 
+                    <Input type="text" style="width:314px">
+                    </Input>
+                </FormItem> 
+                <FormItem>
+                    所在部门: <Input type="text" style="width:335px">
+                    </Input>
+                </FormItem> 
+                <FormItem>
+                    验证手机: <Input type="text" style="width:335px">
+                    </Input>
+                </FormItem> 
+                <FormItem>
+                   <Button style="width:335px;margin-left:55px">立即验证</Button>
+                </FormItem>
+                 <FormItem>
+                    <Checkbox >
+                        我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
+                    </Checkbox>
+                    <Button class='login' @click="phone_login_m('phoneFormValidate')">
+                        立即注册
+                    </Button>
+                </FormItem> 
+            </Form>
           </Card>
         </div>
       </div>
-
+      
       <!--脚部-->
       <div class="footer">
         <div style="width:750px;margin-left:auto;margin-right:auto;height:14px">
           <ul>
             <li>
-              <a href="">关于我们&nbsp;&nbsp;</a>
+              <a href="">关于我们</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;联系我们&nbsp;&nbsp;</a>
+              <a href="">联系我们</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;人才招聘&nbsp;&nbsp;</a>
+              <a href="">人才招聘</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;商家入驻&nbsp;&nbsp;</a>
+              <a href="">商家入驻</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;广告服务&nbsp;&nbsp;</a>
+              <a href="">广告服务</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;手机京东&nbsp;&nbsp;</a>
+              <a href="">手机京东</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;友情链接&nbsp;&nbsp;</a>
+              <a href="">友情链接</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;销售联盟&nbsp;&nbsp;</a>
+              <a href="">销售联盟</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;京东社区&nbsp;&nbsp;</a>
+              <a href="">京东社区</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;京东公益&nbsp;&nbsp;</a>
+              <a href="">京东公益</a>
             </li>
             <li>
-              <a href="">&nbsp;&nbsp;English Site</a>
+              <a href="">English Site</a>
             </li>
           </ul>
         </div>
@@ -239,6 +228,7 @@ export default {
       phone_login_d: true,
       checked_d: false,
       sended_d: false,
+      resArr:[],
       formValidate: {
         account_d: "",
         password_d: ""
@@ -413,9 +403,9 @@ export default {
 }
 .layout {
   width: 100%;
-  height: 968px;
+  /* height: 968px; */
   background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 2164px;
 }
 /*头部*/
 .header {
@@ -429,9 +419,9 @@ export default {
 /*内容*/
 .content {
   width: 100%;
-  height: 648px;
+  /* height: 648px; */
   background: url(http://static.huijinjiu.com/9919146688478019.png) no-repeat;
-  background-size: 100% 648px;
+  background-size: 100% 100%;
 }
 .content ul li {
   list-style: none;
@@ -442,9 +432,7 @@ export default {
 .content .phone_login {
   text-align: center;
   font-size: 18px;
-  /* color: #ff6f6e; */
   margin-top: 12px;
-  /* border-right: 2px solid #a6a6a6; */
 }
 /* 账户登录 */
 .content .account_login {
@@ -530,9 +518,10 @@ export default {
 }
 
 .footer ul li {
+  width: 68px;
   list-style: none;
   float: left;
-  border-right: 3px solid #8f618f;
+  border-right: 2px solid #8f618f;
   font-size: 12px;
   text-align: center;
 }
@@ -553,6 +542,6 @@ export default {
     letter-spacing: 2px;
   }
 }
-
-
 </style>
+
+

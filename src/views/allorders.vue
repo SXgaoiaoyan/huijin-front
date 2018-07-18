@@ -1,6 +1,5 @@
-<template>
+ <template>
      <div>
-
         <Layout>
             <!-- 侧边栏 -->
             <Sider class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
@@ -55,7 +54,6 @@
                     </Row>
                 </div>
             </Sider>
-
             <Layout>
                 <!-- 头部 -->
                 <div class="header">
@@ -95,9 +93,9 @@
                     <Row>
                         <i-col span="22" class="content">
                              <ul>
-                                <li><a >全部订单</a></li>
-                                <li><a >待付款</a></li>
-                                <li><a >待收货</a></li>
+                                <li><a @click="allorders" :class="{'select':complete_d}">全部订单</a></li>
+                                <li><a @click="pay" :class="{'select':pay_d}">待付款</a></li>
+                                <li><a @click="receipt" :class="{'select':receipt_d}">待收货</a></li>
                             </ul>
                             
                             <table style="width:100%;padding:16px;border-collapse:collapse;">
@@ -110,16 +108,52 @@
                                     <td style="text-align:center">操作</td>
                                 </tr>
                                 <Br />
-                                <tr style="height:35px;color:#7e7e7e;background:#f5f5f5;">
-                                <td style="padding-left:20px">2018-07-13</td>
-                                <td colspan="4">订单号: 73546213656</td>
-                                <td style="text-align:center">删除</td>
-                                </tr>
-                                <!-- <Br /> -->
-                                <tr style="height:95px;">
+                                <tbody style="width:100%" v-for = "item in orderlist.data">
+                                    <tr style="height:35px;color:#7e7e7e;background:#f5f5f5;">
+                                        <td style="padding-left:20px">{{item.updated_at}}</td>
+                                        <td colspan="4">订单号: {{item.order_sn}}</td>
+                                        <td style="text-align:center">删除</td>
+                                    </tr>
+                                    <!-- 已完成 -->
+                                    <tr style="height:95px;" v-if="complete_d" v-for="i in item.order_goods">
+                                        <td>
+                                            <div style="width:60px;height:60px;margin-left:20px;float:left;background:#000">
+                                                <!-- <img :src="i.goods_img+'?imageView2/1/w/100/h/100'" style="width:100%"> -->
+                                            </div>
+                                            <div style="flaot:left;margin-left:90px" > 
+                                                <span> {{i.goods_name}}</span><Br />
+                                                <span>官方商品</span>
+                                            </div>
+                                        </td>
+                                        <td >
+                                            X{{i.goods_number}}
+                                        </td>
+                                        <td style="border-left:2px solid #cccccc;text-align:center">
+                                            {{item.consignee}}<Br />
+                                            ID: {{item.id}}
+                                        </td>
+                                        <td style="border-left:2px solid #cccccc;text-align:center">
+                                            总额<Br />
+                                            ￥{{item.goods_amount}}<Br />
+                                            在线支付
+                                        </td>
+                                        <td style="border-left:2px solid #cccccc;text-align:center">
+                                            已完成<Br />
+                                            <a>订单详情</a>
+                                        </td>
+                                        <td style="border-left:2px solid #cccccc;text-align:center">
+                                            <a>再次购买</a><Br />
+                                            <a>回购</a><Br />
+                                            <a>代售</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                                <!-- 代付款 -->
+                                <tr style="height:95px;" v-if="pay_d">
                                     <td>
                                         <div style="width:60px;height:60px;margin-left:20px;float:left;background:#000">
-                                            <!-- <img :src="item.model.goods_img+'?imageView2/1/w/100/h/100'" style="width:100%"> -->
                                         </div>
                                         <div style="flaot:left;margin-left:90px"> 
                                             <span> 精装酒</span><Br />
@@ -129,40 +163,124 @@
                                     <td >
                                         X1
                                     </td>
-                                    <td style="border-left:2px solid grey;text-align:center">
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
                                         gxy<Br />
                                         ID: 410***123
                                     </td>
-                                    <td style="border-left:2px solid grey;text-align:center">
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
                                         总额<Br />
                                         ￥10000.00<Br />
                                         在线支付
                                     </td>
-                                    <td style="border-left:2px solid grey;text-align:center">
-                                        已完成<Br />
-                                        订单详情
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        代付款<Br />
+                                        <a>订单详情</a>
                                     </td>
-                                    <td style="border-left:2px solid grey;text-align:center">
-                                        再次购买<Br />
-                                        回购<Br />
-                                        代售
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        <a>立即付款</a><Br />
+                                        <a>取消订单</a><Br />
+                                        <a>联系客服</a>
                                     </td>
                                 </tr>
-                            </table> 
+                                
+                                <!-- 待收货 -->
+                                <tr style="height:95px;" v-if="receipt_d">
+                                    <td>
+                                        <div style="width:60px;height:60px;margin-left:20px;float:left;background:#000">
+                                        </div>
+                                        <div style="flaot:left;margin-left:90px"> 
+                                            <span> 精装酒</span><Br />
+                                            <span>官方商品</span>
+                                        </div>
+                                    </td>
+                                    <td >
+                                        X1
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        gxy<Br />
+                                        ID: 410***123
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        总额<Br />
+                                        ￥10000.00<Br />
+                                        在线支付
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        待收货<Br />
+                                        <a>订单详情</a>
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        <a>确认收货</a><Br />
+                                        <a>联系客服</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <Page :total="orderlist.total" :page-size="pageSize" show-total class="paging" @on-change="changepage"></Page>
+
                         </i-col>
                     </Row>
-                   
-                              
                 </div>
-
             </Layout>
         </Layout>
     </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      complete_d: true,
+      pay_d: false,
+      receipt_d: false,
+      orderlist:[],
+      page:1,
+      pageSize:10,
+    };
+  },
+  mounted(){
+      this.orderlist_m()
+  },
+  methods: {
+    //   分页
+    changepage(page) {
+        // console.log(page)
+        this.page = page;
+        this.orderlist_m()
+    },
+    orderlist_m() {
+        var self = this;
+        this.ajax.get("/api/order",{params: {page : self.page}})
+        .then(function(res){
+            console.log(res.data.orders)
+            self.orderlist = res.data.orders
+        }).catch(function(err){
+            if (err.status_code == 404) {
+                alert(err.message);
+            }
+        })
+    },
+    allorders() {
+      this.complete_d = true;
+      this.pay_d = false;
+      this.receipt_d = false;
+    },
+    pay() {
+      this.complete_d = false;
+      this.pay_d = true;
+      this.receipt_d = false;
+    },
+    receipt() {
+      this.receipt_d = true;
+      this.complete_d = false;
+      this.pay_d = false;
+    }
+  }
+}
 </script>
 <style scoped>
+.select {
+  color: red;
+  border-bottom: 2px solid red;
+}
 .ivu-layout {
   width: 100%;
   font-size: 16px;
@@ -172,7 +290,7 @@ export default {};
 /* 侧边栏 */
 .sider {
   width: 100%;
-  height: 970px;
+  height: 2560px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }
@@ -242,12 +360,9 @@ export default {};
   float: left;
   margin-left: 20px;
 }
-.content ul li a {
-  color: black;
-}
-.content ul li a:hover {
-  color: red;
-  border-bottom: 1px solid red;
+.content ul li > a {
+  display: block;
+  height: 25px;
 }
 </style>
 

@@ -144,26 +144,15 @@ export default {
         return {
             orderlist :[],
             ordershow :[],
+        
         }
     }, 
     mounted() {
         this.ordershow_m();
-        this.orderlist_m();
         this.areaData = areaData
     },
     methods:{
-        orderlist_m() {
-            var self = this;
-            this.ajax.get("/api/order")
-            .then(function(res){
-                console.log(res.data)
-                self.orderlist = res.data.orders
-            }).catch(function(err){
-                 if (err.status_code == 404) {
-                    alert(err.message);
-                }
-            })
-        },
+        
         ordershow_m(){
             var self =this;
             this.ajax.get("/api/order/"+self.$route.query.id)
