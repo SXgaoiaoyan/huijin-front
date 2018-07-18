@@ -108,7 +108,7 @@
                             <div style="display:flex;flex-wrap:wrap">
                                 <div v-show="goodaddress.length>0" 
                                     class="address_show" 
-                                    v-for="(item,index) in goodaddress" v-bind:class="{'active':ind === index}" @click = "change(index)" >
+                                    v-for="(item,index) in goodaddress" v-bind:class="{'active':ind === index }" @click = "change(index)" >
                                     <div style="margin-top:10px;">
                                         <div style="float:left">
                                             收货人: &nbsp;<span style="color:#595959;">{{item.consignee}}</span>
@@ -374,7 +374,7 @@ export default {
   data() {
     return {
       btn1: "",
-      payId: "",
+      payId: 1,
       invoice_d: true,
       content_d: true,
       inv_show: false,
@@ -446,7 +446,7 @@ export default {
     },
     // 获取地址
     getaddress() {
-      var self = this;
+      var self = this; 
       this.ajax
         .get("/api/address")
         .then(function(res) {
@@ -575,7 +575,6 @@ export default {
       self.pay1_d = false;
       self.pay2_d = false;
       self.pay3_d = false;
-      self.payId = 1;
     },
     //微信支付
     wxpay_m() {

@@ -407,13 +407,13 @@
 	@media screen and (max-width: 1920px){
 		.text2 .bottom {
 			font-size: 12px;
-			letter-spacing: 5px;
+			letter-spacing: 6.8px;
 		}
 	}
 	@media  screen and (max-width: 1366px) {
 		.text2 .bottom{
 			font-size: 12px;
-			letter-spacing: 0.6px;
+			letter-spacing: 1.5px;
 		}
 	}
 </style>

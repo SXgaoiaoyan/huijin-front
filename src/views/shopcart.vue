@@ -385,7 +385,6 @@ export default {
 
 .ivu-layout {
   width: 100%;
-  /* height:960px; */
   font-size: 16px;
   background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
   background-size: 100% 100%;
