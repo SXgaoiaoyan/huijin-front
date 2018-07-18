@@ -1,5 +1,17 @@
 const routers = [
-
+    {
+        path: '/',
+        name:'home',
+        meta: {
+            title: ''
+        },
+        component: (resolve) => require(['../views/index.vue'], resolve),
+        children: [
+            { path: '/', title: '商品列表', name: 'home_content', component: (resolve) => require(['../views/index_content.vue'], resolve) },
+            { path: '/detail/:id', title: '商品详情', name: 'detail', component: (resolve) => require(['../views/detail.vue'], resolve) },
+            { path: '/wineclass', title: '酒品分类', name: 'wineclass', component: (resolve) => require(['../views/wineclass.vue'], resolve) },
+        ]
+    },
     {
 		path: '/paycallback',
 		name: 'paycallback',
@@ -48,14 +60,7 @@ const routers = [
 	    },
 	    component: (resolve) => require(['../views/shopcart.vue'], resolve)
 	},
-	{
-		path: '/wineclass',
-		name: 'wineclass',
-	    meta: {
-	        title: '酒品分类'
-	    },
-	    component: (resolve) => require(['../views/wineclass.vue'], resolve)
-    },
+	
     {
 		path: '/personaldata',
 		name: 'personaldata',
@@ -73,14 +78,7 @@ const routers = [
 	    component: (resolve) => require(['../views/personal.vue'], resolve)
     },
 	
-	{
-    path: '/detail/:id',
-    name:'detail',
-    meta: {
-        title: '商品详情'
-    },
-    component: (resolve) => require(['../views/detail.vue'], resolve)
-	},
+
     {
         path: '/test',
         name:'test',
@@ -105,14 +103,7 @@ const routers = [
         },
         component: (resolve) => require(['../views/login.vue'], resolve)
 	},
-    {
-        path: '/',
-        name:'home',
-        meta: {
-            title: ''
-        },
-        component: (resolve) => require(['../views/index.vue'], resolve)
-    },
+   
     {
         path: '/bind',
         name:'bind',
