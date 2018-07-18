@@ -95,7 +95,7 @@
                  <Row>
                 <i-col span="4">
                 <div>
-                  <a style="color:black;" href="http://api.huijinjiu.com/auth/qq"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;padding-left:18px" />QQ</a>
+                  <a style="color:black;" :href="apiurl+'/auth/qq'"><img src="../static.huijinjiu.com/login/qq.png" style="vertical-align: middle;padding-left:18px" />QQ</a>
                 </div>
                 </i-col>
                 <i-col span="5" offset="2">
@@ -235,6 +235,7 @@ import Cookies from "js-cookie";
 export default {
   data() {
     return {
+      apiurl:APIURL,
       time_d: 60,
       phone_login_d: true,
       checked_d: false,

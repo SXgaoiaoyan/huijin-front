@@ -1,41 +1,7 @@
 <template>
-	<div class="layout">
+	<div >
 		<Layout>
-			<!--头部-->
-			<Header class="header">
-				<Row>
-					<i-col span="3" offset="1">
-					<img src="../static.huijinjiu.com/wineclass/LOGO.png" class="logo" />
-					</i-col>
-					<i-col span="12" offset="3">
-					<ul>
-						<Row>
-							<i-col span="6">
-								<li>
-									<a href="">商城首页</a>
-								</li>
-								</i-col>
-								<i-col span="6">
-								<li>
-									<a href="">最新资讯</a>
-								</li>
-								</i-col>
-								<i-col span="6">
-								<li>
-									<a href="">酒品分类</a>
-								</li>
-								</i-col>
-								<i-col span="6">
-								<li>
-									<a href="">个人中心</a>
-								</li>
-							</i-col>
-						</Row>
-					</ul>
-					</i-col>
-					<i-col span="5"></i-col>
-				</Row>
-			</Header>
+		
 			<!--内容-->
 			<Content class="content">
 				<!--中部内容1-->

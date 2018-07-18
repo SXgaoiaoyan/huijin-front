@@ -10,6 +10,7 @@ import store from './store';
 import {router} from './router/index';
 import iviewArea from 'iview-area';
 import Cookies from 'js-cookie';
+import api from './libs/selectapi';
 
 Vue.use(iviewArea)
 Vue.use(VueRouter);
@@ -18,7 +19,7 @@ Vue.use(Vuex);
 Vue.use(iView);
 
 
-
+window.APIURL=api;
 // 路由配置
 // const RouterConfig = {
 //     mode: 'history',

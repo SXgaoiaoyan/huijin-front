@@ -1,51 +1,6 @@
 <template>
-	<div class="detail">
-		<!--头部-->
-		<div class="header">
-			<Row>
-				<i-col span="1"> &nbsp;
-				</i-col>
-				<i-col span="3">
-	    			<img src="http://static.huijinjiu.com/805351264090795932.png" class="logo"/>
-				</i-col>
-				<i-col span="2">&nbsp;</i-col>
-				<i-col span="15">
-					<ul>
-						<i-col span="5">
-							<li>
-								<a href="">商城首页</a>
-							</li>
-						</i-col>
-						<i-col span="5">
-							<li>
-								<a href="">最新资讯</a>
-							</li>
-						</i-col>
-						<i-col span="5">
-							<li>
-								<a href="">酒品分类</a>
-							</li>
-						</i-col>
-						<i-col span="5">
-							<li>
-								<a href="">个人中心</a>
-							</li>
-						</i-col>
-						<i-col span="4">
-							<li>
-								<a href="" @click='logout_m'>退出</a>&nbsp;&nbsp;&nbsp;
-								<a href="">{{user.userinfo.qq_user?user.userinfo.qq_user.nickname:user.userinfo.name}}</a>
-								<a href="" v-show="user.userinfo.qq_user"><img :src="user.userinfo.qq_user?user.userinfo.qq_user.figureurl_qq_1:''"  /></a>
-							</li>
-						</i-col>
-
-					</ul>
-				</i-col>
-        <i-col span="3" style="font-size:20px"> 
-          <a @click="tz">购物车</a> 
-				</i-col>
-			</Row>
-		</div>
+	<div >
+		
 		<!--内容-->
 		<div class="content">
 			<Row>
