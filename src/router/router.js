@@ -12,6 +12,7 @@ const routers = [
             { path: '/wineclass', title: '酒品分类', name: 'wineclass', component: (resolve) => require(['../views/wineclass.vue'], resolve) },
         ]
     },
+  
     {
 		path: '/paycallback',
 		name: 'paycallback',
@@ -20,14 +21,7 @@ const routers = [
 	    },
 	    component: (resolve) => require(['../views/paycallback.vue'], resolve)
     },
-    {
-		path: '/allorders',
-		name: 'allorders',
-	    meta: {
-	        title: '全部订单'
-	    },
-	    component: (resolve) => require(['../views/allorders.vue'], resolve)
-	},
+   
     {
 		path: '/goodsresale',
 		name: 'goodsresale',
@@ -52,33 +46,23 @@ const routers = [
 	    },
 	    component: (resolve) => require(['../views/submitorder.vue'], resolve)
 	},
-    {
-		path: '/shopcart',
-		name: 'shopcart',
-	    meta: {
-	        title: '购物车'
-	    },
-	    component: (resolve) => require(['../views/shopcart.vue'], resolve)
-	},
+  
 	
-    {
-		path: '/personaldata',
-		name: 'personaldata',
-	    meta: {
-	        title: '个人资料'
-	    },
-	    component: (resolve) => require(['../views/personaldata.vue'], resolve)
-    },
+  
 	{
 		path: '/personal',
 		name: 'personal',
 	    meta: {
 	        title: '个人主页'
 	    },
-	    component: (resolve) => require(['../views/personal.vue'], resolve)
+        component: (resolve) => require(['../views/personal.vue'], resolve),
+        children: [
+            { path: '/', title: '商品列表', name: 'personal_index', component: (resolve) => require(['../views/personal_index.vue'], resolve) },
+            { path: '/shopcart', title: '购物车', name: 'shopcart', component: (resolve) => require(['../views/shopcart.vue'], resolve) },    
+            { path: '/personaldata', title: '个人资料', name: 'personaldata', component: (resolve) => require(['../views/personaldata.vue'], resolve) },    
+            { path: '/allorders', title: '全部订单', name: 'allorders', component: (resolve) => require(['../views/allorders.vue'], resolve) },    
+        ]
     },
-	
-
     {
         path: '/test',
         name:'test',
