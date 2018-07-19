@@ -63,8 +63,7 @@
                                     <i-col span="4">
                                         <td style="float:left;padding-top:20px">
                                             <!-- <div style="width:79px;height:79px;float:left"><img :src="item.model.goods_img+'?imageView2/1/w/100/h/100'" style="width:100%"></div> -->
-                                            <div style="width:79px;height:79px;float:left"><img :src="item.products.goods_attr_img+'?imageView2/1/w/100/h/100'" style="width:100%"></div>
-
+                                            <div style="width:79px;height:79px;float:left"><img :src="item.products?item.products.goods_attr_img:item.model.goods_img" style="width:100%"></div>
                                             <div style="float:left;padding-left:10px;line-height:25px">
                                                 <span>{{item.model.goods_name}}</span>
                                                 <Br />

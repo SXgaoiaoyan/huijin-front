@@ -1,3 +1,4 @@
+
  <template>
   <div>
     <Layout class="layout">
@@ -15,12 +16,11 @@
         </Row>
       </Header>
 
-     
       <div class="content">
         <div>
-          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="false">
+          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="true">
             <img src="../static.huijinjiu.com/companyReg/verify.png" />
-            <div v-show='phone_login_d'>
+            <div>
               <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
                   <FormItem prop='phone_d'>
                     <Input type="text" placeholder="请输入常用手机号" class="phone" v-model="phoneFormValidate.phone_d" clearable size="large">
@@ -79,7 +79,7 @@
           </Card>
 
           <!-- 公司信息 -->
-          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;">
+          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;" v-show="false">
             <img src="../static.huijinjiu.com/companyReg/company.png" />
             <Form >
                 <FormItem>
@@ -400,7 +400,6 @@ export default {
 }
 .layout {
   width: 100%;
-  /* height: 968px; */
   background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
   background-size: 100% 2164px;
 }
@@ -416,7 +415,6 @@ export default {
 /*内容*/
 .content {
   width: 100%;
-  /* height: 648px; */
   background: url(http://static.huijinjiu.com/9919146688478019.png) no-repeat;
   background-size: 100% 100%;
 }
