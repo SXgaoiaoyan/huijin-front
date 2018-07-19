@@ -13,7 +13,7 @@
 
 					<Row>
 						<i-col span="18" offset="3" class="col1">
-							用户名六个字
+							{{user.userinfo.name}}
 						</i-col>
 						<i-col span="3">&nbsp;</i-col>
 					</Row>
@@ -100,7 +100,11 @@
 	</div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState(["user"])
+  },
   mounted() {
     this.ajax
       .get("/api/userinfo")
