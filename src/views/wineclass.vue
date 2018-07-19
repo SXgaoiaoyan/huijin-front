@@ -50,7 +50,7 @@
 							</ol>
 							<Row>
 								<i-col span="7" offset="4">
-									<Button type="text" class="btn">查看详情</Button>
+									<router-link to="/detail/27"><Button type="text" class="btn">查看详情</Button></router-link>
 								</i-col>
 								<i-col span="13">&nbsp;</i-col>
 							</Row>
@@ -190,7 +190,7 @@
 
 							<Row>
 								<i-col span="7" offset="1">
-									<Button type="text" class="btn">查看详情</Button>
+									<router-link to="/detail/1"><Button type="text" class="btn">查看详情</Button></router-link>
 								</i-col>
 								<i-col span="16">&nbsp;</i-col>
 							</Row>

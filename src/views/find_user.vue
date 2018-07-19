@@ -21,7 +21,7 @@ export default {
           data
         );
         self.$router.push({
-          name: "home"
+          name: "home_content"
         });
       })
       .catch(error => {

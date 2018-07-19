@@ -40,7 +40,7 @@
             <!--头像图片-->
             <Row>
                 <i-col span="3" offset="11">
-                    <img src="../static.huijinjiu.com/personal/headImg.png" class="img1" />
+                    <img :src="user.userinfo.qq_user.figureurl_qq_2" class="img1" />
                 </i-col>
                 <i-col span="10"></i-col>
             </Row>
@@ -60,7 +60,7 @@
             <Row>
                 <i-col span="3" offset="11" class="wrap">
                     <div class="user">
-                        &nbsp;&nbsp;&nbsp;用户名六个字
+                        &nbsp;&nbsp;&nbsp;{{user.userinfo.name}}
                     </div>
                 </i-col>
                 <i-col span="10">
@@ -73,13 +73,13 @@
                     <Row>
                         <i-col span="6">
                             <div class="sex">
-                                <img src="../static.huijinjiu.com/personal/male.png" style="vertical-align: middle;" />&nbsp;男
+                                <img src="../static.huijinjiu.com/personal/male.png" style="vertical-align: middle;" />&nbsp;{{user.userinfo.qq_user.gender}}
                             </div>
                         </i-col>
 
                         <i-col span="7" offset="11">
                             <div class="address">
-                                <img src="../static.huijinjiu.com/personal/address.png" style="vertical-align: middle;" />&nbsp;北京
+                                <img src="../static.huijinjiu.com/personal/address.png" style="vertical-align: middle;" />&nbsp;{{user.userinfo.qq_user.city}}
                             </div>
                         </i-col>
                     </Row>
@@ -164,6 +164,14 @@
         <!--</Row>-->
     </div>
 </template>
+<script>
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState(["user"])
+  },
+};
+</script>
 
 <style scoped>
 .content {
