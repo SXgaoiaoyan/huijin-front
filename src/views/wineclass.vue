@@ -8,7 +8,7 @@
 				<div class="text1">
 					<Row>
 						<i-col span="7" offset="3">
-							<img src="http://i2.bvimg.com/653324/a9a68c118482d165.png" style="width: 100%;height: 423px;" />
+							<img src="http://static.huijinjiu.com/jiu.png" style="width: 100%;height: 423px;" />
 						</i-col>
 						<i-col span="8" offset="1">
 							<img src="../static.huijinjiu.com/wineclass/cloud1.png" />
@@ -127,7 +127,7 @@
 						</Row>
 						<Row>
 							<i-col span="18">
-								<img src="http://i2.bvimg.com/653324/a9a68c118482d165.png" style="width: 100%;height: 423px;" />
+								<img src="http://static.huijinjiu.com/jiu.png" style="width: 100%;height: 423px;" />
 							</i-col>
 							<i-col span="6">&nbsp;</i-col>
 						</Row>
@@ -140,7 +140,7 @@
 				<div class="text3">
 					<Row>
 						<i-col span="7" offset="4">
-							<img src="http://i2.bvimg.com/653324/a9a68c118482d165.png" style="width: 100%;height: 423px;margin-top: 32px;" />
+							<img src="http://static.huijinjiu.com/jiu.png" style="width: 100%;height: 423px;margin-top: 32px;" />
 						</i-col>
 						<i-col span="8" offset="2">
 						<Row>

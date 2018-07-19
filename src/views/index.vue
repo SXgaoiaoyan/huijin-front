@@ -5,7 +5,7 @@
 			<Row>
 				<i-col span="1">&nbsp;</i-col>
 				<i-col span="3">
-					<img src="http://static.huijinjiu.com/805351264090795932.png" class="logo" />
+					<img src="http://static.huijinjiu.com/LOGO.png" class="logo" />
 				</i-col>
 				<i-col span="2">&nbsp;</i-col>
 				<i-col span="13">
@@ -68,6 +68,11 @@ export default {
   background: url(http://static.huijinjiu.com/bg.png) no-repeat;
   background-size: 100% 100%;
 }
+.header{
+		width: 100%;
+		height: 120px;
+		box-shadow: 0 3px 8px #b5b5b5;
+	}
 .header .logo {
   margin-top: 32px;
 }

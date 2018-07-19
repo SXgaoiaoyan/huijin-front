@@ -14,6 +14,14 @@ const routers = [
     },
   
     {
+		path: '/companyReg',
+		name: 'companyReg',
+	    meta: {
+	        title: '企业注册'
+	    },
+	    component: (resolve) => require(['../views/companyReg.vue'], resolve)
+    },
+    {
 		path: '/paycallback',
 		name: 'paycallback',
 	    meta: {
