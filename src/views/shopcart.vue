@@ -267,6 +267,10 @@ export default {
     //结算
     close() {
       var self = this;
+      if(this.checkAllGroup.length==0){
+        self.$Message.error(error.message);
+        return false
+      }
       var rowId = [];
       for (const key in this.checkAllGroup) {
         if (this.checkAllGroup.hasOwnProperty(key)) {
