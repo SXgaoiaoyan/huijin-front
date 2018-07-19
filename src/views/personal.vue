@@ -110,7 +110,7 @@ export default {
       .get("/api/userinfo")
       .then(response => {
         data.user = response.data.user;
-        self.$store.commit("login", data);
+        self.$store.commit("bindUser", data);
       })
       .catch(error => {});
   },

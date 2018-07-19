@@ -15,6 +15,10 @@ const user = {
             state.token = data.token;
        
         },
+        bindUser(data){
+            Cookies.set('user', data.user);
+            state.userinfo=data.user
+        },
         synStore(state,data){
             state.userinfo=data;
         },
