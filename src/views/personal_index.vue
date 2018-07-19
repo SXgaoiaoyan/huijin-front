@@ -164,3 +164,103 @@
         <!--</Row>-->
     </div>
 </template>
+
+<style scoped>
+.content {
+  height: 300px;
+  margin-top: 12px;
+}
+
+.content .zt {
+  width: 100%;
+  height: 300px;
+  background: url(http://static.huijinjiu.com/theme.png) no-repeat;
+  background-size: 100% 300px;
+  float: left;
+  font-size: 20px;
+  color: #000000;
+}
+.content .eg {
+  margin-top: 116px;
+  font-size: 19px;
+}
+.content .cn {
+  font-size: 17px;
+}
+.content .fx {
+  width: 80px;
+  height: 80px;
+  background: url(../static.huijinjiu.com/personal/share.png) no-repeat center;
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 60px;
+  border: none;
+  outline: none;
+}
+
+.footer {
+  background: white;
+  height: 1131px;
+  margin-left: 32px;
+}
+.footer .img1 {
+  /*width: 100%;*/
+  margin-top: -70px;
+  /*height: 140px;*/
+  box-shadow: 0 5px 5px #b5b5b5;
+}
+.footer .name {
+  font-size: 19px;
+  color: #000000;
+  margin-top: 56px;
+}
+.footer .user {
+  font-weight: bold;
+}
+.footer .sex,
+.footer .address {
+  margin-top: 44px;
+  color: #000000;
+}
+.footer .xd {
+  margin-top: 98px;
+  color: #000000;
+  font-size: 19px;
+}
+
+.footer .share {
+  font-size: 17px;
+  color: #000000;
+}
+.footer .stage {
+  color: #000000;
+}
+.footer .imgTotal1 {
+  margin-top: 59px;
+  width: 100%;
+  height: 230px;
+  box-shadow: 0 5px 5px #b5b5b5;
+}
+.footer .imgTotal2 {
+  margin-top: 26px;
+  width: 100%;
+  height: 230px;
+  box-shadow: 0 0 5px #b5b5b5;
+}
+
+.wrap {
+  white-space: nowrap;
+}
+@media only screen and (min-width: 1366px) and (max-width: 1920px) {
+  .eg {
+    letter-spacing: 3px;
+  }
+  .footer .xd {
+    letter-spacing: 3px;
+  }
+  .introduce {
+    letter-spacing: 5px;
+  }
+}
+</style>

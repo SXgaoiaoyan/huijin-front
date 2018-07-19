@@ -1,7 +1,7 @@
  <template>
   <div>
     <Layout class="layout">
-      <!--头部-->
+      
       <Header class="header">
         <Row>
           <i-col span="3" offset="1">
@@ -15,15 +15,12 @@
         </Row>
       </Header>
 
-      <!--内容-->
+     
       <div class="content">
         <div>
-          <!-- 验证手机号 -->
           <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="false">
-            <!-- 手机登录 -->
             <img src="../static.huijinjiu.com/companyReg/verify.png" />
             <div v-show='phone_login_d'>
-              <!--手机号-->
               <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
                   <FormItem prop='phone_d'>
                     <Input type="text" placeholder="请输入常用手机号" class="phone" v-model="phoneFormValidate.phone_d" clearable size="large">
