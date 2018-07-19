@@ -161,7 +161,7 @@ export default {
               );
            
               self.$router.push({
-                name: "home"
+                name: "home_content"
               });
 
             })
