@@ -17,7 +17,7 @@
 						</i-col>
 						<i-col span="6">
 							<li>
-								<a href="">最新资讯</a>
+								<router-link to="/news">最新资讯</router-link>
 							</li>
 						</i-col>
 						<i-col span="6">

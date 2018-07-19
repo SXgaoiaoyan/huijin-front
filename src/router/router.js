@@ -10,6 +10,7 @@ const routers = [
             { path: '/', title: '商品列表', name: 'home_content', component: (resolve) => require(['../views/index_content.vue'], resolve) },
             { path: '/detail/:id', title: '商品详情', name: 'detail', component: (resolve) => require(['../views/detail.vue'], resolve) },
             { path: '/wineclass', title: '酒品分类', name: 'wineclass', component: (resolve) => require(['../views/wineclass.vue'], resolve) },
+            { path: '/news', title: '最新资讯', name: 'news', component: (resolve) => require(['../views/news.vue'], resolve) },
         ]
     },
   
@@ -46,17 +47,7 @@ const routers = [
 	    },
 	    component: (resolve) => require(['../views/immediatepay.vue'], resolve)
 	},
-    {
-		path: '/submitorder',
-		name: 'submitorder',
-	    meta: {
-	        title: '提交订单'
-	    },
-	    component: (resolve) => require(['../views/submitorder.vue'], resolve)
-	},
-  
-	
-  
+    
 	{
 		path: '/personal',
 		name: 'personal',
@@ -69,6 +60,7 @@ const routers = [
             { path: '/shopcart', title: '购物车', name: 'shopcart', component: (resolve) => require(['../views/shopcart.vue'], resolve) },    
             { path: '/personaldata', title: '个人资料', name: 'personaldata', component: (resolve) => require(['../views/personaldata.vue'], resolve) },    
             { path: '/allorders', title: '全部订单', name: 'allorders', component: (resolve) => require(['../views/allorders.vue'], resolve) },    
+            { path: '/submitorder', title: '提交订单', name: 'submitorder', component: (resolve) => require(['../views/submitorder.vue'], resolve) },    
         ]
     },
     {

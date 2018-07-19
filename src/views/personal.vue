@@ -6,7 +6,7 @@
 				<div class="side">
 					<Row>
 						<i-col span="19" offset="2">
-							<img src="../static.huijinjiu.com/personal/headborder.png" class="bk" />
+							<img :src="user.userinfo.qq_user.figureurl_qq_2" class="bk" />
 						</i-col>
 						<i-col span="3">&nbsp;</i-col>
 					</Row>
@@ -73,7 +73,7 @@
 								</i-col>
 								<i-col span="6">
 									<li>
-										<a href="">最新资讯</a>
+										<router-link to="/news">最新资讯</router-link>
 									</li>
 								</i-col>
 								<i-col span="6">
