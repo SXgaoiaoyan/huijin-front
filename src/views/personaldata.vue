@@ -10,13 +10,13 @@
                         <!--  -->
                         <Row>
                             <i-col span="12" style="padding-left:45px">
-                                <div style="height:296px;background:#858383;margin-top:64px;"></div>
+                                <div style="height:296px;background:#858383;margin-top:64px;"><img :src="user.userinfo.qq_user.figureurl_qq_2"></div>
                             </i-col>
                             <i-col span="9">
                                 <div style="margin-left:38px;margin-top:105px;font-size:14px">
-                                    <span style="font-size:22px;font-weight:bold">用户名六个字</span><button class="redact"></button><br />
+                                    <span style="font-size:22px;font-weight:bold">{{user.userinfo.name.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}</span><button class="redact"></button><br />
                                     <div class="data">
-                                        性别: &nbsp;<span>男</span><button class="redact"></button><Br />
+                                        性别: &nbsp;<span>{{user.userinfo.qq_user.gender}}</span><button class="redact"></button><Br />
                                     </div>
                                     <div class="data">
                                           生日:
@@ -38,7 +38,7 @@
                                         <span>酒业会员: &nbsp;V1</span>
                                     </div>
                                     <div class="data">
-                                        <span>手机验证: &nbsp;150****0976</span> <a style="float:right;color:#01338d">立即修改</a>
+                                        <span>手机验证: &nbsp;{{user.userinfo.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}</span> <a style="float:right;color:#01338d">立即修改</a>
                                     </div>
                                 </div>
                             </i-col>
@@ -113,7 +113,11 @@
 
 <script>
 import areaData from "area-data";
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState(["user"])
+  },
   data() {
     return {
       resArr: [],

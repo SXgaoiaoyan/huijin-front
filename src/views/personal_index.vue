@@ -60,7 +60,7 @@
             <Row>
                 <i-col span="3" offset="11" class="wrap">
                     <div class="user">
-                        &nbsp;&nbsp;&nbsp;{{user.userinfo.name}}
+                        &nbsp;&nbsp;&nbsp;{{user.userinfo.name.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}
                     </div>
                 </i-col>
                 <i-col span="10">
