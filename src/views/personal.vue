@@ -47,7 +47,9 @@
                     <router-link to="/shopcart">我的购物车</router-link>
                   </li>
                   <li>
-                    <a href=""><span @click="logout_m()">退出</span></a> /
+                    <a href="">
+                      <span @click="logout_m()">退出</span>
+                    </a> /
                     <router-link to="/login">切换</router-link>
                   </li>
                 </ul>
@@ -92,9 +94,9 @@
             <i-col span="5">&nbsp;</i-col>
           </Row>
         </div>
-        <keep-alive >
+        <transition name="slide-fade">
           <router-view></router-view>
-        </keep-alive>
+        </transition>
 
       </Layout>
     </Layout>
@@ -127,6 +129,19 @@ export default {
 };
 </script>
 <style scoped>
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .5s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(50px);
+  opacity: 0;
+}
 .ivu-layout {
   width: 100%;
   background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
