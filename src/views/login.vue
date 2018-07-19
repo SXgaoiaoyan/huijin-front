@@ -317,7 +317,7 @@ export default {
                 self.$router.push({ path: self.$route.query.redirect });
               } else {
                 self.$router.push({
-                  name: "home"
+                  name: "home_content"
                 });
               }
             })
