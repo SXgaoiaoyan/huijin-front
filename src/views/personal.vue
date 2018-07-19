@@ -111,6 +111,7 @@ export default {
       .then(response => {
         data.user = response.data.user;
         self.$store.commit("bindUser", data);
+        console.log('bindUser')
       })
       .catch(error => {});
   },
