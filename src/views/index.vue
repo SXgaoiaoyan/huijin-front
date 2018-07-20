@@ -69,11 +69,12 @@ export default {
   width: 100%;
   background: url(http://static.huijinjiu.com/bg.png) no-repeat;
   background-size: 100% 100%;
+
 }
 .header {
   width: 100%;
   height: 120px;
-  box-shadow: 0 3px 8px #b5b5b5;
+  box-shadow: 0 5px 8px #b5b5b5;
 }
 .header .logo {
   margin-top: 32px;

@@ -2,7 +2,6 @@
  <template>
   <div>
     <Layout class="layout">
-      
       <Header class="header">
         <Row>
           <i-col span="3" offset="1">

@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div >
         <!--中部内容-->
-        <div class="content">
+         <div  class="content">
             <Row>
                 <!--主题图-->
-                <i-col span="20" style="margin-left:32px">
+                <i-col span="20" style="margin-left:32px;" >
                     <div class="zt">
                         <!--个人主页的英文-->
                         <div class="eg">
@@ -34,8 +34,7 @@
             </Row>
         </div>
 
-        <!--脚部-->
-        <!--<Row>-->
+        <!--酒图-->
         <i-col span="20" class="footer">
             <!--头像图片-->
             <Row>
@@ -49,7 +48,7 @@
             <Row>
                 <i-col span="2" offset="11">
                     <div class="name">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NAME
+                        &nbsp;&nbsp;&nbsp;&nbsp;NAME
                     </div>
                 </i-col>
                 <i-col span="11">
@@ -60,7 +59,7 @@
             <Row>
                 <i-col span="3" offset="11" class="wrap">
                     <div class="user">
-                        &nbsp;&nbsp;&nbsp;{{user.userinfo.name.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}
+                        &nbsp;&nbsp;&nbsp;&nbsp;{{user.userinfo.name.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}
                     </div>
                 </i-col>
                 <i-col span="10">
@@ -161,7 +160,6 @@
 
         </i-col>
         <i-col span="4">&nbsp;</i-col>
-        <!--</Row>-->
     </div>
 </template>
 <script>
@@ -208,7 +206,7 @@ export default {
 }
 
 .footer {
-  background: white;
+  background: white; 
   height: 1131px;
   margin-left: 32px;
 }
@@ -260,15 +258,19 @@ export default {
 .wrap {
   white-space: nowrap;
 }
+.introduce {
+    font-size: 16px
+  }
 @media only screen and (min-width: 1366px) and (max-width: 1920px) {
   .eg {
     letter-spacing: 3px;
   }
   .footer .xd {
-    letter-spacing: 3px;
+    letter-spacing: 4.2px;
   }
   .introduce {
-    letter-spacing: 5px;
+    letter-spacing: 6px;
+    font-size: 16px
   }
 }
 </style>

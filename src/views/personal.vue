@@ -1,9 +1,9 @@
 <template>
-  <div class="layout">
+  <div>
     <Layout>
       <!--侧边栏-->
-      <Sider class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
-        <div class="side">
+      <Sider  class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
+        <div>
           <Row>
             <i-col span="19" offset="2">
               <img :src="user.userinfo.qq_user.figureurl_qq_2" class="bk" />
@@ -18,12 +18,6 @@
             <i-col span="3">&nbsp;</i-col>
           </Row>
 
-          <Row>
-            <i-col span="13" offset="5" class="col2">
-              ID:12032123
-            </i-col>
-            <i-col span="6">&nbsp;</i-col>
-          </Row>
           <div class="bottom">
             <Row>
               <i-col span="11" offset="7">
@@ -67,6 +61,7 @@
         </transition>
 
       </Layout>
+    
     </Layout>
   </div>
 </template>
@@ -97,13 +92,8 @@ export default {
 };
 </script>
 <style scoped>
+/*   */
 
-.ivu-layout {
-	width: 100%;
-  background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
-  background-size: 100% 100%;
-  font-size: 16px;
-}
 
 /*侧边栏*/
 .sider {

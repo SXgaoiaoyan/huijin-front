@@ -1,5 +1,5 @@
  <template>
-     <div>
+     
         <!-- 内容 -->
         <div>
             <Row>
@@ -129,9 +129,8 @@
                 </i-col>
             </Row>
             <Page style="margin-left:32px" :total="orderlist.total" :page-size="pageSize" show-total class="paging" @on-change="changepage"></Page>
-            
         </div>
-    </div>
+    
 </template>
 <script>
 export default {
