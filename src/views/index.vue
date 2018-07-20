@@ -17,7 +17,7 @@
 						</i-col>
 						<i-col span="6">
 							<li>
-								<a href="">最新资讯</a>
+								<router-link to="/news">最新资讯</router-link>
 							</li>
 						</i-col>
 						<i-col span="6">
@@ -35,8 +35,10 @@
 				<i-col span="5"></i-col>
 			</Row>
 		</div>
-		<keep-alive :include="cachePage">
-			<router-view></router-view>
+		<keep-alive>
+			<transition name="slide-fade">
+				<router-view></router-view>
+			</transition>
 		</keep-alive>
 	</div>
 </template>
@@ -68,11 +70,11 @@ export default {
   background: url(http://static.huijinjiu.com/bg.png) no-repeat;
   background-size: 100% 100%;
 }
-.header{
-		width: 100%;
-		height: 120px;
-		box-shadow: 0 3px 8px #b5b5b5;
-	}
+.header {
+  width: 100%;
+  height: 120px;
+  box-shadow: 0 3px 8px #b5b5b5;
+}
 .header .logo {
   margin-top: 32px;
 }
@@ -88,6 +90,19 @@ export default {
 }
 .header ul li:hover {
   border-bottom: 4px solid #a8d3fe;
+}
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .5s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(50px);
+  opacity: 0;
 }
 </style>
 

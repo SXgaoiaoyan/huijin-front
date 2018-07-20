@@ -260,6 +260,10 @@ export default {
     //结算
     close() {
       var self = this;
+      if(this.checkAllGroup.length==0){
+        self.$Message.error('你还未勾选商品');
+        return false
+      }
       var rowId = [];
       for (const key in this.checkAllGroup) {
         if (this.checkAllGroup.hasOwnProperty(key)) {

@@ -1,98 +1,74 @@
 <template>
-	<div class="layout">
-		<Layout>
-			<!--侧边栏-->
-			<Sider class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
-				<div class="side">
-					<Row>
-						<i-col span="19" offset="2">
-							<img src="../static.huijinjiu.com/personal/headborder.png" class="bk" />
-						</i-col>
-						<i-col span="3">&nbsp;</i-col>
-					</Row>
+  <div class="layout">
+    <Layout>
+      <!--侧边栏-->
+      <Sider class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
+        <div class="side">
+          <Row>
+            <i-col span="19" offset="2">
+              <img :src="user.userinfo.qq_user.figureurl_qq_2" class="bk" />
+            </i-col>
+            <i-col span="3">&nbsp;</i-col>
+          </Row>
 
-					<Row>
-						<i-col span="18" offset="3" class="col1">
-							{{user.userinfo.name}}
-						</i-col>
-						<i-col span="3">&nbsp;</i-col>
-					</Row>
+          <Row>
+            <i-col span="18" offset="3" class="col1">
+              {{user.userinfo.name.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}
+            </i-col>
+            <i-col span="3">&nbsp;</i-col>
+          </Row>
 
-				
-					<div class="bottom">
-						<Row>
-							<i-col span="11" offset="7">
-								<ul>
-									<li>
-										<router-link to="/personaldata">个人资料</router-link>
-									</li>
-									<li>
-										<a href="">我的酒窖</a>
-									</li>
-									<li>
-										<router-link to="/allorders">全部订单</router-link>
-									</li>
-									<li>
-										<router-link to="/personal">我的主页</router-link>
-									</li>
-									<li>
-										<a href="">我的账户</a>
-									</li>
-									<li>
-										<router-link to="/shopcart">我的购物车</router-link>
-									</li>
-									<li>
-										<a href="">退出/切换</a>
-									</li>
-								</ul>
-							</i-col>
-							<i-col span="6"></i-col>
-						</Row>
-					</div>
-				</div>
-			</Sider>
+          <Row>
+            <i-col span="13" offset="5" class="col2">
+              ID:12032123
+            </i-col>
+            <i-col span="6">&nbsp;</i-col>
+          </Row>
+          <div class="bottom">
+            <Row>
+              <i-col span="11" offset="7">
+                <ul>
+                  <li>
+                    <router-link to="/personaldata">个人资料</router-link>
+                  </li>
+                  <li>
+                    我的酒窖
+                  </li>
+                  <li>
+                    <router-link to="/allorders">全部订单</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/personal">我的主页</router-link>
+                  </li>
+                  <li>
+                    我的账户
+                  </li>
+                  <li>
+                    <router-link to="/shopcart">我的购物车</router-link>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span @click="logout_m()">退出</span>
+                    </a> /
+                    <router-link to="/login">切换</router-link>
+                  </li>
+                </ul>
+              </i-col>
+              <i-col span="6"></i-col>
+            </Row>
+          </div>
+        </div>
+      </Sider>
 
-			<Layout>
-				<!--头部-->
-				<div class="header">
-					<Row>
-						<i-col span="3" style="margin-left:32px">
-							<img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
-						</i-col>
-						<i-col span="13" offset="3">
-							<ul>
-								<i-col span="6">
-									<li>
-										<router-link to="/">商城首页</router-link>
-									</li>
-								</i-col>
-								<i-col span="6">
-									<li>
-										<a href="">最新资讯</a>
-									</li>
-								</i-col>
-								<i-col span="6">
-									<li>
-										<router-link to="/wineclass">酒品分类</router-link>
-									</li>
-								</i-col>
-								<i-col span="6">
-									<li>
-										<router-link to="/personal">个人中心</router-link>
-									</li>
-								</i-col>
-							</ul>
-						</i-col>
-						<i-col span="5">&nbsp;</i-col>
-					</Row>
-				</div>
-				<keep-alive :include="cachePage">
-					<router-view></router-view>
-				</keep-alive>
+      <Layout>
+      
+        <transition >
+          <router-view></router-view>
+        </transition>
 
-			</Layout>
-		</Layout>
-	</div>
+      </Layout>
+    </Layout>
+  </div>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -106,14 +82,22 @@ export default {
       .then(response => {
         data.user = response.data.user;
         self.$store.commit("bindUser", data);
-        console.log('bindUser')
+        console.log("bindUser");
       })
       .catch(error => {});
   },
-  methods: {}
+  methods: {
+    logout_m() {
+      this.$store.commit("logout");
+      this.$router.push({
+        name: "home_content"
+      });
+    }
+  }
 };
 </script>
 <style scoped>
+
 .ivu-layout {
 	width: 100%;
   background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
@@ -177,5 +161,6 @@ export default {
 .header ul li:hover {
   border-bottom: 4px solid #a8d3fe;
 }
-
 </style>
+
+
