@@ -18,7 +18,8 @@
 
       <div class="content">
         <div>
-          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="true">
+          <router-view></router-view>
+          <!-- <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="step">
             <img src="../static.huijinjiu.com/companyReg/verify.png" />
             <div>
               <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
@@ -54,9 +55,9 @@
                 </FormItem>
               </Form>
             </div>
-          </Card>
+          </Card> -->
           <!-- 设置密码 -->
-          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="false">
+          <!-- <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="step1">
             <img src="../static.huijinjiu.com/companyReg/pass.png" />
             <Form>
                 <FormItem style="margin-top:20px">
@@ -76,10 +77,10 @@
             <div style="margin-top:15px">
                 <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
             </div>
-          </Card>
+          </Card> -->
 
           <!-- 公司信息 -->
-          <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;" v-show="false">
+          <!-- <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;" v-show="step2">
             <img src="../static.huijinjiu.com/companyReg/company.png" />
             <Form >
                 <FormItem>
@@ -105,7 +106,7 @@
                     </div>
                     <Upload action="//jsonplaceholder.typicode.com/posts/">
                     <!-- <Button>浏览</Button>  -->
-                        <Button>上传</Button>
+                        <!-- <Button>上传</Button>
                     </Upload>
                     </Input>
                 </FormItem>
@@ -113,9 +114,9 @@
                     <div style="float:left">
                     上传商标注册证:
                     </div>
-                    <Upload action="//jsonplaceholder.typicode.com/posts/">
+                    <Upload action="//jsonplaceholder.typicode.com/posts/"> -->
                     <!-- <Button>浏览</Button>  -->
-                        <Button>上传</Button>
+                        <!-- <Button>上传</Button>
                     </Upload>
                     </Input>
                 </FormItem>
@@ -162,7 +163,7 @@
                     </Button>
                 </FormItem> 
             </Form>
-          </Card>
+          </Card> --> 
         </div>
       </div>
       
@@ -205,193 +206,19 @@
             </li>
           </ul>
         </div>
-        <div style="width:240px;margin-left:auto;margin-right:auto;padding-top:16px">
+        <div style="width:240px;margin-left:auto;margin-right:auto;margin-top:8px">
           Copyright&copy;2004-2018 京东JD.com版权所有
         </div>
       </div>
-
     </Layout>
-
   </div>
 
 </template>
 
 <script>
-import Cookies from "js-cookie";
 export default {
-  data() {
-    return {
-      time_d: 60,
-      phone_login_d: true,
-      checked_d: false,
-      sended_d: false,
-      resArr:[],
-      formValidate: {
-        account_d: "",
-        password_d: ""
-      },
-      ruleValidate: {
-        account_d: [
-          { required: true, message: " 账号不能为空", trigger: "blur" },
-          {
-            type: "string",
-            min: 8,
-            message: "账号长度不少于8个字符",
-            trigger: "blur"
-          }
-        ],
-        password_d: [
-          { required: true, message: " 密码不能为空", trigger: "blur" },
-          {
-            type: "string",
-            min: 8,
-            message: "密码长度不少于8个字符",
-            trigger: "blur"
-          }
-        ]
-      },
-      phoneFormValidate: {
-        phone_d: "",
-        code_d: ""
-      },
-      phoneRuleValidate: {
-        phone_d: [
-          { required: true, message: "手机号码不能为空", trigger: "blur" },
-          {
-            type: "string",
-            len: 11,
-            message: "请输入11位手机号",
-            trigger: "blur"
-          }
-        ],
-        code_d: [
-          { required: true, message: " 验证码不能为空", trigger: "blur" },
-          {
-            type: "string",
-            len: 4,
-            message: "请输入四位验证码",
-            trigger: "blur"
-          }
-        ]
-      }
-    };
-  },
-  mounted() {
-    var SCRIPT_URL = `//captcha.luosimao.com/static/dist/api.js`;
-    var scriptHeat = document.createElement("script");
-    scriptHeat.type = "text/javascript";
-    scriptHeat.src = SCRIPT_URL;
-    scriptHeat.onload = onload;
-    document.body.appendChild(scriptHeat);
-    window.getCaptchaResponse = this.getCaptchaResponse;
-  },
-  methods: {
-    phone_login_m(name) {
-      var self = this;
-
-      this.$refs[name].validate(valid => {
-        if (valid) {
-          this.$Message.success("登陆成功");
-          self.ajax
-            .post("/api/login", {
-              phone: self.phoneFormValidate.phone_d,
-              code: self.phoneFormValidate.code_d
-            })
-            .then(response => {
-              self.$store.commit("login", response.data);
-              if (self.$route.query.redirect) {
-                self.$router.push({ path: self.$route.query.redirect });
-              } else {
-                self.$router.push({
-                  name: "home"
-                });
-              }
-            })
-            .catch(error => {
-              if (error.status_code == 403) {
-                self.$Message.error(error.message);
-                LUOCAPTCHA.reset();
-              }
-            });
-        } else {
-          this.$Message.error("登录失败");
-        }
-      });
-    },
-    phone_reset_m(name) {
-      this.$refs[name].resetFields();
-    },
-    //人机验证成功返回
-    getCaptchaResponse(resp) {
-      var self = this;
-      this.ajax
-        .post("/api/checkcaptcha", {
-          captcha: resp
-        })
-        .then(function(response) {
-          self.checked_d = true;
-        })
-        .catch(function(error) {
-          if (error.status_code == 400) {
-            alert(error.message);
-            LUOCAPTCHA.reset();
-          }
-        });
-    },
-    send_code_m() {
-      var self = this;
-
-      this.ajax
-        .post("/api/sendcode", {
-          phone: self.phoneFormValidate.phone_d
-        })
-        .then(function(response) {
-          self.Interval();
-          self.sended_d = true;
-        })
-        .catch(function(error) {
-          if (error.status_code == 400) {
-            alert(error.message);
-          }
-        });
-    },
-    Interval() {
-      var self = this;
-      var fun = function() {
-        self.time_d--;
-        if (self.time_d == 0) {
-          clearInterval(interval);
-          self.time_d = 60;
-          self.checked_d = false;
-          self.sended_d = false;
-          LUOCAPTCHA.reset();
-        }
-      };
-      var interval = setInterval(fun, 1000);
-    },
-    //     Cookies.set('user', this.form.userName);
-    //     Cookies.set('password', this.form.password);
-    //  this.$store.commit('login',response.data.token)
-    //     this.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');
-    //     if (this.form.userName === 'iview_admin') {
-    //         Cookies.set('access', 0);
-    //     } else {
-    //         Cookies.set('access', 1);
-    //     }
-    //     this.$router.push({
-    //         name: 'home_index'
-    //     });
-    // })
-    account_login_m(account_d) {
-      this.$refs[account_d].validate(valid => {
-        if (valid) {
-          this.$Message.success("登陆成功");
-        } else {
-          this.$Message.error("登录失败");
-        }
-      });
-    }
-  }
+ 
+  
 };
 </script>
 <style scoped>

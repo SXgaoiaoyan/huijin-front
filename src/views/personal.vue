@@ -99,15 +99,14 @@ export default {
 <style scoped>
 
 .ivu-layout {
-  width: 100%;
-  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
+	width: 100%;
+  background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }
 
 /*侧边栏*/
 .sider {
-  height: 1584px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }

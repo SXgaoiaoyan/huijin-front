@@ -35,7 +35,12 @@ const routers = [
 	    meta: {
 	        title: '企业注册'
 	    },
-	    component: (resolve) => require(['../views/companyReg.vue'], resolve)
+        component: (resolve) => require(['../views/companyReg.vue'], resolve),
+        children: [
+            {path:'/',title:'验证手机号',name:'companyReg_phone',component: (resolve) => require(['../views/companyReg_phone.vue'], resolve)},
+            {path:'/companyReg_pass',title:'填写密码',name:'companyReg_pass',component: (resolve) => require(['../views/companyReg_pass.vue'], resolve)},
+            {path:'/companyReg_company',title:'填写公司信息',name:'companyReg_company',component: (resolve) => require(['../views/companyReg_company.vue'], resolve)},
+        ]
     },
     {
 		path: '/paycallback',
