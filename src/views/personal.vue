@@ -32,7 +32,7 @@
                     <router-link to="/personaldata">个人资料</router-link>
                   </li>
                   <li>
-                    <a href="">我的酒窖</a>
+                    我的酒窖
                   </li>
                   <li>
                     <router-link to="/allorders">全部订单</router-link>
@@ -41,7 +41,7 @@
                     <router-link to="/personal">我的主页</router-link>
                   </li>
                   <li>
-                    <a href="">我的账户</a>
+                    我的账户
                   </li>
                   <li>
                     <router-link to="/shopcart">我的购物车</router-link>
@@ -94,7 +94,7 @@
             <i-col span="5">&nbsp;</i-col>
           </Row>
         </div>
-        <transition name="slide-fade">
+        <transition >
           <router-view></router-view>
         </transition>
 
@@ -129,19 +129,7 @@ export default {
 };
 </script>
 <style scoped>
-/* 可以设置不同的进入和离开动画 */
-/* 设置持续时间和动画函数 */
-.slide-fade-enter-active {
-  transition: all .5s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
-  transform: translateX(50px);
-  opacity: 0;
-}
+
 .ivu-layout {
   width: 100%;
   background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
@@ -207,3 +195,5 @@ export default {
   border-bottom: 4px solid #a8d3fe;
 }
 </style>
+
+
