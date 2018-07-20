@@ -1,6 +1,4 @@
 <template>
-    <div>
-
         <!-- 内容 -->
         <div>
             <Row>
@@ -44,7 +42,6 @@
                         </table>
                     </Row>
                     <!-- 官方商品 -->
-
                     <div style="height:41px;line-height:41px">
                         <Checkbox style="letter-spacing:3px;padding-left:11px">
                             官方商品
@@ -130,9 +127,6 @@
             </Row>
         </div>
 
-        </Layout>
-        </Layout>
-    </div>
 </template>
 <script>
 export default {
@@ -293,71 +287,10 @@ export default {
 };
 </script>
 <style scoped>
-.ivu-layout {
-  width: 100%;
-  font-size: 16px;
-  background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
-  background-size: 100% 100%;
-}
-/* 侧边栏 */
-.sider {
-  width: 100%;
-  height: 970px;
-  background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
-  background-size: 100% 100%;
-}
-.sider .bk {
-  width: 100%;
-  height: 100%;
-  background: url(../static.huijinjiu.com/personal/head.png) no-repeat center;
-  margin-top: 102px;
-}
-.sider .col1 {
-  color: #000000;
-  font-weight: bold;
-  margin-top: 9px;
-}
-.sider .col2 {
-  font-weight: bold;
-  color: #000000;
-  font-size: 11px;
-  margin-top: 9px;
-}
-.sider ul {
-  margin-top: 40px;
-}
-.sider ul li {
-  list-style: none;
-  line-height: 55px;
-  font-size: 12px;
-}
-.sider ul li a {
-  font-weight: bold;
-  color: #000000;
-}
-/* 头部 */
-.header {
-  width: 100%;
-  height: 120px;
-  box-shadow: 0 5px 5px #b5b5b5;
-}
-.header .logo {
-  margin-top: 32px;
-}
-.header ul li {
-  list-style: none;
-  float: left;
-  line-height: 116px;
-  letter-spacing: 2.5px;
-}
-.header ul li a {
-  color: #010101;
-}
-.header ul li:hover {
-  border-bottom: 4px solid #a8d3fe;
-}
+
 /* 内容 */
 .content {
+  height: 820px;
   background: url(http://static.huijinjiu.com/diwen.png) no-repeat;
   background-size: 100% 100%;
   margin-top: 10px;

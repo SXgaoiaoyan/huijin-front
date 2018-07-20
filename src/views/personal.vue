@@ -18,12 +18,7 @@
 						<i-col span="3">&nbsp;</i-col>
 					</Row>
 
-					<Row>
-						<i-col span="13" offset="5" class="col2">
-							ID:12032123
-						</i-col>
-						<i-col span="6">&nbsp;</i-col>
-					</Row>
+				
 					<div class="bottom">
 						<Row>
 							<i-col span="11" offset="7">
@@ -120,15 +115,14 @@ export default {
 </script>
 <style scoped>
 .ivu-layout {
-  width: 100%;
-  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
+	width: 100%;
+  background: url(http://static.huijinjiu.com/bj.jpg) no-repeat;
   background-size: 100% 100%;
   font-size: 16px;
 }
 
 /*侧边栏*/
 .sider {
-  height: 1584px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }

@@ -1,113 +1,109 @@
 <template>
-    <div >
-      <Layout>
-        <Layout>
-            <!-- 中部 -->
-            <div>
-                <Row>
-                    <i-col span="22" class="content">
-                        <div style="font-weight:bold;padding-left:44px;height:120px;line-height:120px">个人资料</div>
-                        <!--  -->
-                        <Row>
-                            <i-col span="12" style="padding-left:45px">
-                                <div style="height:296px;background:#858383;margin-top:64px;"></div>
-                            </i-col>
-                            <i-col span="9">
-                                <div style="margin-left:38px;margin-top:105px;font-size:14px">
-                                    <span style="font-size:22px;font-weight:bold">用户名六个字</span><button class="redact"></button><br />
-                                    <div class="data">
-                                        性别: &nbsp;<span>男</span><button class="redact"></button><Br />
-                                    </div>
-                                    <div class="data">
-                                          生日:
-                                        <Select style="width:64px;margin-left:6px" size="small">
-                                            <Option v-for="year in years" :value = "year.value" :key="year.value">{{year.label}}</Option>
-                                        </Select>   
-                                        <Select style="width:64px;margin-left:6px" size="small">
-                                            <Option v-for="month in months" :value = "month.value" :key="month.value">{{month.label}}</Option>
-                                        </Select>
-                                        <Select style="width:64px;margin-left:6px" size="small">
-                                            <Option v-for="day in days" :value = "day.value" :key="day.value">{{day.label}}</Option>
-                                        </Select>
-                                        <button class="redact"></button><Br />
-                                    </div>
-                                    <div class="data">
-                                          <span>实名认证: &nbsp;未认证</span> <a style="float:right;color:#01338d">去认证</a>
-                                    </div>
-                                    <div class="data">
-                                        <span>酒业会员: &nbsp;V1</span>
-                                    </div>
-                                    <div class="data">
-                                        <span>手机验证: &nbsp;150****0976</span> <a style="float:right;color:#01338d">立即修改</a>
-                                    </div>
-                                </div>
-                            </i-col>
-                            <i-col span="3">&nbsp;</i-col>
-                        </Row>
-                        <!-- 地址管理 -->
-                        <div style="width:700px;margin-left:auto;margin-right:auto;margin-top:82px;">
-                            <h4 style="text-align:center">收货地址管理</h4>
-                            <div class="detail"  v-for="item in goodaddress" >
+    <div>
+        <!-- <Layout> -->
+          <!-- <Layout> -->
+              <!-- 中部 -->
+                  <div>
+                  <Row>
+                      <i-col span="22" class="content">
+                          <div style="font-weight:bold;padding-left:44px;height:120px;line-height:120px">个人资料</div>
+                          
+                          <Row>
+                              <i-col span="12" style="padding-left:45px">
+                                  <div style="height:296px;background:#858383;margin-top:64px;"></div>
+                              </i-col>
+                              <i-col span="9">
+                                  <div style="margin-left:38px;margin-top:105px;font-size:14px">
+                                      <span style="font-size:22px;font-weight:bold">用户名六个字</span><button class="redact"></button><br />
+                                      <div class="data">
+                                          性别: &nbsp;<span>男</span><button class="redact"></button><Br />
+                                      </div>
+                                      <div class="data">
+                                            生日:
+                                          <Select style="width:64px;margin-left:6px" size="small">
+                                              <Option v-for="year in years" :value = "year.value" :key="year.value">{{year.label}}</Option>
+                                          </Select>   
+                                          <Select style="width:64px;margin-left:6px" size="small">
+                                              <Option v-for="month in months" :value = "month.value" :key="month.value">{{month.label}}</Option>
+                                          </Select>
+                                          <Select style="width:64px;margin-left:6px" size="small">
+                                              <Option v-for="day in days" :value = "day.value" :key="day.value">{{day.label}}</Option>
+                                          </Select>
+                                          <button class="redact"></button><Br />
+                                      </div>
+                                      <div class="data">
+                                            <span>实名认证: &nbsp;未认证</span> <a style="float:right;color:#01338d">去认证</a>
+                                      </div>
+                                      <div class="data">
+                                          <span>酒业会员: &nbsp;V1</span>
+                                      </div>
+                                      <div class="data">
+                                          <span>手机验证: &nbsp;150****0976</span> <a style="float:right;color:#01338d">立即修改</a>
+                                      </div>
+                                  </div>
+                              </i-col>
+                              <i-col span="3">&nbsp;</i-col>
+                          </Row>
+                          
+                           <div style="width:700px;margin-left:auto;margin-right:auto;margin-top:82px;">
+                              <h4 style="text-align:center">收货地址管理</h4>
+                              <div class="detail"  v-for="item in goodaddress" >
+                                  <div>
+                                      <span style="color:#595959">{{item.consignee}}</span> <a style="float:right" @click="deleteaddress_m(item.id)"> 删除</a>
+                                  </div>
+                                  <div style="padding-left:13px;margin-top:20px">
+                                        收货人: &nbsp;<span style="color:#595959">{{item.consignee}}</span>
+                                  </div>
+                                  <div style="margin-top:8px">
+                                      所在地区: &nbsp;<span style="color:#595959">{{areaData[item.country][item.province]+areaData[item.province][item.city]+areaData[item.city][item.district]+areaData[item.district][item.street]}}</span>
+                                  </div>
+                                  <div style="margin-top:8px">
+                                      详细地址: &nbsp;<span style="color:#595959">{{item.address}}</span>
+                                  </div>
+                                  <div style="margin-top:8px">
+                                      手机号码: &nbsp;<span style="color:#595959">{{item.mobile}}</span>
+                                  </div>
+                                  <div style="margin-top:8px">
+                                      固定电话: &nbsp;<span style="color:#595959">{{item.tel}}</span>
+                                  </div>
+                                  <div style="float:right;">
+                                      <a style="color:#023491;padding-right:10px">设为默认</a>
+                                      <a style="color:#023491" @click="updateaddress_m(item)">编辑</a>
+                                  </div>
+                              </div>
+                              
+                              <Card style="width:600px;margin-left:auto;margin-right:auto;" v-show="!site" >
                                 <div>
-                                    <span style="color:#595959">{{item.consignee}}</span> <a style="float:right" @click="deleteaddress_m(item.id)"> 删除</a>
+                                收货人:<Br />
+                                <Input type="text" style="width:230px" clearable v-model="consignee_d"></Input><Br />
+                                所在地区:<Br />
+                                <al-selector  v-model="resArr"/>
+                                详细地址:<Br />
+                                <Input type="text" style="width:474px" clearable v-model="address_d"></Input><Br />
+                                <div style="float:left">
+                                    手机号码:<Br />
+                                    <Input type="text" style="width:230px" clearable v-model="mobile_d"></Input>
                                 </div>
-                                <div style="padding-left:13px;margin-top:20px">
-                                      收货人: &nbsp;<span style="color:#595959">{{item.consignee}}</span>
+                                <span style="margin-left:15px" >固定电话:</span>
+                                <Br />
+                                <Input type="text"  style="width:230px;margin-left:15px" clearable v-model="tel_d"></Input><Br />
+                                邮箱:<Br />
+                                <Input type="text" style="width:230px" clearable v-model="email_d"></Input><Br />
+                                <!-- 地址别名:<Br /> -->
+                                <!-- <Input type="text" style="width:230px" clearable ></Input><Br /><Br /> -->
+                                  <Button @click="address_m" v-show="btn">保存收货地址</Button>
+                                  <Button @click="update(rowId)" v-show="!btn">更新收货地址</Button>
+                                  
                                 </div>
-                                <div style="margin-top:8px">
-                                    所在地区: &nbsp;<span style="color:#595959">{{areaData[item.country][item.province]+areaData[item.province][item.city]+areaData[item.city][item.district]+areaData[item.district][item.street]}}</span>
-                                </div>
-                                <div style="margin-top:8px">
-                                    详细地址: &nbsp;<span style="color:#595959">{{item.address}}</span>
-                                </div>
-                                <div style="margin-top:8px">
-                                    手机号码: &nbsp;<span style="color:#595959">{{item.mobile}}</span>
-                                </div>
-                                <div style="margin-top:8px">
-                                    固定电话: &nbsp;<span style="color:#595959">{{item.tel}}</span>
-                                </div>
-                                <div style="float:right;">
-                                    <a style="color:#023491;padding-right:10px">设为默认</a>
-                                    <a style="color:#023491" @click="updateaddress_m(item)">编辑</a>
-                                </div>
-                            </div>
-                            
-                            <Card style="width:600px;margin-left:auto;margin-right:auto;" v-show="!site" >
-                              <div>
-                              收货人:<Br />
-                              <Input type="text" style="width:230px" clearable v-model="consignee_d"></Input><Br />
-                              所在地区:<Br />
-                              <al-selector  v-model="resArr"/>
-                              详细地址:<Br />
-                              <Input type="text" style="width:474px" clearable v-model="address_d"></Input><Br />
-                              <div style="float:left">
-                                  手机号码:<Br />
-                                  <Input type="text" style="width:230px" clearable v-model="mobile_d"></Input>
-                              </div>
-                              <span style="margin-left:15px" >固定电话:</span>
-                              <Br />
-                              <Input type="text"  style="width:230px;margin-left:15px" clearable v-model="tel_d"></Input><Br />
-                              邮箱:<Br />
-                              <Input type="text" style="width:230px" clearable v-model="email_d"></Input><Br />
-                              <!-- 地址别名:<Br /> -->
-                              <!-- <Input type="text" style="width:230px" clearable ></Input><Br /><Br /> -->
-                                <Button @click="address_m" v-show="btn">保存收货地址</Button>
-                                <Button @click="update(rowId)" v-show="!btn">更新收货地址</Button>
-                                
-                              </div>
-                            </Card> 
+                              </Card> 
 
-                            <div style="text-align:center;">
-                                <Button style="background:#f8fcff;margin-top:20px" @click="site=false">添加收货地址</Button>
-                            </div>
-                        </div>
-                    </i-col>
-                    <!-- <i-col span="3">&nbsp;</i-col> -->
-
-                </Row>
-            </div>
-        </Layout>
-    </Layout>
+                              <div style="text-align:center;">
+                                  <Button style="background:#f8fcff;margin-top:20px" @click="site=false">添加收货地址</Button>
+                              </div>
+                          </div>
+                      </i-col>
+                  </Row>
+                  </div>
     </div>
 </template>
 
@@ -127,7 +123,6 @@ export default {
       pca: {},
       rowId: "",
       btn: true,
-
       years: [
         {
           value: "2011",
@@ -421,72 +416,7 @@ export default {
 };
 </script>
 <style scoped>
-.ivu-layout {
-  width: 100%;
-  height: 100%px;
-  background: url(http://static.huijinjiu.com/personalBj.jpg) no-repeat;
-  background-size: 100% 1368px;
-  font-size: 16px;
-}
-.sider {
-  height: 1368px;
-  background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
-  background-size: 100% 100%;
-}
-.side {
-  width: 100%;
-  height: 100%;
-}
-.side .bk {
-  width: 100%;
-  height: 100%;
-  background: url(../static.huijinjiu.com/personal/head.png) no-repeat center;
-  margin-top: 102px;
-}
-.side .col1 {
-  color: #000000;
-  font-weight: bold;
-  margin-top: 12px;
-}
-.side .col2 {
-  font-weight: bold;
-  color: #000000;
-  font-size: 11px;
-  margin-top: 9px;
-}
-.side ul {
-  margin-top: 40px;
-}
-.side ul li {
-  list-style: none;
-  margin-top: 51px;
-  font-size: 12px;
-}
-.side ul li a {
-  font-weight: bold;
-  color: #000000;
-}
-
-.header {
-  width: 100%;
-  height: 120px;
-  box-shadow: 0 5px 5px #b5b5b5;
-}
-.header .logo {
-  margin-top: 32px;
-}
-.header ul li {
-  list-style: none;
-  float: left;
-  line-height: 116px;
-  letter-spacing: 2.5px;
-}
-.header ul li a {
-  color: #010101;
-}
-.header ul li:hover {
-  border-bottom: 4px solid #a8d3fe;
-}
+/*  */
 
 .content {
   margin-left: 24px;

@@ -77,7 +77,7 @@
 		</div>
 
 		<!--中部内容-->
-		<div class="center">
+	<div class="center">
 
 		</div>
 		<!--脚部-->
@@ -343,7 +343,6 @@ export default {
 .content {
   width: 100%;
   margin-top: 81px;
-  /*border: 1px solid;*/
 }
 .content .s1 {
   margin-top: 92px;
