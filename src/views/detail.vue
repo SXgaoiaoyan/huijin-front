@@ -146,7 +146,6 @@ export default {
   },
   methods: {
     selectChange() {
-      console.log(this.selects)
       var object = this.selects;
       var basePrice = parseFloat(this.good.market_price);
       for (const key in object) {
@@ -225,12 +224,14 @@ export default {
               if (object.hasOwnProperty(key)) {
                 const element = object[key];
                 self.selects.push(element.goods_attr[0].id);
+
               }
             }
+            self.selectChange()
           }
 
-          self.price = parseFloat(self.good.market_price);
-          self.img = self.good.goods_img;
+          // self.price = parseFloat(self.good.market_price);
+          // self.img = self.good.goods_img;
         })
         .catch(error => {
           if (error.status_code == 404) {
