@@ -61,39 +61,7 @@
       </Sider>
 
       <Layout>
-        <!--头部-->
-        <div class="header">
-          <Row>
-            <i-col span="3" style="margin-left:32px">
-              <img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
-            </i-col>
-            <i-col span="13" offset="3">
-              <ul>
-                <i-col span="6">
-                  <li>
-                    <router-link to="/">商城首页</router-link>
-                  </li>
-                </i-col>
-                <i-col span="6">
-                  <li>
-                    <router-link to="/news">最新资讯</router-link>
-                  </li>
-                </i-col>
-                <i-col span="6">
-                  <li>
-                    <router-link to="/wineclass">酒品分类</router-link>
-                  </li>
-                </i-col>
-                <i-col span="6">
-                  <li>
-                    <router-link to="/personal">个人中心</router-link>
-                  </li>
-                </i-col>
-              </ul>
-            </i-col>
-            <i-col span="5">&nbsp;</i-col>
-          </Row>
-        </div>
+      
         <transition >
           <router-view></router-view>
         </transition>
