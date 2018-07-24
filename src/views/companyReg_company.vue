@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Card style="width:430px;margin-left:auto;margin-right:auto;" >
+        <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;" >
             <img src="../static.huijinjiu.com/companyReg/company.png" />
             <Form >
                 <FormItem>
@@ -120,6 +120,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+ 
 .content .login {
   width: 100%;
   height: 40px;

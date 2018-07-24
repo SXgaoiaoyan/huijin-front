@@ -261,7 +261,7 @@ export default {
 .introduce {
     font-size: 16px
   }
-@media only screen and (min-width: 1366px) and (max-width: 1920px) {
+@media only screen and (min-width: 1370px) and (max-width: 1920px) {
   .eg {
     letter-spacing: 3px;
   }

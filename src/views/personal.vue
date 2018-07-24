@@ -12,10 +12,9 @@
           </Row>
 
           <Row>
-            <i-col span="18" offset="3" class="col1">
+            <i-col span="18" offset="6" class="col1">
               {{user.userinfo.name.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}
             </i-col>
-            <i-col span="3">&nbsp;</i-col>
           </Row>
 
           <div class="bottom">
@@ -53,7 +52,6 @@
           </div>
         </div>
       </Sider>
-
       <Layout>
       
         <transition >
@@ -92,11 +90,11 @@ export default {
 };
 </script>
 <style scoped>
-/*   */
 
 
 /*侧边栏*/
 .sider {
+  height:1450px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
 }

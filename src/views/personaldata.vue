@@ -3,7 +3,7 @@
         <div>
             <Row>
                 <i-col span="22" class="content">
-                  <div style="font-weight:bold;padding-left:44px;height:120px;line-height:120px">个人资料</div>
+                  <div style="font-weight:bold;padding-left:44px;height:120px;line-height:120px;font-size:16px">个人资料</div>
                     <Row>
                         <i-col span="12" style="padding-left:45px">
                             <div style="height:296px;margin-top:64px;"><img :src="user.userinfo.qq_user.figureurl_qq_2"></div>
@@ -34,7 +34,7 @@
                                     <span>酒业会员: &nbsp;V1</span>
                                 </div>
                                 <div class="data">
-                                    <span>手机验证: &nbsp;{{user.userinfo.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}</span> <a style="float:right;color:#01338d">立即修改</a>
+                                    <span>手机验证: &nbsp;{{user.userinfo.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')}}</span> <router-link to="/changePhone" style="float:right;color:#01338d">立即修改</router-link>
                                 </div>
                             </div>
                         </i-col>
@@ -418,8 +418,6 @@ export default {
 };
 </script>
 <style scoped>
-/*  */
-
 .content {
   margin-left: 24px;
   margin-top: 10px;
@@ -429,8 +427,7 @@ export default {
 .content .redact {
   width: 16px;
   height: 16px;
-  background: url(../static.huijinjiu.com/personaldata/redact.png) no-repeat
-    100% 100%;
+  background: url(../static.huijinjiu.com/personaldata/redact.png) no-repeat 100% 100%;
   border: none;
   outline: none;
   margin-left: 14px;

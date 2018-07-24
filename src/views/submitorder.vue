@@ -1,6 +1,5 @@
 <<template>
     <div>
-       
                 <!-- 内容 -->
                 <Row>
                     <i-col span="22"  class="content">
@@ -289,7 +288,7 @@ export default {
       invoice_d: true,
       content_d: true,
       inv_show: false,
-      ind: "",
+      ind: 0,
       resArr: [],
       site: true, //显示收货地址的状态
       goodaddress: [],

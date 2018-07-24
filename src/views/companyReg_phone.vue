@@ -1,18 +1,15 @@
 <template>
 <div>
-     <Card style="width:430px;margin-left:auto;margin-right:auto">
+     <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto">
             <img src="../static.huijinjiu.com/companyReg/verify.png" />
             <div>
               <Form >
                   <FormItem>
-                    <Input type="text" placeholder="请输入常用手机号" class="phone"  clearable size="large">
+                    <Input type="text" placeholder="请输入常用手机号"   style="margin-top:20px" clearable size="large">
                         <span slot="prepend"> 中国+86 </span>
                     </Input>
                   </FormItem>
                 
-                <!-- <Row v-show="phoneFormValidate.phone_d.length==11" style="margin:0 4%;margin-bottom:18px">
-                  <div class="l-captcha" data-site-key="a61ebded8b92ba71b5272a5f60fc1be7" data-callback='getCaptchaResponse'></div>
-                </Row> -->
 
                 <FormItem>
                     <Input type="text" placeholder="请输入短信验证码"  clearable size="large">
@@ -34,7 +31,7 @@
                     </router-link>
                     
                     <div style="margin-top:15px">
-                        <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+                        <router-link to="/personReg"><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></router-link>
                     </div>
                 </FormItem>
               </Form>
@@ -49,6 +46,9 @@ export default {
 }
 </script>
 <style scoped>
+.content{
+  height:680px
+}
 .content .login {
   width: 100%;
   height: 40px;

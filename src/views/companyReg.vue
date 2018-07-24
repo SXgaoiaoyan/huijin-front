@@ -205,7 +205,7 @@
             </li>
           </ul>
         </div>
-        <div style="width:240px;margin-left:auto;margin-right:auto;margin-top:8px">
+        <div style="width:240px;margin-left:auto;margin-right:auto;margin-top:15px">
           Copyright&copy;2004-2018 京东JD.com版权所有
         </div>
       </div>
@@ -241,8 +241,7 @@ export default {
 /*内容*/
 .content {
   width: 100%;
-  background: url(http://static.huijinjiu.com/9919146688478019.png) no-repeat;
-  background-size: 100% 100%;
+  background-color: white
 }
 .content ul li {
   list-style: none;
@@ -334,7 +333,7 @@ export default {
 /*脚部*/
 .footer {
   width: 100%;
-  height: 40px;
+  height: 150px;
   margin-top: 22px;
 }
 
