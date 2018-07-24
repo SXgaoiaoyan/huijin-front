@@ -17,152 +17,161 @@
 
       <div class="content">
         <div>
-          <router-view></router-view>
-          <!-- <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="step">
-            <img src="../static.huijinjiu.com/companyReg/verify.png" />
-            <div>
-              <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
-                  <FormItem prop='phone_d'>
-                    <Input type="text" placeholder="请输入常用手机号" class="phone" v-model="phoneFormValidate.phone_d" clearable size="large">
+          <!--  -->
+          <Card style="margin-top:76px;width:600px;margin-left:auto;margin-right:auto">
+            <Steps :current="current" style="margin-left:30px">
+              <Step title="第一步" content="验证手机号"></Step>
+              <Step title="第二步" content="填写帐号信息"></Step>
+              <Step title="第三步" content="填写公司信息"></Step>
+              <Step title="成功" content="注册成功"></Step>
+            </Steps>
+            <!-- 验证手机号 -->
+             <div style="width:420px;margin-left:auto;margin-right:auto" v-show="step">
+              <Form >
+                  <FormItem>
+                    <Input type="text" placeholder="请输入常用手机号"   style="margin-top:20px" clearable size="large">
                         <span slot="prepend"> 中国+86 </span>
                     </Input>
                   </FormItem>
+                  <FormItem>
+                      <Input type="text" placeholder="请输入短信验证码"  clearable size="large">
+                      <span slot="prepend">手机验证码</span> -->
+                      <!-- <span  slot="append"  style="cursor:pointer">请先进行人机验证</span> -->
+                      <span  slot="append"  style="cursor:pointer">发送验证码</span>
+                      <!-- <span  slot="append" style="cursor:pointer">s后重新获取</span> -->
+                       </Input> 
+                  </FormItem> 
 
-                <Row v-show="phoneFormValidate.phone_d.length==11" style="margin:0 4%;margin-bottom:18px">
-                  <div class="l-captcha" data-site-key="a61ebded8b92ba71b5272a5f60fc1be7" data-callback='getCaptchaResponse'></div>
-                </Row>
-
-                <FormItem prop='code_d'>
-                    <Input type="text" placeholder="请输入短信验证码" v-model="phoneFormValidate.code_d" clearable size="large">
-                    <span slot="prepend">手机验证码</span>
-                    <span v-show='!checked_d' slot="append" @click='send_code_m' style="cursor:pointer">请先进行人机验证</span>
-                    <span v-show='checked_d&&!sended_d' slot="append" @click='send_code_m' style="cursor:pointer">发送验证码</span>
-                    <span v-show='sended_d' slot="append" style="cursor:pointer">{{time_d}}s后重新获取</span>
-                    </Input>
-                </FormItem>
-
-                <FormItem>
+                 <FormItem>
                     <Checkbox >
                         我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
                     </Checkbox>
-                    <Button class='login' @click="phone_login_m('phoneFormValidate')">
-                        下一步
+                        <Button type="primary" class='login' @click="next_m">
+                          下一步
                     </Button>
+                    
                     <div style="margin-top:15px">
-                        <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+                        <router-link to="/personReg"><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></router-link>
                     </div>
                 </FormItem>
               </Form>
+            </div> 
+            <!-- 填写密码 -->
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="step1">
+              <Form>
+                  <FormItem style="margin-top:20px">
+                      <Input type="text" size="large" placeholder="设置数字与字母的密码">
+                      <span slot="prepend">设置密码</span>
+                      </Input>
+                  </FormItem>
+                  <FormItem>
+                      <Input type="text" size="large" placeholder="再次输入密码">
+                      <span slot="prepend">确认密码</span>
+                      </Input>
+                  </FormItem>
+                  <FormItem>
+                      <Button class="login" @click="twoStep_m">下一步</Button>
+                  </FormItem>
+              </Form>
+              <div style="margin-top:15px">
+                  <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+              </div>
             </div>
-          </Card> -->
-          <!-- 设置密码 -->
-          <!-- <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto" v-show="step1">
-            <img src="../static.huijinjiu.com/companyReg/pass.png" />
-            <Form>
-                <FormItem style="margin-top:20px">
-                    <Input type="text" placeholder="设置数字与字母的密码">
-                    <span slot="prepend">设置密码</span>
-                    </Input>
-                </FormItem>
-                <FormItem>
-                    <Input type="text" placeholder="再次输入密码">
-                    <span slot="prepend">确认密码</span>
-                    </Input>
-                </FormItem>
-                <FormItem>
-                    <Button class="login">立即注册</Button>
-                </FormItem>
-            </Form>
-            <div style="margin-top:15px">
-                <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+            <!-- 公司信息 -->
+            <div style="width:430px;margin-left:auto;margin-right:auto;" v-show="step2">
+              <Form >
+                  <FormItem>
+                      公司名称: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem>
+
+                  <FormItem>
+                      <div style="float:left">
+                          公司所在地: &nbsp;&nbsp;&nbsp;&nbsp;
+                      </div>
+                      <al-selector v-model="resArr" level="2" style="width:300px;float:left"/>
+                  </FormItem>
+
+                  <FormItem>
+                      公司详细地址: <Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem>
+
+                  <FormItem>
+                      <div style="float:left">
+                      上传营业执照:
+                      </div>
+                      <Upload action="//jsonplaceholder.typicode.com/posts/">
+                      <!-- < <Button>浏览</Button>   -->
+                          <Button>上传</Button>
+                      </Upload>
+                      </Input>
+                  </FormItem>
+                  <FormItem>
+                      <div style="float:left">
+                      上传商标注册证:
+                      </div>
+                      <Upload action="//jsonplaceholder.typicode.com/posts/">
+                      <!-- <Button>浏览</Button>  -->
+                          <Button>上传</Button>
+                      </Upload>
+                      </Input>
+                  </FormItem>
+
+                  <FormItem>
+                      公司人数: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem>
+                  <FormItem>
+                      公司行业: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem>  
+                  <FormItem>
+                      公司性质: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem>
+                  <FormItem>
+                      公司营业额: &nbsp;&nbsp;&nbsp;
+                      <Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem>
+                  <FormItem>
+                          联系人姓名: &nbsp;&nbsp;&nbsp;
+                      <Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem> 
+                  <FormItem>
+                      所在部门: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem> 
+                  <FormItem>
+                      验证手机: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
+                      </Input>
+                  </FormItem> 
+                  <FormItem>
+                    <Button style="width:300px;margin-left:78px">立即验证</Button>
+                  </FormItem>
+                  <FormItem>
+                      <Checkbox >
+                          我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
+                      </Checkbox>
+                      <Button class='login' @click="threeStep_m">
+                          立即注册
+                      </Button>
+                  </FormItem> 
+              </Form>
             </div>
-          </Card> -->
 
-          <!-- 公司信息 -->
-          <!-- <Card style="margin-top:76px;width:430px;margin-left:auto;margin-right:auto;" v-show="step2">
-            <img src="../static.huijinjiu.com/companyReg/company.png" />
-            <Form >
-                <FormItem>
-                    公司名称: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
-                    </Input>
-                </FormItem>
-
-                <FormItem>
-                    <div style="float:left">
-                        公司所在地: &nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
-                    <al-selector v-model="resArr" level="2" style="width:300px;float:left"/>
-                </FormItem>
-
-                <FormItem>
-                    公司详细地址: <Input type="text" style="width:300px">
-                    </Input>
-                </FormItem>
-
-                <FormItem>
-                    <div style="float:left">
-                    上传营业执照:
-                    </div>
-                    <Upload action="//jsonplaceholder.typicode.com/posts/">
-                    <!-- <Button>浏览</Button>  -->
-                        <!-- <Button>上传</Button>
-                    </Upload>
-                    </Input>
-                </FormItem>
-                 <FormItem>
-                    <div style="float:left">
-                    上传商标注册证:
-                    </div>
-                    <Upload action="//jsonplaceholder.typicode.com/posts/"> -->
-                    <!-- <Button>浏览</Button>  -->
-                        <!-- <Button>上传</Button>
-                    </Upload>
-                    </Input>
-                </FormItem>
-
-                <FormItem>
-                    公司人数: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
-                    </Input>
-                </FormItem>
-                <FormItem>
-                    公司行业: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
-                    </Input>
-                </FormItem>  
-                <FormItem>
-                    公司性质: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
-                    </Input>
-                </FormItem>
-                <FormItem>
-                    公司营业额: &nbsp;&nbsp;&nbsp;
-                     <Input type="text" style="width:300px">
-                    </Input>
-                </FormItem>
-                <FormItem>
-                        联系人姓名: &nbsp;&nbsp;&nbsp;
-                    <Input type="text" style="width:300px">
-                    </Input>
-                </FormItem> 
-                <FormItem>
-                    所在部门: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
-                    </Input>
-                </FormItem> 
-                <FormItem>
-                    验证手机: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px">
-                    </Input>
-                </FormItem> 
-                <FormItem>
-                   <Button style="width:300px;margin-left:78px">立即验证</Button>
-                </FormItem>
-                 <FormItem>
-                    <Checkbox >
-                        我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
-                    </Checkbox>
-                    <Button class='login' @click="phone_login_m('phoneFormValidate')">
-                        立即注册
-                    </Button>
-                </FormItem> 
-            </Form>
-          </Card> --> 
+            <!-- 注册成功 -->
+            <div style="width:430px;margin-left:auto;margin-right:auto" v-show="step3">
+              <img src="../static.huijinjiu.com/personReg/sign.png" style="margin-left:138px;margin-top:40px"/>
+              <Br />
+              <Br />
+              <div style="font-size:16px;text-align:center">
+                  恭喜你成功注册!如不自动跳转请<a style="color:red">点击这里</a>
+              </div>
+            </div>    
+        </Card>
         </div>
       </div>
       
@@ -216,8 +225,52 @@
 
 <script>
 export default {
- 
-  
+   data() {
+     return {
+        current:0,
+        step:true,
+        step1:false,
+        step2:false,
+        step3:false,
+        resArr:[]
+     }
+   },
+   methods: {
+     next_m() {
+       this.step = false;
+       this.step1 = true;
+       this.step2 = false;
+       this.step3 = false;
+        if (this.current == 3) {
+            this.current = 0;
+        } else {
+            this.current += 1;
+        }
+     },
+     twoStep_m() {
+          this.step = false;
+          this.step1 = false;
+          this.step2 = true;
+          this.step3 = false;
+       if (this.current == 3) {
+            this.current = 0;
+        } else {
+            this.current += 1;
+        }
+     },
+     threeStep_m() {
+        this.step = false;
+          this.step1 = false;
+          this.step2 = false;
+          this.step3 = true;
+          if (this.current == 3) {
+            this.current = 0;
+        } else {
+            this.current += 1;
+        }
+     }
+   }
+   
 };
 </script>
 <style scoped>

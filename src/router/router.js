@@ -25,7 +25,6 @@ const routers = [
                     { path: '/allorders', title: '全部订单', name: 'allorders', component: (resolve) => require(['../views/allorders.vue'], resolve) },    
                     { path: '/submitorder', title: '提交订单', name: 'submitorder', component: (resolve) => require(['../views/submitorder.vue'], resolve) },    
                     { path: '/changePhone', title: '更改绑定', name: 'changePhone', component: (resolve) => require(['../views/changePhone.vue'], resolve) },    
-                    { path: '/changePhoneNum', title: '原手机号验证', name: 'changePhoneNum', component: (resolve) => require(['../views/changePhoneNum.vue'], resolve) },    
                 ]
             },
         ]
@@ -38,11 +37,7 @@ const routers = [
 	        title: '企业注册'
 	    },
         component: (resolve) => require(['../views/companyReg.vue'], resolve),
-        children: [
-            {path:'/',title:'验证手机号',name:'companyReg_phone',component: (resolve) => require(['../views/companyReg_phone.vue'], resolve)},
-            {path:'/companyReg_pass',title:'填写密码',name:'companyReg_pass',component: (resolve) => require(['../views/companyReg_pass.vue'], resolve)},
-            {path:'/companyReg_company',title:'填写公司信息',name:'companyReg_company',component: (resolve) => require(['../views/companyReg_company.vue'], resolve)},
-        ]
+        
     },
     {
 		path: '/personReg',
@@ -51,12 +46,6 @@ const routers = [
 	        title: '个人注册'
 	    },
         component: (resolve) => require(['../views/personReg.vue'], resolve),
-        children: [
-            {path:'/',title:'验证手机号',name:'personReg_phone',component: (resolve) => require(['../views/personReg_phone.vue'], resolve)},
-            {path:'/personReg_pwd',title:'填写密码',name:'personReg_pwd',component: (resolve) => require(['../views/personReg_pwd.vue'], resolve)},
-            {path:'/personReg_success',title:'注册成功',name:'personReg_success',component: (resolve) => require(['../views/personReg_success.vue'], resolve)},
-
-        ]
     },
     {
 		path: '/paycallback',
