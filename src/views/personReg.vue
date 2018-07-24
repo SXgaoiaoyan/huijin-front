@@ -1,6 +1,6 @@
 <template>
     <div>
-    <Layout class="layout">
+      <Layout class="layout">
       <Header class="header">
         <Row>
           <i-col span="3" offset="1">
@@ -16,7 +16,66 @@
 
       <div class="content">
         <div>
-          <router-view></router-view>
+          <Card style="margin-top:76px;width:500px;margin-left:auto;margin-right:auto" >
+                <Steps :current="current" style="margin-left:30px">
+                  <Step title="第一步" content="验证手机号"></Step>
+                  <Step title="第二步" content="填写帐号信息"></Step>
+                  <Step title="成功" content="注册成功"></Step>
+                </Steps> 
+                <!-- 验证手机号 -->
+                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="step1">
+                  <Form >
+                      <FormItem>
+                      <Input type="text" placeholder="请输入常用手机号" class="phone" clearable size="large">
+                          <span slot="prepend"> 中国+86 </span>
+                      </Input>
+                      </FormItem>
+
+                      <FormItem>
+                          <Checkbox >
+                              我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
+                          </Checkbox>
+                              <Button class='login' @click="next_m">
+                                  下一步
+                              </Button>
+                          <div style="margin-top:15px">
+                              <router-link to="/companyReg"><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">企业用户注册</span></router-link>
+                          </div>
+                      </FormItem>
+                  </Form>
+                </div>
+                <!-- 填写账号信息 -->
+                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="step2">
+                  <Form>
+                      <FormItem style="margin-top:20px">
+                          <Input type="text" size="large" placeholder="设置数字与字母的密码">
+                          <span slot="prepend">设置密码</span>
+                          </Input>
+                      </FormItem>
+                      <FormItem>
+                          <Input type="text" size="large" placeholder="再次输入密码">
+                          <span slot="prepend">确认密码</span>
+                          </Input>
+                      </FormItem>
+                      <FormItem>
+                          <Button class="login" @click="twoStep_m">下一步</Button>
+                      </FormItem>
+                  </Form>
+                  <div style="margin-top:15px">
+                      <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+                  </div>
+                </div>
+                <!-- 注册成功 -->
+                <div style="width:430px;margin-left:auto;margin-right:auto" v-show="step3">
+                  <img src="../static.huijinjiu.com/personReg/sign.png" style="margin-left:138px;margin-top:40px"/>
+                  <Br />
+                  <Br />
+                  <div style="font-size:16px;text-align:center">
+                      恭喜你成功注册!如不自动跳转请<a style="color:red">点击这里</a>
+                  </div>
+                </div>   
+          </Card>
+           
         </div>
       </div>
       
@@ -69,12 +128,41 @@
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      step1:true,
+      step2:false,
+      step3:false,
+      current:0
+    }
+  },
+    methods: {
+     next_m() {
+       this.step1 = false;
+       this.step2 = true;
+       this.step3 = false;
+        if (this.current == 2) {
+            this.current = 0;
+        } else {
+            this.current += 1;
+        }
+     },
+     twoStep_m() {
+          this.step1 = false;
+          this.step2 = false;
+          this.step3 = true;
+       if (this.current == 2) {
+            this.current = 0;
+        } else {
+            this.current += 1;
+        }
+     },
+     
+   }
+};
 </script>
 
 <style scoped>
-
 .select {
   color: red;
 }
@@ -95,9 +183,8 @@ export default {
 /*内容*/
 .content {
   width: 100%;
-  height:680px;
-  background-color: white
-
+  height: 680px;
+  background-color: white;
 }
 .content ul li {
   list-style: none;
