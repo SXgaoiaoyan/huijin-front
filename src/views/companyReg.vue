@@ -533,6 +533,7 @@ export default {
               section:self.formCompany.section,
             })
             .then(response => {
+              self.current += 1;
               self.$Message.success("登陆成功");
             })
             .catch(error => {
