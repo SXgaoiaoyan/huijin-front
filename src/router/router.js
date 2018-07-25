@@ -25,6 +25,7 @@ const routers = [
                     { path: '/allorders', title: '全部订单', name: 'allorders', component: (resolve) => require(['../views/allorders.vue'], resolve) },    
                     { path: '/submitorder', title: '提交订单', name: 'submitorder', component: (resolve) => require(['../views/submitorder.vue'], resolve) },    
                     { path: '/changePhone', title: '更改绑定', name: 'changePhone', component: (resolve) => require(['../views/changePhone.vue'], resolve) },    
+                    { path: '/myAccount', title: '我的账户', name: 'myAccount', component: (resolve) => require(['../views/myAccount.vue'], resolve) },    
                 ]
             },
         ]

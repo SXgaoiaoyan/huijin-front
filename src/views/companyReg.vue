@@ -27,7 +27,7 @@
               <Step title="成功" content="注册成功"></Step>
             </Steps>
             <!-- 验证手机号 -->
-            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==0">
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="false">
               <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
                 <FormItem prop='phone_d'>
                   <Input type="text" v-model="phoneFormValidate.phone_d" placeholder="请输入常用手机号" style="margin-top:20px" clearable size="large">
@@ -69,13 +69,17 @@
               </Form>
             </div>
             <!-- 填写密码 -->
-            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==1">
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="false">
               <Form ref="formCustom" :model="formCustom" :rules="ruleCustom">
                 <FormItem prop="passwd">
-                  <Input type="password" v-model="formCustom.passwd"></Input>
+                  <Input type="password" v-model="formCustom.passwd">
+                  <span slot="prepend">设置密码</span>
+                  </Input>
                 </FormItem>
                 <FormItem prop="passwdCheck">
-                  <Input type="password" v-model="formCustom.passwdCheck"></Input>
+                  <Input type="password" v-model="formCustom.passwdCheck">
+                  <span slot="prepend">确认密码</span>
+                  </Input>
                 </FormItem>
                 <FormItem>
                   <Button class="login" @click="bindPassword('formCustom')">下一步</Button>
@@ -88,10 +92,10 @@
               </div>
             </div>
             <!-- 公司信息 -->
-            <div style="width:430px;margin-left:auto;margin-right:auto;" v-show="current==2">
+            <div style="width:430px;margin-left:auto;margin-right:auto;" v-show="true">
               <Form ref="formCompany" :model="formCompany" :rules="ruleformCompany">
                 <FormItem prop="name">
-                  公司名称: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  公司名称: 
                   <Input type="text" style="width:300px" v-model="formCompany.name">
                   </Input>
                 </FormItem>
@@ -100,7 +104,7 @@
                   <Row>
                     <i-col span="5">
                       <div>
-                        公司所在地: &nbsp;&nbsp;&nbsp;&nbsp;
+                        公司所在地: 
                       </div>
                     </i-col>
                     <i-col span="19">
@@ -162,36 +166,35 @@
                   <Modal title="View Image" v-model="visible">
                     <img :src="imgName" v-if="visible" style="width: 100%">
                   </Modal>
-
                 </FormItem>
 
                 <FormItem prop="people_number">
-                  公司人数: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  公司人数: 
                   <Input type="text" style="width:300px" v-model="formCompany.people_number">
                   </Input>
                 </FormItem>
                 <FormItem prop="company_industry">
-                  公司行业: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  公司行业: 
                   <Input type="text" style="width:300px" v-model="formCompany.company_industry">
                   </Input>
                 </FormItem>
                 <FormItem prop="company_nature">
-                  公司性质: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  公司性质: 
                   <Input type="text" style="width:300px" v-model="formCompany.company_nature">
                   </Input>
                 </FormItem>
                 <FormItem prop="business_volume">
-                  公司营业额: &nbsp;&nbsp;&nbsp;
+                  公司营业额: 
                   <Input type="text" style="width:300px" v-model="formCompany.business_volume">
                   </Input>
                 </FormItem>
                 <FormItem prop="contact_name">
-                  联系人姓名: &nbsp;&nbsp;&nbsp;
+                  联系人姓名: 
                   <Input type="text" style="width:300px" v-model="formCompany.contact_name">
                   </Input>
                 </FormItem>
                 <FormItem prop="section">
-                  所在部门: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  所在部门: 
                   <Input type="text" style="width:300px" v-model="formCompany.section">
                   </Input>
                 </FormItem>
@@ -202,7 +205,6 @@
                 </FormItem>
               </Form>
             </div>
-
             <!-- 注册成功 -->
             <div style="width:430px;margin-left:auto;margin-right:auto" v-show="current==3">
               <img src="../static.huijinjiu.com/personReg/sign.png" style="margin-left:138px;margin-top:40px" />

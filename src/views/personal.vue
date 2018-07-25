@@ -34,7 +34,7 @@
                     <router-link to="/personal">我的主页</router-link>
                   </li>
                   <li>
-                    我的账户
+                    <router-link to="/myAccount">我的账户</router-link>
                   </li>
                   <li>
                     <router-link to="/shopcart">我的购物车</router-link>
