@@ -73,7 +73,14 @@ const routers = [
 	    component: (resolve) => require(['../views/immediatepay.vue'], resolve)
 	},
     
-	
+	{
+        path: '/secondHand',
+        name:'secondHand',
+        meta: {
+            title: '二手交易'
+        },
+        component: (resolve) => require(['../views/secondHand.vue'], resolve)
+    },
     {
         path: '/test',
         name:'test',

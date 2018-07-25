@@ -69,7 +69,6 @@ export default {
   width: 100%;
   background: url(http://static.huijinjiu.com/bg.png) no-repeat;
   background-size: 100% 100%;
-
 }
 .header {
   width: 100%;
