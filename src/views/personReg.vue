@@ -23,7 +23,7 @@
                   <Step title="成功" content="注册成功"></Step>
                 </Steps> 
                 <!-- 验证手机号 -->
-                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="step1">
+                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==0">
                   <Form >
                       <FormItem>
                       <Input type="text" placeholder="请输入常用手机号" class="phone" clearable size="large">
@@ -45,7 +45,7 @@
                   </Form>
                 </div>
                 <!-- 填写账号信息 -->
-                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="step2">
+                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==1">
                   <Form>
                       <FormItem style="margin-top:20px">
                           <Input type="text" size="large" placeholder="设置数字与字母的密码">
@@ -66,7 +66,7 @@
                   </div>
                 </div>
                 <!-- 注册成功 -->
-                <div style="width:430px;margin-left:auto;margin-right:auto" v-show="step3">
+                <div style="width:430px;margin-left:auto;margin-right:auto" v-show="current==2">
                   <img src="../static.huijinjiu.com/personReg/sign.png" style="margin-left:138px;margin-top:40px"/>
                   <Br />
                   <Br />
@@ -130,17 +130,12 @@
 export default {
   data() {
     return {
-      step1:true,
-      step2:false,
-      step3:false,
+      
       current:0
     }
   },
     methods: {
      next_m() {
-       this.step1 = false;
-       this.step2 = true;
-       this.step3 = false;
         if (this.current == 2) {
             this.current = 0;
         } else {
@@ -148,9 +143,6 @@ export default {
         }
      },
      twoStep_m() {
-          this.step1 = false;
-          this.step2 = false;
-          this.step3 = true;
        if (this.current == 2) {
             this.current = 0;
         } else {
