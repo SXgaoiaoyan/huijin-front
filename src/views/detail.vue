@@ -40,9 +40,9 @@
 
                   <i-col span="20" style="margin-top:10px">
                     <RadioGroup type="button" v-model="selects[index]" @input="selectChange">
-                      
-                        <Radio style="margin-left:10px" size="large" v-for="(i,index) in item.goods_attr" :label="i.id" :disabled="stockout(i.id)" >{{i.attr_value}}</Radio>
-                     
+
+                      <Radio style="margin-left:10px" size="large" v-for="(i,index1) in item.goods_attr" :label="i.id" :disabled="isDisable(i.id,index)">{{i.attr_value}}</Radio>
+
                     </RadioGroup>
                   </i-col>
                 </Row>
@@ -135,7 +135,8 @@ export default {
       price: "",
       img: "",
       selectSucess: true,
-      order_attr: []
+      order_attr: [],
+      hasStorageArr: []
     };
   },
   mounted() {
@@ -145,7 +146,15 @@ export default {
     ...mapState(["user"])
   },
   methods: {
+    isDisable(id, index) {
+      if (this.hasStorageArr[index].indexOf(id) == -1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     selectChange() {
+      this.stockout();
       var object = this.selects;
       var basePrice = parseFloat(this.good.market_price);
       for (const key in object) {
@@ -173,7 +182,7 @@ export default {
       for (const key in products) {
         if (products.hasOwnProperty(key)) {
           const element = products[key];
-          var dd=JSON.parse(JSON.stringify(this.selects))
+          var dd = JSON.parse(JSON.stringify(this.selects));
           if (
             dd.sort().toString() ==
             JSON.parse(element.goods_attr)
@@ -198,17 +207,56 @@ export default {
         name: "shopcart"
       });
     },
-    stockout(id) {
-      var object = this.good.products;
-      for (const key in object) {
-        if (object.hasOwnProperty(key)) {
-          const element = object[key];
+    stockout() {
+      //全局数组变量用来存储有库存id
+      var allHasArr = [];
+      //转换商品属性
+      var order_attr = this.order_attr;
 
-          if (element.goods_attr.indexOf(id) === 0) {
-            return false;
+      //循环商品属性
+      for (const key1 in order_attr) {
+        //把selects转换对象
+        const selectsCopy = JSON.parse(JSON.stringify(this.selects));
+        if (order_attr.hasOwnProperty(key1)) {
+          const goods_attr = order_attr[key1].goods_attr;
+          //存放对应index存在的id；
+          var indexHasArr = [];
+          //循环属性里的具体规格
+          for (const key2 in goods_attr) {
+            //全局数组用来存放有库存的id
+
+            if (goods_attr.hasOwnProperty(key2)) {
+              const attr = goods_attr[key2];
+              //将select里的id替换出来
+              selectsCopy[key1] = attr.id;
+              //循环products匹配是否有库存
+              var products = this.good.products;
+              var has = false;
+              for (const key3 in products) {
+                if (products.hasOwnProperty(key3)) {
+                  const product = products[key3];
+                  //将dd对象转换
+                  var selectsCopyCopy = JSON.parse(JSON.stringify(selectsCopy));
+                  //对比是否有库存
+                  if (
+                    selectsCopyCopy.sort().toString() ==
+                    JSON.parse(product.goods_attr)
+                      .sort()
+                      .toString()
+                  ) {
+                    indexHasArr.push(attr.id);
+                  }
+                }
+              }
+              // console.log(rr)
+            }
           }
+          // this.selects[key]
         }
+        allHasArr[key1] = indexHasArr;
       }
+
+      this.hasStorageArr = allHasArr;
     },
     details() {
       var self = this;
@@ -224,10 +272,9 @@ export default {
               if (object.hasOwnProperty(key)) {
                 const element = object[key];
                 self.selects.push(element.goods_attr[0].id);
-
               }
             }
-            self.selectChange()
+            self.selectChange();
           }
 
           // self.price = parseFloat(self.good.market_price);
@@ -248,7 +295,7 @@ export default {
       var self = this;
 
       var data = {};
-       var dd=JSON.parse(JSON.stringify(this.selects))
+      var dd = JSON.parse(JSON.stringify(this.selects));
       if (this.good.attrs.length > 0) {
         data.good_id = self.good.id;
         data.spe = dd.sort();
@@ -278,10 +325,10 @@ export default {
       }
       var self = this;
       var data = {};
-      var dd=JSON.parse(JSON.stringify(this.selects))
+      var dd = JSON.parse(JSON.stringify(this.selects));
       if (this.good.attrs.length > 0) {
         data.good_id = self.good.id;
-        data.spe = dd.sort();;
+        data.spe = dd.sort();
       } else {
         data.good_id = self.good.id;
       }
