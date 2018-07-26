@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <Layout class="layout">
+  <div>
+    <Layout class="layout">
       <Header class="header">
         <Row>
           <i-col span="3" offset="1">
@@ -9,76 +9,84 @@
           <i-col span="3" offset="1" style="font-size: 23px;margin-top: 30px;"> 欢迎登录
           </i-col>
           <i-col span="2" offset="14" style="font-size:16px;margin-top:60px">
-              已有帐号? &nbsp;<a style="color:red;">请登录</a>
+            已有帐号? &nbsp;
+            <a style="color:red;">请登录</a>
           </i-col>
         </Row>
       </Header>
 
       <div class="content">
         <div>
-          <Card style="margin-top:76px;width:500px;margin-left:auto;margin-right:auto" >
-                <Steps :current="current" style="margin-left:30px">
-                  <Step title="第一步" content="验证手机号"></Step>
-                  <Step title="第二步" content="填写帐号信息"></Step>
-                  <Step title="成功" content="注册成功"></Step>
-                </Steps> 
-                <!-- 验证手机号 -->
-                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==0">
-                  <Form >
-                      <FormItem>
-                      <Input type="text" placeholder="请输入常用手机号" class="phone" clearable size="large">
-                          <span slot="prepend"> 中国+86 </span>
-                      </Input>
-                      </FormItem>
+          <Card style="margin-top:76px;width:500px;margin-left:auto;margin-right:auto">
+            <Steps :current="current" style="margin-left:30px">
+              <Step title="第一步" content="验证手机号"></Step>
+              <Step title="第二步" content="填写帐号信息"></Step>
+              <Step title="成功" content="注册成功"></Step>
+            </Steps>
+            <!-- 验证手机号 -->
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==0">
+              <Form>
+                <FormItem>
+                  <Input type="text" placeholder="请输入常用手机号" class="phone" clearable size="large">
+                  <span slot="prepend"> 中国+86 </span>
+                  </Input>
+                </FormItem>
 
-                      <FormItem>
-                          <Checkbox >
-                              我已阅读并同意<a> <<喜马拉雅用户注册协议和隐私条款>> </a>
-                          </Checkbox>
-                              <Button class='login' @click="next_m">
-                                  下一步
-                              </Button>
-                          <div style="margin-top:15px">
-                              <router-link to="/companyReg"><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">企业用户注册</span></router-link>
-                          </div>
-                      </FormItem>
-                  </Form>
-                </div>
-                <!-- 填写账号信息 -->
-                <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==1">
-                  <Form>
-                      <FormItem style="margin-top:20px">
-                          <Input type="text" size="large" placeholder="设置数字与字母的密码">
-                          <span slot="prepend">设置密码</span>
-                          </Input>
-                      </FormItem>
-                      <FormItem>
-                          <Input type="text" size="large" placeholder="再次输入密码">
-                          <span slot="prepend">确认密码</span>
-                          </Input>
-                      </FormItem>
-                      <FormItem>
-                          <Button class="login" @click="twoStep_m">下一步</Button>
-                      </FormItem>
-                  </Form>
+                <FormItem>
+                  <Checkbox>
+                    我已阅读并同意
+                    <a>
+                      <<喜马拉雅用户注册协议和隐私条款>> </a>
+                  </Checkbox>
+                  <Button class='login' @click="next_m">
+                    下一步
+                  </Button>
                   <div style="margin-top:15px">
-                      <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle"/> <span style="color:black">个人用户注册</span></a>
+                    <router-link to="/companyReg"><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle" />
+                      <span style="color:black">企业用户注册</span>
+                    </router-link>
                   </div>
-                </div>
-                <!-- 注册成功 -->
-                <div style="width:430px;margin-left:auto;margin-right:auto" v-show="current==2">
-                  <img src="../static.huijinjiu.com/personReg/sign.png" style="margin-left:138px;margin-top:40px"/>
-                  <Br />
-                  <Br />
-                  <div style="font-size:16px;text-align:center">
-                      恭喜你成功注册!如不自动跳转请<a style="color:red">点击这里</a>
-                  </div>
-                </div>   
+                </FormItem>
+              </Form>
+            </div>
+            <!-- 填写账号信息 -->
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==1">
+              <Form>
+                <FormItem style="margin-top:20px">
+                  <Input type="text" size="large" placeholder="设置数字与字母的密码">
+                  <span slot="prepend">设置密码</span>
+                  </Input>
+                </FormItem>
+                <FormItem>
+                  <Input type="text" size="large" placeholder="再次输入密码">
+                  <span slot="prepend">确认密码</span>
+                  </Input>
+                </FormItem>
+                <FormItem>
+                  <Button class="login" @click="twoStep_m">下一步</Button>
+                </FormItem>
+              </Form>
+              <div style="margin-top:15px">
+                <a><img src="../static.huijinjiu.com/companyReg/user.png" style="vertical-align:middle" />
+                  <span style="color:black">个人用户注册</span>
+                </a>
+              </div>
+            </div>
+            <!-- 注册成功 -->
+            <div style="width:430px;margin-left:auto;margin-right:auto" v-show="current==2">
+              <img src="../static.huijinjiu.com/personReg/sign.png" style="margin-left:138px;margin-top:40px" />
+              <Br />
+              <Br />
+              <div style="font-size:16px;text-align:center">
+                恭喜你成功注册!如不自动跳转请
+                <a style="color:red">点击这里</a>
+              </div>
+            </div>
           </Card>
-           
+
         </div>
       </div>
-      
+
       <!--脚部-->
       <div class="footer">
         <div style="width:750px;margin-left:auto;margin-right:auto;height:14px">
@@ -130,27 +138,25 @@
 export default {
   data() {
     return {
-      
-      current:0
-    }
+      current: 0
+    };
   },
-    methods: {
-     next_m() {
-        if (this.current == 2) {
-            this.current = 0;
-        } else {
-            this.current += 1;
-        }
-     },
-     twoStep_m() {
-       if (this.current == 2) {
-            this.current = 0;
-        } else {
-            this.current += 1;
-        }
-     },
-     
-   }
+  methods: {
+    next_m() {
+      if (this.current == 2) {
+        this.current = 0;
+      } else {
+        this.current += 1;
+      }
+    },
+    twoStep_m() {
+      if (this.current == 2) {
+        this.current = 0;
+      } else {
+        this.current += 1;
+      }
+    }
+  }
 };
 </script>
 

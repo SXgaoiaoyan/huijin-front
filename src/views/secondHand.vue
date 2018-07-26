@@ -1,5 +1,5 @@
 <template>
-    <div class="mall">
+	<div class="mall">
 		<!--头部-->
 		<div class="header">
 			<Row>
@@ -35,174 +35,34 @@
 			</Row>
 		</div>
 		<div class="content">
-            <!-- 搜索框 -->
-            <div class="search" >
-                <div style="float:left;margin-left:280px">地区</div>
-                <al-selector v-model="resArr" level="2" style="width:500px;float:left;margin-left:20px" size="large"></al-selector>
-                    <Input type="text" placeholder="输入您想搜索的商品" style="padding-top:42px;padding-left:100px;width:700px;" size="large">
-                        <Icon type="search" slot="append"></Icon>
-                    </Input>
-            </div>
-        </div>
-		
-			<div class="goodsList">
-				<!--  -->
-				<div style="display: flex;flex-wrap:wrap;">
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-				</div>
-				<!--  -->
-				<div style="display: flex;flex-wrap:wrap;margin-top:50px">
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-				</div>
-				<!--  -->
-				<div style="display: flex;flex-wrap:wrap;margin-top:50px">
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-					<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px;margin-left:88px">
-						<img src="http://static.huijinjiu.com/secondWine.png" style="margin-left:100px;margin-top:20px"/>
-						<Br />
-						<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">50%原酒 10年</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
-						<Br />
-						<Br />
-						<div style="text-align:center;font-size:18px;color:red">￥68888.00</div>
-						<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
-					</div>
-				</div>
+			<!-- 搜索框 -->
+			<div class="search">
 
+				<Input type="text" v-model="q" placeholder="输入您想搜索的商品" style="padding-top:42px;padding-left:100px;width:700px;" size="large">
+				<Icon type="search" slot="append" @click.native="search"></Icon>
+				</Input>
 			</div>
-		
+		</div>
 
+		<div class="goodsList">
+			<!--  -->
+			<div style="display: flex;flex-wrap:wrap;">
+				<div style="width:258px;height:402px;background:#fcfcfc;border-radius:5px" v-for="(item,index) in list">
+					<img :src="item.unique_good.goods_attr_img" style="margin-left:100px;margin-top:20px;width:100%" />
+					<Br />
+					<div style="text-align:center;font-size:14px;font-weight:blood;margin-top:15px">{{item.unique_good.goods_name}} 10年</div>
+					<Br />
+					<Br />
+					<div style="text-align:center;font-size:12px">浓度50% 5000ml</div>
+					<Br />
+					<Br />
+					<div style="text-align:center;font-size:18px;color:red">￥{{item.price}}</div>
+					<Button style="width:120px;border-radius:20px;background:#f1f1f1;margin-left:70px;margin-top:20px" size="large">查看详情</Button>
+				</div>
+			
+			</div>
+
+		</div>
 
 		<!--脚部-->
 		<div class="footer">
@@ -250,8 +110,28 @@
 export default {
   data() {
     return {
-      resArr: []
+			list: [],
+			page:1,
+			q:''
+
     };
+  },
+  mounted() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+			var self=this
+      this.ajax
+        .get("/api/uniqueGoodMartet",{ params: { page: self.page,q:self.q }})
+        .then(response => {
+						this.list=response.data.markets.data;
+        })
+        .catch(error => {});
+		},
+		search(){
+			this.getList()
+		}
   }
 };
 </script>
@@ -295,11 +175,11 @@ export default {
   line-height: 120px;
   box-shadow: 0 5px 8px #b5b5b5;
 }
- .goodsList{
-	width:1300px;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:50px
+.goodsList {
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 /*脚部*/
 .footer {
@@ -307,7 +187,6 @@ export default {
   height: 248px;
   margin-top: 228px;
   box-shadow: 5px 0 10px #b5b5b5;
-
 }
 .footer ul {
   width: 70px;
