@@ -54,8 +54,8 @@
                                 </td>
                                 <td style="border-left:2px solid #cccccc;text-align:center">
                                     <a>再次购买</a><Br />
-                                    <a>回购</a><Br />
-                                    <a>代售</a>
+                                    <a v-show="i.is_storage==1">回购</a><Br />
+                                    <router-link :to="'/goodsResaleList/'+item.order_sn+'/'+i.id" v-show="i.is_storage==1">转售</router-link>
                                 </td>
                             </tr>
 
