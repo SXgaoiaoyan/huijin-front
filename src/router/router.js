@@ -30,7 +30,7 @@ const routers = [
             },
         ]
     },
-  
+    
     {
 		path: '/companyReg',
 		name: 'companyReg',
@@ -38,7 +38,6 @@ const routers = [
 	        title: '企业注册'
 	    },
         component: (resolve) => require(['../views/companyReg.vue'], resolve),
-        
     },
     {
 		path: '/personReg',
@@ -64,7 +63,24 @@ const routers = [
 	        title: '商品转售'
 	    },
 	    component: (resolve) => require(['../views/goodsresale.vue'], resolve)
-	},
+    },
+    {
+		path: '/resaleUrl',
+		name: 'resaleUrl',
+	    meta: {
+	        title: '转售跳转页'
+	    },
+	    component: (resolve) => require(['../views/resaleUrl.vue'], resolve)
+    },
+    {
+		path: '/buyBack',
+		name: 'buyBack',
+	    meta: {
+	        title: '商品回购'
+	    },
+	    component: (resolve) => require(['../views/buyBack.vue'], resolve)
+    },         
+
     {
 		path: '/immediatepay',
 		name: 'immediatepay',
