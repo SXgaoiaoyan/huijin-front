@@ -136,7 +136,8 @@ export default {
       img: "",
       selectSucess: true,
       order_attr: [],
-      hasStorageArr: []
+      hasStorageArr: [],
+      prouduct:''
     };
   },
   mounted() {
@@ -192,6 +193,7 @@ export default {
             this.img = element.goods_attr_img;
             has = true;
             this.selectSucess = true;
+            this.prouduct=element.id;
           }
         }
       }
@@ -295,10 +297,10 @@ export default {
       var self = this;
 
       var data = {};
-      var dd = JSON.parse(JSON.stringify(this.selects));
+   
       if (this.good.attrs.length > 0) {
         data.good_id = self.good.id;
-        data.spe = dd.sort();
+        data.spe = self.prouduct;
       } else {
         data.good_id = self.good.id;
       }
@@ -325,10 +327,10 @@ export default {
       }
       var self = this;
       var data = {};
-      var dd = JSON.parse(JSON.stringify(this.selects));
+     
       if (this.good.attrs.length > 0) {
         data.good_id = self.good.id;
-        data.spe = dd.sort();
+         data.spe = self.prouduct;
       } else {
         data.good_id = self.good.id;
       }
