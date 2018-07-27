@@ -19,7 +19,7 @@
       <div class="content">
         <div>
           <!--  -->
-          <Card style="margin-top:76px;width:600px;margin-left:auto;margin-right:auto">
+          <Card style="margin-top:76px;width:600px;margin-left:auto;margin-right:auto;">
             <Steps :current="current" style="margin-left:30px">
               <Step title="第一步" content="验证手机号"></Step>
               <Step title="第二步" content="填写帐号信息"></Step>
@@ -27,7 +27,7 @@
               <Step title="成功" content="注册成功"></Step>
             </Steps>
             <!-- 验证手机号 -->
-            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="false">
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==0">
               <Form ref="phoneFormValidate" :model="phoneFormValidate" :rules="phoneRuleValidate">
                 <FormItem prop='phone_d'>
                   <Input type="text" v-model="phoneFormValidate.phone_d" placeholder="请输入常用手机号" style="margin-top:20px" clearable size="large">
@@ -69,15 +69,15 @@
               </Form>
             </div>
             <!-- 填写密码 -->
-            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="false">
+            <div style="width:420px;margin-left:auto;margin-right:auto" v-show="current==1">
               <Form ref="formCustom" :model="formCustom" :rules="ruleCustom">
                 <FormItem prop="passwd">
-                  <Input type="password" v-model="formCustom.passwd">
+                  <Input type="password" style="margin-top:20px" size="large" v-model="formCustom.passwd">
                   <span slot="prepend">设置密码</span>
                   </Input>
                 </FormItem>
                 <FormItem prop="passwdCheck">
-                  <Input type="password" v-model="formCustom.passwdCheck">
+                  <Input type="password" v-model="formCustom.passwdCheck" size="large">
                   <span slot="prepend">确认密码</span>
                   </Input>
                 </FormItem>
@@ -92,17 +92,23 @@
               </div>
             </div>
             <!-- 公司信息 -->
-            <div style="width:430px;margin-left:auto;margin-right:auto;" v-show="true">
+            <div style="width:430px;margin-left:auto;margin-right:auto;" v-show="current==2">
               <Form ref="formCompany" :model="formCompany" :rules="ruleformCompany">
-                <FormItem prop="name">
-                  公司名称: 
-                  <Input type="text" style="width:300px" v-model="formCompany.name">
+                <FormItem prop="name" style="margin-top:20px">
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                      公司名称: 
+                    </i-col>
+                    <i-col span="19">
+                      <Input type="text" style="width:300px" v-model="formCompany.name">
                   </Input>
+                    </i-col>
+                  </Row>
                 </FormItem>
 
                 <FormItem prop="sit">
                   <Row>
-                    <i-col span="5">
+                    <i-col span="5" style="font-size:12px">
                       <div>
                         公司所在地: 
                       </div>
@@ -114,15 +120,23 @@
                 </FormItem>
 
                 <FormItem prop="address">
-                  公司详细地址:
-                  <Input type="text" style="width:300px" v-model="formCompany.address">
-                  </Input>
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                      公司详细地址:
+                    </i-col>
+                    <i-col span="19">
+                      <Input type="text" style="width:300px" v-model="formCompany.address">
+                      </Input>
+                    </i-col>
+                  </Row>
+                 
                 </FormItem>
 
                 <FormItem prop="bussiness_license">
-                  <div style="float:left">
+                  <div style="float:left;line-height:60px;font-size:12px">
                     上传营业执照:
                   </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
                   <div class="demo-upload-list" v-for="item in formCompany.bussiness_license">
                     <template v-if="item.status === 'finished'">
                       <img :src="item.url">
@@ -143,9 +157,10 @@
 
                 </FormItem>
                 <FormItem prop="trademark">
-                  <div style="float:left">
+                  <div style="float:left;line-height:60px;font-size:12px" >
                     上传商标注册证:
                   </div>
+                  &nbsp;
                   <div class="demo-upload-list" v-for="item in formCompany.trademark">
                     <template v-if="item.status === 'finished'">
                       <img :src="item.url">
@@ -169,34 +184,76 @@
                 </FormItem>
 
                 <FormItem prop="people_number">
-                  公司人数: 
-                  <Input type="text" style="width:300px" v-model="formCompany.people_number">
-                  </Input>
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                    公司人数: 
+                    </i-col>
+                    <i-col span="19">
+                      <Input type="text" style="width:300px" v-model="formCompany.people_number">
+                      </Input>
+                    </i-col>
+                  </Row>
+                  
                 </FormItem>
                 <FormItem prop="company_industry">
-                  公司行业: 
-                  <Input type="text" style="width:300px" v-model="formCompany.company_industry">
-                  </Input>
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                      公司行业: 
+                    </i-col>
+                    <i-col span="19">
+                      <Input type="text" style="width:300px" v-model="formCompany.company_industry">
+                      </Input>
+                    </i-col>
+                  </Row>
+                  
                 </FormItem>
                 <FormItem prop="company_nature">
-                  公司性质: 
-                  <Input type="text" style="width:300px" v-model="formCompany.company_nature">
-                  </Input>
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                      公司性质: 
+                    </i-col>
+                    <i-col span="19">
+                       <Input type="text" style="width:300px" v-model="formCompany.company_nature">
+                       </Input>
+                    </i-col>
+                  </Row>
+                 
                 </FormItem>
                 <FormItem prop="business_volume">
-                  公司营业额: 
-                  <Input type="text" style="width:300px" v-model="formCompany.business_volume">
-                  </Input>
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                      公司营业额: 
+                    </i-col>
+                    <i-col span="19">
+                      <Input type="text" style="width:300px" v-model="formCompany.business_volume">
+                      </Input>
+                    </i-col>
+                  </Row>
+                  
                 </FormItem>
                 <FormItem prop="contact_name">
-                  联系人姓名: 
-                  <Input type="text" style="width:300px" v-model="formCompany.contact_name">
-                  </Input>
+                  <Row>
+                    <i-col span="5" style="font-size:12px">
+                        联系人姓名: 
+                    </i-col>
+                    <i-col span="19">
+                        <Input type="text" style="width:300px" v-model="formCompany.contact_name">
+                        </Input>
+                    </i-col>
+                  </Row>
+                  
                 </FormItem>
                 <FormItem prop="section">
+                  <Row>
+                  <i-col span="5" style="font-size:12px">
                   所在部门: 
-                  <Input type="text" style="width:300px" v-model="formCompany.section">
+                  </i-col>
+                  <i-col span="19">
+                     <Input type="text" style="width:300px" v-model="formCompany.section">
                   </Input>
+                  </i-col>
+                  </Row>
+                 
                 </FormItem>
                 <FormItem>
                   <Button class='login' @click="bindCompany('formCompany')">
