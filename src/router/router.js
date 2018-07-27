@@ -65,12 +65,12 @@ const routers = [
 	    component: (resolve) => require(['../views/goodsresale.vue'], resolve)
     },
     {
-		path: '/resaleUrl',
-		name: 'resaleUrl',
+		path: '/resaleList/:order_sn/:order_good_id',
+		name: 'resaleList',
 	    meta: {
 	        title: '转售跳转页'
 	    },
-	    component: (resolve) => require(['../views/resaleUrl.vue'], resolve)
+	    component: (resolve) => require(['../views/resaleList.vue'], resolve)
     },
     {
 		path: '/buyBack',

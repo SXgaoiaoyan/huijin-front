@@ -56,7 +56,7 @@
             </Sider>
             <Layout>
                 <!-- 头部 -->
-                <div class="header">                                                                                                                                            
+                <div class="header">
                     <Row>
                         <i-col span="3" style="padding-left:32px">
                             <img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
@@ -88,72 +88,101 @@
                         <i-col span="5">&nbsp;</i-col>
                     </Row>
                 </div>
-            <Row>
-                <i-col span="22" class="content">
-                    <div style="margin-left:20px;margin-top:50px;font-size:16px">选择转售商品</div>
-                    <table style="width:100%;padding:16px;border-collapse:collapse;margin-top:15px">
-                        <tr style="height:35px;color:#a7a7a7;background:#f5f5f5;">
-                            <td style="padding-left:20px">时间</td>
-                            <td>订单详情</td>
-                            <td style="text-align:center">收货人</td>
-                            <td style="text-align:center">金额</td>
-                            <td style="text-align:center">全部状态</td>
-                            <td style="text-align:center">操作</td>
-                        </tr>
-                        <Br />
-                        <tbody style="width:100%" >
-                            <tr style="height:35px;color:#7e7e7e;background:#f5f5f5;">
-                                <td style="padding-left:20px" colspan="6">2018-05-16</td>
+                <Row>
+                    <i-col span="22" class="content">
+                        <div style="margin-left:20px;margin-top:50px;font-size:16px">选择转售商品</div>
+                        <table style="width:100%;padding:16px;border-collapse:collapse;margin-top:15px">
+                            <tr style="height:35px;color:#a7a7a7;background:#f5f5f5;" >
+                                <td style="padding-left:20px">时间</td>
+                                <td>订单详情</td>
+                                <td style="text-align:center">收货人</td>
+                                <td style="text-align:center">金额</td>
+                                <td style="text-align:center">全部状态</td>
+                                <td style="text-align:center">操作</td>
                             </tr>
-                            <!-- 已完成 -->
-                            <tr style="height:95px;" >
-                                <td>
-                                    <div style="width:60px;height:60px;margin-left:20px;float:left;background:#000">
-                                        <!-- <img :src="i.goods_img+'?imageView2/1/w/100/h/100'" style="width:100%"> -->
-                                    </div>
-                                    <div style="flaot:left;margin-left:90px" > 
-                                        <span>北京汇金杏林酒业</span><Br />
-                                        <span>官方商品</span>
-                                    </div>
-                                </td>
-                                <td >
-                                    X1
-                                </td>
-                                <td style="border-left:2px solid #cccccc;text-align:center">
-                                    阿甘<Br />
-                                    ID: 142***789
-                                </td>
-                                <td style="border-left:2px solid #cccccc;text-align:center">
-                                    总额<Br />
-                                    ￥745632.00<Br />
-                                    在线支付
-                                </td>
-                                <td style="border-left:2px solid #cccccc;text-align:center">
-                                    未转售<Br /><Br />
-                                    <a>订单详情</a>
-                                </td>
-                                <td style="border-left:2px solid #cccccc;text-align:center">
-                                    <!-- <a v-show="i.is_storage==1">回购</a><Br /> -->
-                                    <!-- <router-link :to="'/goodsResaleList/'+item.order_sn+'/'+i.id" v-show="i.is_storage==1">转售</router-link> -->
-                                    <a>回购</a><Br /><Br />
-                                    <a>转售</a>
+                            <Br />
+                            <tbody style="width:100%">
+                                <tr style="height:35px;color:#7e7e7e;background:#f5f5f5;">
+                                    <td style="padding-left:20px" colspan="6">2018-05-16</td>
+                                </tr>
+                                <!-- 已完成 -->
+                                <tr style="height:95px;" v-for="(item,index) in uniqueList">
+                                    <td>
+                                        <div style="width:60px;height:60px;margin-left:20px;float:left;background:#000">
+                                            <!-- <img :src="i.goods_img+'?imageView2/1/w/100/h/100'" style="width:100%"> -->
+                                        </div>
+                                        <div style="flaot:left;margin-left:90px">
+                                            <span>{{item.unique_good.goods_name}}</span>
+                                            <Br />
+                                            <span>官方商品</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        X1
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        阿甘
+                                        <Br /> ID: 142***789
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        总额
+                                        <Br /> ￥745632.00
+                                        <Br /> 在线支付
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                        未转售
+                                        <Br />
+                                        <Br />
+                                        <a>订单详情</a>
+                                    </td>
+                                    <td style="border-left:2px solid #cccccc;text-align:center">
+                                     
+                                        <a>回购</a>
+                                        <Br />
+                                        <Br />
+                                        <router-link :to="'/secondHand/'+$route.params.order_sn+'/'+item.order_good_id+'/'+item.unique_good_id" >转售</router-link>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
 
-                        </tbody>
-                    </table>
-                </i-col>
-            </Row>
-                </Layout>
+                            </tbody>
+                        </table>
+                    </i-col>
+                </Row>
+            </Layout>
         </Layout>
-        </div>
+    </div>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+        uniqueList:[],
+    };
+  },
+  mounted() {
+    this.index();
+  },
+  methods: {
+    index() {
+      var self = this;
+      this.ajax
+        .get("/api/orderGoodgetUniqueGood", {
+          params: { order_good_id: self.$route.params.order_good_id }
+        })
+        .then(function(res) {
+          self.uniqueList = res.data.goods.data;
+          console.log(self.uniqueList)
+        })
+        .catch(function(err) {
+          if (err.status_code == 404) {
+            alert(err.message);
+          }
+        });
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -221,7 +250,7 @@ export default {
 .header ul li:hover {
   border-bottom: 4px solid #a8d3fe;
 }
-    .content {
+.content {
   background: url(http://static.huijinjiu.com/diwen.png) no-repeat;
   background-size: 100% 100%;
   margin-top: 10px;
