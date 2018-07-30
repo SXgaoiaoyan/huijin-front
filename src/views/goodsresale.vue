@@ -95,15 +95,62 @@
                             转售商品信息
                         </div>
                         <div style="width:600px;margin-left:150px;margin-top:20px;letter-spacing;1px;line-height:40px;">
+                            <!-- 添加账户 -->
+                            <Card style="width:950px;margin-left:auto;margin-right:auto;padding-left:55px;padding-top:55px;position:fixed;z-index:999" v-show="account_d">
+                                <table >
+                                    <tr>
+                                        <td style="text-align:center">提现金额</td>
+                                        <td>
+                                            <Input type="text" style="width:300px" placeholder="请输入提现金额"></Input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center">真实姓名</td>
+                                        <td>
+                                            <Input type="text" style="width:300px" placeholder="请输入真实姓名"></Input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center">开户银行/支付宝</td>
+                                        <td>
+                                            <Input type="text" style="width:300px" placeholder="选择您要收款的银行名称"></Input>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td style="text-align:center">银行账号/支付宝账号</td>
+                                        <td>
+                                            <Input type="text" style="width:300px" placeholder="请输入您的账户号码"></Input>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td style="text-align:center">手机号</td>
+                                        <td>
+                                            <Input type="text" style="width:300px" placeholder="请输入手机号"></Input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center">会员备注</td>
+                                        <td>
+                                            <Input type="textarea" style="width:300px" :rows="5"></Input>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <Button style="width:124px;background:#fd706e;border:1px solid fe4947;color:white">确认添加</Button>
+                                <Button style="width:124px;background:#fd706e;border:1px solid fe4947;color:white">重置修改</Button>
+                            </Card>
                             商品名称: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="商品名称不超过30个字"></Input><Br />
-                            商品ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="请输入商品ID"></Input><Br />
                             生产日期: &nbsp;&nbsp;&nbsp;2013年1月1日 <Br />
                             产品规格: &nbsp;&nbsp;&nbsp;500ml
                             产品浓度: &nbsp;&nbsp;&nbsp;50° <Br />
                             产品类型: &nbsp;&nbsp;&nbsp;收藏版 原酒
                             产品年限: &nbsp;&nbsp;&nbsp;10年 <Br />
                             商品描述: &nbsp;&nbsp;&nbsp;<Input type="textarea" style="width:300px"></Input><Br />
-                            收款方式: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="现金结算(收取服务费)"></Input> 服务说明 <a>查看说明>></a> <Br />
+                            收款方式: &nbsp;&nbsp;
+                                <Select style="width:150px">
+                                    <Option value="余额"></Option>
+                                </Select>
+                                <Button style="background:red;color:white;width:120px;margin-left:25px" @click="addAccount_m">添加账户</Button>
+                                 服务说明 <a>查看说明>></a> <Br />
                             商品价格: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" ></Input><Br />
                             商品图片: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px;letter-spacing:2px" placeholder="请上传商品的亮点图片,吸引买家更快下单."></Input><Br />
                                 <!-- 图片上传 -->
@@ -139,6 +186,7 @@
                             <Modal title="View Image" v-model="visible">
                                 <img :src="'https://o5wwk8baw.qnssl.com/' + imgName + '/large'" v-if="visible" style="width: 100%">
                             </Modal>
+                            
                         </div>
 
                         <div style="margin-top:30px;font-size:16px;font-weight:bold;border:1px solid #b4b2b3;height:34px;line-height:34px;text-indent:1em">
@@ -160,10 +208,15 @@ export default {
     return {
       imgName: "",
       visible: false,
-      uploadList: []
+      uploadList: [],
+      account_d:false
     };
   },
   methods: {
+    addAccount_m() {
+    //   console.log(1);
+        this.account_d = true
+    },
     handleView(name) {
       this.imgName = name;
       this.visible = true;
@@ -314,6 +367,17 @@ export default {
   font-size: 20px;
   cursor: pointer;
   margin: 0 2px;
+}
+.content table {
+  border: 2px solid #dddddd;
+  border-collapse: collapse;
+  width:750px;
+}
+.content table tr td{
+    border:1px solid #dddddd;
+}
+.content table tr td:last-child {
+    padding-left:30px
 }
 </style>
 
