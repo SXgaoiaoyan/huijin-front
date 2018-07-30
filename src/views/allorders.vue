@@ -55,7 +55,7 @@
                                 <td style="border-left:2px solid #cccccc;text-align:center">
                                     <a>再次购买</a><Br />
                                     <a v-show="i.is_storage==1">回购</a><Br />
-                                    <router-link :to="'/goodsResaleList/'+item.order_sn+'/'+i.id" v-show="i.is_storage==1">转售</router-link>
+                                    <router-link :to="'/resaleList/'+item.order_sn+'/'+i.id" v-show="i.is_storage==1">转售</router-link>
                                 </td>
                             </tr>
 
@@ -160,7 +160,7 @@ export default {
         .get("/api/order", { params: { page: self.page } })
         .then(function(res) {
           console.log(res.data.orders);
-          self.orderlist = res.data.orders;
+          self.orderlist = res.data.orders.data;
         })
         .catch(function(err) {
           if (err.status_code == 404) {
