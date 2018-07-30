@@ -101,8 +101,8 @@ export default {
 .sider .bk {
   width: 100%;
   height: 100%;
-  background: url(../static.huijinjiu.com/personal/head.png) no-repeat center;
-  margin-top: 102px;
+  border-radius: 100%;
+  /* margin-top: 102px; */
 }
 .sider .col1 {
   color: #000000;
@@ -116,7 +116,7 @@ export default {
   margin-top: 9px;
 }
 .sider ul {
-  margin-top: 40px;
+  margin-top: 100px;
 }
 .sider ul li {
   list-style: none;

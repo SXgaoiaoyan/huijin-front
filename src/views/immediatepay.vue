@@ -1,139 +1,51 @@
 <template>
-    <div class="layout">
-        <Layout>
-            <!-- 侧边栏 -->
-            <Sider class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
-                <Row>
-                    <i-col span="19" offset="2">
-                        <img src="../static.huijinjiu.com/personal/headborder.png" class="bk" />
-                    </i-col>
-                    <i-col span="3">&nbsp;</i-col>
-                </Row>
-
-                <Row>
-                    <i-col span="18" offset="3" class="col1">
-                        用户名六个字
-                    </i-col>
-                    <i-col span="3">&nbsp;</i-col>
-                </Row>
-
-                <Row>
-                    <i-col span="13" offset="5" class="col2">
-                        ID:12032123
-                    </i-col>
-                    <i-col span="6">&nbsp;</i-col>
-                </Row>
-                <div class="bottom">
-                    <Row>
-                        <i-col span="11" offset="7">
-                            <ul>
-                                <li>
-                                    <a href="">个人资料</a>
-                                </li>
-                                <li>
-                                    <a href="">我的酒窖</a>
-                                </li>
-                                <li>
-                                    <a href="">全部订单</a>
-                                </li>
-                                <li>
-                                    <a href="">我的主页</a>
-                                </li>
-                                <li>
-                                    <a href="">我的收藏</a>
-                                </li>
-                                <li>
-                                    <a href="">我的购物车</a>
-                                </li>
-                                <li>
-                                    <a href="">退出/切换</a>
-                                </li>
-                            </ul>
-                        </i-col>
-                        <i-col span="6"></i-col>
-                    </Row>
+        <div>
+            <Row>
+            <i-col span="22"  class="content">
+                <div style="height:95px;border-bottom:4px solid #4a5b77;padding:45px;font-weight:bold">
+                    <span style="float:left">提交订单</span>
+                    <img style="float:right" src="../static.huijinjiu.com/submitorder/web2.png" />
                 </div>
-            </Sider>
-            <Layout>
-                <!-- 头部 -->
-                <div class="header">                                                                                                                                            
-                    <Row>
-                        <i-col span="3" style="padding-left:32px">
-                            <img src="../static.huijinjiu.com/personal/LOGO.png" class="logo" />
-                        </i-col>
-                        <i-col span="13" offset="3">
-                            <ul>
-                                <i-col span="6">
-                                    <li>
-                                        <a href="">商城首页</a>
-                                    </li>
-                                </i-col>
-                                <i-col span="6">
-                                    <li>
-                                        <a href="">最新资讯</a>
-                                    </li>
-                                </i-col>
-                                <i-col span="6">
-                                    <li>
-                                        <a href="">酒品分类</a>
-                                    </li>
-                                </i-col>
-                                <i-col span="6">
-                                    <li>
-                                        <a href="">个人中心</a>
-                                    </li>
-                                </i-col>
-                            </ul>
-                        </i-col>
-                        <i-col span="5">&nbsp;</i-col>
-                    </Row>
+                <!-- 渲染的数据 -->
+                <div style="font-size:16px;margin-left:46px">订单编号:1436543654</div>
+                <div v-for="i in ordershow">
+                    <!-- 订单编号 -->
+                    <!-- 收货人 -->
+                    <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;border-bottom:1px solid #bfbfbf">
+                        <div style="font-size:17px;float:left">
+                        收货人
+                        </div>
+                        <div style="padding:4px;width:400px;line-height:30px;margin-left:160px;border:1px solid #b1c1e2;font-size:15px">
+                            {{i.consignee}} &nbsp;&nbsp; {{areaData[i.country][i.province]+areaData[i.province][i.city]+areaData[i.city][i.district]+areaData[i.district][i.street]}}&nbsp;&nbsp;{{i.mobile}}
+                        </div>
+                    </div>
+                    <!-- 配送方式 -->
+                    <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;border-bottom:1px solid #bfbfbf">
+                        <div style="font-size:17px;float:left">
+                        配送方式
+                        </div>
+                        <div style="width:250px;line-height:30px;margin-left:160px;font-size:15px">
+                            申通快递 &nbsp;&nbsp;运费 &nbsp;¥ 800.00
+                        </div>
+                    </div>
+                    <!-- 发票信息 -->
+                    <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;">
+                        <div style="font-size:17px;float:left">
+                        发票信息
+                        </div>
+                        <div style="width:250px;line-height:30px;margin-left:160px;font-size:15px">
+                            普通发票 &nbsp;&nbsp;(电子) &nbsp;&nbsp;个人发票 &nbsp;&nbsp;<a>查看</a>
+                        </div>
+                    </div>
                 </div>
-                <!-- 中部内容 -->
-                 <Row>
-                    <i-col span="22"  class="content">
-                        <div style="height:95px;border-bottom:4px solid #4a5b77;padding:45px;font-weight:bold">
-                           <span style="float:left">提交订单</span>
-                            <img style="float:right" src="../static.huijinjiu.com/submitorder/web2.png" />
-                        </div>
-                        <!-- 渲染的数据 -->
-                        <div v-for="i in ordershow">
-                            <!-- 收货人 -->
-                            <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;border-bottom:1px solid #bfbfbf">
-                                <div style="font-size:17px;float:left">
-                                收货人
-                                </div>
-                                <div style="padding:4px;width:400px;line-height:30px;margin-left:160px;border:1px solid #b1c1e2;font-size:15px">
-                                    {{i.consignee}} &nbsp;&nbsp; {{areaData[i.country][i.province]+areaData[i.province][i.city]+areaData[i.city][i.district]+areaData[i.district][i.street]}}&nbsp;&nbsp;{{i.mobile}}
-                                </div>
-                            </div>
-                            <!-- 配送方式 -->
-                            <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;border-bottom:1px solid #bfbfbf">
-                                <div style="font-size:17px;float:left">
-                                配送方式
-                                </div>
-                                <div style="width:250px;line-height:30px;margin-left:160px;font-size:15px">
-                                    申通快递 &nbsp;&nbsp;运费 &nbsp;¥ 800.00
-                                </div>
-                            </div>
-                            <!-- 发票信息 -->
-                            <div style="width:100%;padding-left:46px;margin-top:40px;height:50px;">
-                                <div style="font-size:17px;float:left">
-                                发票信息
-                                </div>
-                                <div style="width:250px;line-height:30px;margin-left:160px;font-size:15px">
-                                    普通发票 &nbsp;&nbsp;(电子) &nbsp;&nbsp;个人发票 &nbsp;&nbsp;<a>查看</a>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div style="margin-top:50px;margin-left:46px">
-                            <Button style="font-size:20px;color:white;background:#fe706e;border-color:#ff4948;" @click="payment">立即付款</Button>
-                        </div>
-                    </i-col>
-                    <!-- <i-col span="2">&nbsp;</i-col> -->
-                </Row>
-            </Layout>
-        </Layout>
+                <div style="margin-top:50px;margin-left:46px">
+                    <Button style="font-size:20px;color:white;background:#fe706e;border-color:#ff4948;" @click="payment">立即付款</Button>
+                </div>
+            </i-col>
+            <!-- <i-col span="2">&nbsp;</i-col> -->
+        </Row>
+
     </div>
 </template>
 
