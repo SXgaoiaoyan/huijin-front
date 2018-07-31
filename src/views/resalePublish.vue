@@ -1,108 +1,108 @@
 <template>
-    <div class="layout">
-        <Layout>
+  <div class="layout">
+    <Layout>
 
-            <!-- 中部内容 -->
-            <Row>
-                <i-col span="22" class="content">
-                    <div style="font-size:16px;font-weight:bold;border:1px solid #b4b2b3;height:34px;line-height:34px;text-indent:1em">
-                        转售商品信息
-                    </div>
-                    <div style="width:600px;margin-left:150px;margin-top:20px;letter-spacing;1px;line-height:40px;">
-                        <!-- 添加账户 -->
-                        <Card style="width:950px;margin-left:auto;margin-right:auto;padding-left:55px;padding-top:55px;position:fixed;z-index:999" v-show="account_d">
-                            <table>
-                                <tr>
-                                    <td style="text-align:center">真实姓名</td>
-                                    <td>
-                                        <Input type="text" style="width:300px" placeholder="请输入真实姓名" v-model="creditedAccount.real_name"></Input>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align:center">开户银行/支付宝</td>
-                                    <td>
-                                        <Input type="text" style="width:300px" placeholder="选择您要收款的银行名称" v-model="creditedAccount.deposit_bank"></Input>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align:center">银行账号/支付宝账号</td>
-                                    <td>
-                                        <Input type="text" style="width:300px" placeholder="请输入您的账户号码" v-model="creditedAccount.account_number"></Input>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align:center">手机号</td>
-                                    <td>
-                                        <Input type="text" style="width:300px" placeholder="请输入手机号" v-model="creditedAccount.phone"></Input>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align:center">会员备注</td>
-                                    <td>
-                                        <Input type="textarea" style="width:300px" :rows="5" v-model="creditedAccount.notice"></Input>
-                                    </td>
-                                </tr>
-                            </table>
-                            <Button style="width:124px;background:#fd706e;border:1px solid fe4947;color:white" @click="createCreditedAccount">确认添加</Button>
-                            <Button style="width:124px;background:#fd706e;border:1px solid fe4947;color:white">重置修改</Button>
-                        </Card>
-                        商品名称: {{unique.goods_name}}
+      <!-- 中部内容 -->
+      <Row>
+        <i-col span="22" class="content">
+          <div style="font-size:16px;font-weight:bold;border:1px solid #b4b2b3;height:34px;line-height:34px;text-indent:1em">
+            转售商品信息
+          </div>
+          <div style="width:600px;margin-left:150px;margin-top:20px;letter-spacing;1px;line-height:40px;">
+            <!-- 添加账户 -->
+            <Card style="width:950px;margin-left:auto;margin-right:auto;padding-left:55px;padding-top:55px;position:fixed;z-index:999" v-show="account_d">
+              <table>
+                <tr>
+                  <td style="text-align:center">真实姓名</td>
+                  <td>
+                    <Input type="text" style="width:300px" placeholder="请输入真实姓名" v-model="creditedAccount.real_name"></Input>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:center">开户银行/支付宝</td>
+                  <td>
+                    <Input type="text" style="width:300px" placeholder="选择您要收款的银行名称" v-model="creditedAccount.deposit_bank"></Input>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:center">银行账号/支付宝账号</td>
+                  <td>
+                    <Input type="text" style="width:300px" placeholder="请输入您的账户号码" v-model="creditedAccount.account_number"></Input>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:center">手机号</td>
+                  <td>
+                    <Input type="text" style="width:300px" placeholder="请输入手机号" v-model="creditedAccount.phone"></Input>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:center">会员备注</td>
+                  <td>
+                    <Input type="textarea" style="width:300px" :rows="5" v-model="creditedAccount.notice"></Input>
+                  </td>
+                </tr>
+              </table>
+              <Button style="width:124px;background:#fd706e;border:1px solid fe4947;color:white" @click="createCreditedAccount">确认添加</Button>
+              <Button style="width:124px;background:#fd706e;border:1px solid fe4947;color:white">重置修改</Button>
+            </Card>
+            商品名称: {{unique.goods_name}}
 
-                        <Br /> 生产日期: &nbsp;&nbsp;&nbsp;2013年1月1日
-                        <Br /> 产品规格: &nbsp;&nbsp;&nbsp;500ml 产品浓度: &nbsp;&nbsp;&nbsp;50°
-                        <Br /> 产品类型: &nbsp;&nbsp;&nbsp;收藏版 原酒 产品年限: &nbsp;&nbsp;&nbsp;10年
-                        <Br /> 商品描述: &nbsp;&nbsp;&nbsp;
-                        <Input type="textarea" style="width:300px" v-model="formdata.introduction"></Input>
-                        <Br /> 收款方式: &nbsp;&nbsp;
-                        <Select style="width:150px">
-                            <Option value="余额"></Option>
-                        </Select>
-                        <Button style="background:red;color:white;width:120px;margin-left:25px" @click="addAccount_m">添加账户</Button>
-                        服务说明
-                        <a>查看说明>></a>
-                        <Br /> 商品价格: &nbsp;&nbsp;&nbsp;
-                        <Input type="text" style="width:300px" v-model="formdata.price"></Input>
-                        <Br /> 商品图片: &nbsp;&nbsp;&nbsp;
-                        <Input type="text" style="width:300px;letter-spacing:2px" placeholder="请上传商品的亮点图片,吸引买家更快下单."></Input>
-                        <Br />
-                        <!-- 图片上传 -->
-                        <div class="demo-upload-list" v-for="item in uploadList">
-                            <template v-if="item.status === 'finished'">
-                                <img :src="item.url">
-                                <div class="demo-upload-list-cover">
-                                    <Icon type="ios-eye-outline" @click.native="handleView(item.name)"></Icon>
-                                    <Icon type="ios-trash-outline" @click.native="handleRemove(item)"></Icon>
-                                </div>
-                            </template>
-                            <template v-else>
-                                <Progress v-if="item.showProgress" :percent="item.percentage" hide-info></Progress>
-                            </template>
-                        </div>
-                        <Upload ref="upload" :show-upload-list="false" :on-success="handleSuccess" :format="['jpg','jpeg','png']" :max-size="2048" :on-format-error="handleFormatError" :on-exceeded-size="handleMaxSize" :before-upload="handleBeforeUpload" multiple type="drag" action="//jsonplaceholder.typicode.com/posts/" style="display: inline-block;width:200px;height:100px;margin-left:84px">
-                            <div style="width: 200px;height:100px;line-height: 100px;">
-                                <Icon type="camera" size="30"></Icon>
-                            </div>
-                        </Upload>
-                        <Modal title="View Image" v-model="visible">
-                            <img :src="'https://o5wwk8baw.qnssl.com/' + imgName + '/large'" v-if="visible" style="width: 100%">
-                        </Modal>
+            <Br /> 生产日期: &nbsp;&nbsp;&nbsp;2013年1月1日
+            <Br /> 产品规格: &nbsp;&nbsp;&nbsp;500ml 产品浓度: &nbsp;&nbsp;&nbsp;50°
+            <Br /> 产品类型: &nbsp;&nbsp;&nbsp;收藏版 原酒 产品年限: &nbsp;&nbsp;&nbsp;10年
+            <Br /> 商品描述: &nbsp;&nbsp;&nbsp;
+            <Input type="textarea" style="width:300px" v-model="formdata.introduction"></Input>
+            <Br /> 收款方式: &nbsp;&nbsp;
+            <Select style="width:150px"  v-model="selectAccount">
+              <Option v-for="item in accountList" :value="item.id" :key="item.id">{{item.deposit_bank+item.account_number}}</Option>
+            </Select>
+            <Button style="background:red;color:white;width:120px;margin-left:25px" @click="addAccount_m">添加账户</Button>
+            服务说明
+            <a>查看说明>></a>
+            <Br /> 商品价格: &nbsp;&nbsp;&nbsp;
+            <Input type="text" style="width:300px" v-model="formdata.price"></Input>
+            <Br /> 商品图片: &nbsp;&nbsp;&nbsp;
+            <Input type="text" style="width:300px;letter-spacing:2px" placeholder="请上传商品的亮点图片,吸引买家更快下单."></Input>
+            <Br />
+            <!-- 图片上传 -->
+            <div class="demo-upload-list" v-for="item in uploadList">
+              <template v-if="item.status === 'finished'">
+                <img :src="item.url">
+                <div class="demo-upload-list-cover">
+                  <Icon type="ios-eye-outline" @click.native="handleView(item.name)"></Icon>
+                  <Icon type="ios-trash-outline" @click.native="handleRemove(item)"></Icon>
+                </div>
+              </template>
+              <template v-else>
+                <Progress v-if="item.showProgress" :percent="item.percentage" hide-info></Progress>
+              </template>
+            </div>
+            <Upload ref="upload" :show-upload-list="false" :on-success="handleSuccess" :format="['jpg','jpeg','png']" :max-size="2048" :on-format-error="handleFormatError" :on-exceeded-size="handleMaxSize" :before-upload="handleBeforeUpload" multiple type="drag" action="//jsonplaceholder.typicode.com/posts/" style="display: inline-block;width:200px;height:100px;margin-left:84px">
+              <div style="width: 200px;height:100px;line-height: 100px;">
+                <Icon type="camera" size="30"></Icon>
+              </div>
+            </Upload>
+            <Modal title="View Image" v-model="visible">
+              <img :src="'https://o5wwk8baw.qnssl.com/' + imgName + '/large'" v-if="visible" style="width: 100%">
+            </Modal>
 
-                    </div>
+          </div>
 
-                    <div style="margin-top:30px;font-size:16px;font-weight:bold;border:1px solid #b4b2b3;height:34px;line-height:34px;text-indent:1em">
-                        卖家联系方式
-                    </div>
-                    <div style="margin-left:150px;margin-top:10px">
-                        卖家手机号: &nbsp;&nbsp;&nbsp;
-                        <Input type="text" style="width:300px" placeholder="" v-model="formdata.sale_user_phone"></Input>
-                        <Br />
-                    </div>
-                    <Button style="margin-top:10px;margin-left:252px;width:120px;background:#ff2d24;color:white">发布</Button>
-                </i-col>
-            </Row>
+          <div style="margin-top:30px;font-size:16px;font-weight:bold;border:1px solid #b4b2b3;height:34px;line-height:34px;text-indent:1em">
+            卖家联系方式
+          </div>
+          <div style="margin-left:150px;margin-top:10px">
+            卖家手机号: &nbsp;&nbsp;&nbsp;
+            <Input type="text" style="width:300px" placeholder="" v-model="formdata.sale_user_phone"></Input>
+            <Br />
+          </div>
+          <Button style="margin-top:10px;margin-left:252px;width:120px;background:#ff2d24;color:white">发布</Button>
+        </i-col>
+      </Row>
 
-        </Layout>
-    </div>
+    </Layout>
+  </div>
 </template>
 <script>
 export default {
@@ -124,12 +124,15 @@ export default {
         account_number: "",
         phone: "",
         notice: ""
-      }
+      },
+      accountList:'',
+      selectAccount:''
     };
   },
   mounted() {
     this.uploadList = this.$refs.upload.fileList;
     this.getUnique();
+    this.getAccount();
   },
   methods: {
     getUnique() {
@@ -146,12 +149,24 @@ export default {
           }
         });
     },
+    getAccount() {
+      var self = this;
+      this.ajax
+        .get("/api/ownerCreditedAccount")
+        .then(function(res) {
+          console.log(res.data);
+          self.accountList=res.data.account
+        })
+        .catch(function(err) {
+          if (err.status_code == 422) {
+            alert(err.message);
+          }
+        });
+    },
     createCreditedAccount() {
       var self = this;
       this.ajax
-        .post("/api/UserCreditedAccount",
-            self.creditedAccount
-        )
+        .post("/api/UserCreditedAccount", self.creditedAccount)
         .then(function(res) {
           console.log(res.data);
         })
