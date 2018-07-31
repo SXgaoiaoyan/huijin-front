@@ -140,7 +140,7 @@
                                         <a>回购</a>
                                         <Br />
                                         <Br />
-                                        <router-link :to="'/secondHand/'+$route.params.order_sn+'/'+item.order_good_id+'/'+item.unique_good_id" >转售</router-link>
+                                        <router-link :to="'/resalePublish/'+$route.params.order_sn+'/'+item.order_good_id+'/'+item.unique_good_id" >转售</router-link>
 
                                     </td>
                                 </tr>

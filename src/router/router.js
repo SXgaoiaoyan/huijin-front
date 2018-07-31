@@ -29,6 +29,7 @@ const routers = [
                     { path: '/changePhone', title: '更改绑定', name: 'changePhone', component: (resolve) => require(['../views/changePhone.vue'], resolve) },    
                     { path: '/myAccount', title: '我的账户', name: 'myAccount', component: (resolve) => require(['../views/myAccount.vue'], resolve) },    
                     { path: '/immediatepay', title: '立即付款', name: 'immediatepay', component: (resolve) => require(['../views/immediatepay.vue'], resolve) },    
+                    {path: '/resalePublish/:order_sn/:order_good_id/:unique_good_id',name: 'resalePublish',component: (resolve) => require(['../views/resalePublish.vue'], resolve)},
                 ]
             },
         ]
@@ -59,14 +60,7 @@ const routers = [
 	    component: (resolve) => require(['../views/paycallback.vue'], resolve)
     },
    
-    {
-		path: '/goodsresale',
-		name: 'goodsresale',
-	    meta: {
-	        title: '商品转售'
-	    },
-	    component: (resolve) => require(['../views/goodsresale.vue'], resolve)
-    },
+   
     {
 		path: '/resaleList/:order_sn/:order_good_id',
 		name: 'resaleList',
@@ -92,14 +86,7 @@ const routers = [
 	    component: (resolve) => require(['../views/buyBack.vue'], resolve)
     },         
 
-    {
-		path: '/immediatepay',
-		name: 'immediatepay',
-	    meta: {
-	        title: '立即付款'
-	    },
-	    component: (resolve) => require(['../views/immediatepay.vue'], resolve)
-	},
+ 
     
 	{
         path: '/secondHand',
