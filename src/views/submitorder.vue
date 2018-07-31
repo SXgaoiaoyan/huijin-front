@@ -1,5 +1,5 @@
 <<template>
-    <div>
+    <div style="margin-left:160px">
                 <!-- 内容 -->
                 <Row>
                     <i-col span="22"  class="content">

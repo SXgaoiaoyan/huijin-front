@@ -1,10 +1,10 @@
 <template>
-    <div >
+    <div style="margin-left:160px">
         <!--中部内容-->
-         <div  class="content">
+         <div  >
             <Row>
                 <!--主题图-->
-                <i-col span="20" style="margin-left:32px;" >
+                <i-col span="20" class="content" style="margin-left:32px;" >
                     <div class="zt">
                         <!--个人主页的英文-->
                         <div class="eg">
@@ -27,13 +27,13 @@
                     </div>
                 </i-col>
                 <!--分享按钮-->
-                <i-col span="2">
-                    <button type="button" class="fx"></button>
+                <i-col span="3">
+                    <Button class="fx"></Button>
                 </i-col>
-                <i-col span="2">&nbsp;</i-col>
+                <!-- <i-col span="2">&nbsp;</i-col> -->
             </Row>
         </div>
-
+        <Row>
         <!--酒图-->
         <i-col span="20" class="footer">
             <!--头像图片-->
@@ -160,6 +160,7 @@
 
         </i-col>
         <i-col span="4">&nbsp;</i-col>
+        </Row>
     </div>
 </template>
 <script>
@@ -175,6 +176,7 @@ export default {
 .content {
   height: 300px;
   margin-top: 12px;
+  float:left
 }
 
 .content .zt {
@@ -193,7 +195,7 @@ export default {
 .content .cn {
   font-size: 17px;
 }
-.content .fx {
+ .fx {
   width: 80px;
   height: 80px;
   background: url(../static.huijinjiu.com/personal/share.png) no-repeat center;

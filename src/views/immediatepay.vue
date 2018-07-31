@@ -1,6 +1,6 @@
 <template>
-        <div>
-            <Row>
+    <div style="margin-left:160px">
+        <Row>
             <i-col span="22"  class="content">
                 <div style="height:95px;border-bottom:4px solid #4a5b77;padding:45px;font-weight:bold">
                     <span style="float:left">提交订单</span>

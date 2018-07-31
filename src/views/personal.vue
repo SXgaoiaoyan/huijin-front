@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Layout>
+    <!-- <Layout> -->
       <!--侧边栏-->
       <Sider  class="sider" hide-trigger style="width:150px;min-width:150px;max-width:150px;flex:0 0 150px">
         <div>
@@ -22,10 +22,10 @@
               <i-col span="11" offset="7">
                 <ul>
                   <li>
-                    <router-link to="/personaldata">个人资料</router-link>
+                    <router-link to="/personaldata" style="cursor:pointer">个人资料</router-link>
                   </li>
                   <li>
-                    我的酒窖
+                    <router-link to="/myCellar">我的酒窖</router-link>
                   </li>
                   <li>
                     <router-link to="/allorders">全部订单</router-link>
@@ -52,15 +52,15 @@
           </div>
         </div>
       </Sider>
-      <Layout>
+      <!-- <Layout> -->
       
         <transition >
           <router-view></router-view>
         </transition>
 
-      </Layout>
+      <!-- </Layout> -->
     
-    </Layout>
+    <!-- </Layout> -->
   </div>
 </template>
 <script>
@@ -94,9 +94,10 @@ export default {
 
 /*侧边栏*/
 .sider {
-  height:1450px;
+  height:900px;
   background: url(../static.huijinjiu.com/personal/siderImg.png) no-repeat;
   background-size: 100% 100%;
+  position:absolute;
 }
 .sider .bk {
   width: 100%;

@@ -28,6 +28,7 @@ const routers = [
                     { path: '/submitorder', title: '提交订单', name: 'submitorder', component: (resolve) => require(['../views/submitorder.vue'], resolve) },    
                     { path: '/changePhone', title: '更改绑定', name: 'changePhone', component: (resolve) => require(['../views/changePhone.vue'], resolve) },    
                     { path: '/myAccount', title: '我的账户', name: 'myAccount', component: (resolve) => require(['../views/myAccount.vue'], resolve) },    
+                    { path: '/myCellar', title: '我的酒窖', name: 'myCellar', component: (resolve) => require(['../views/myCellar.vue'], resolve) },    
                     { path: '/immediatepay', title: '立即付款', name: 'immediatepay', component: (resolve) => require(['../views/immediatepay.vue'], resolve) },    
                 ]
             },

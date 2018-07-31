@@ -1,7 +1,7 @@
  <template>
      
         <!-- 内容 -->
-        <div>
+        <div style="margin-left:160px">
             <Row>
                 <i-col span="22" class="content">
                     <ul>
@@ -160,7 +160,7 @@ export default {
         .get("/api/order", { params: { page: self.page } })
         .then(function(res) {
           console.log(res.data.orders);
-          self.orderlist = res.data.orders.data;
+          self.orderlist = res.data.orders;
         })
         .catch(function(err) {
           if (err.status_code == 404) {
