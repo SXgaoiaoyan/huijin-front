@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin-left:160px">
         <Row>
             <i-col span="21">
                 <div class="content">
@@ -30,7 +30,56 @@
                         <li><a :class="{'select':money_d}" @click="money_m">提现记录</a></li>
                         <li><a :class="{'select':refund_d}" @click="refund_m">退款记录</a></li>
                     </ul>
-                    <table v-show="a">
+                    <!-- 最近交易记录 -->
+                    <table v-show="record">
+                        <tr>
+                            <td style="padding-left:30px">
+                                2016.08.09 
+                            </td>
+                            <td>
+                                汇金杏林酒业有限公司
+                            </td>
+                            <td style="text-align:center">
+                                -68888.00
+                            </td>
+                            <td style="text-align:center;">
+                                已收货
+                            </td>
+                            <td style="text-align:center">交易成功</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:30px">
+                                2016.08.09 
+                            </td>
+                            <td>
+                                汇金杏林酒业有限公司
+                            </td>
+                            <td style="text-align:center">
+                                -68888.00
+                            </td>
+                            <td style="text-align:center;">
+                                待收货
+                            </td>
+                            <td style="text-align:center">确认收货</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:30px">
+                                2016.08.09 
+                            </td>
+                            <td>
+                                汇金杏林酒业有限公司
+                            </td>
+                            <td style="text-align:center">
+                                -68888.00
+                            </td>
+                            <td style="text-align:center;">
+                                已收货
+                            </td>
+                            <td style="text-align:center">交易成功</td>
+                        </tr>
+                    </table>
+                    <!-- 充值记录 -->
+                    <table v-show="pay_d">
                         <tr>
                             <td style="padding-left:30px">
                                 2016.08.09 
@@ -68,6 +117,63 @@
                             <td style="text-align:center"><a>删除记录</a></td>
                         </tr>
                     </table>
+                    <!-- 提现记录 -->
+                    <table v-show="money_d">
+                        <tr>
+                            <td style="padding-left:30px">
+                                2016.08.09 
+                                   10:00
+                            </td>
+                            <td>
+                                提现-支付宝到帐<Br />
+                                <span style="color:#bfbfbf">gxy ▏流水号: 1475632 ▏账户号185****3416</span>
+                            </td>
+                            <td style="text-align:center">
+                                提现金额<Br />
+                                688888.00
+                            </td>
+                            <td style="text-align:center;color:#fb8647">
+                                交易成功
+                            </td>
+                            <td style="text-align:center"><a>删除记录</a></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left:30px">
+                                2016.08.09 
+                                   10:00
+                            </td>
+                            <td>
+                                充值-微信到帐<Br />
+                                <span style="color:#bfbfbf">gxy ▏流水号: 1475632 ▏账户号185****3416</span>
+                            </td>
+                            <td style="text-align:center">
+                                充值金额<Br />
+                                688888.00
+                            </td>
+                            <td style="text-align:center;color:#fb8647">
+                                交易成功
+                            </td>
+                            <td style="text-align:center"><a>删除记录</a></td>
+                        </tr>
+                         <tr>
+                            <td style="padding-left:30px">
+                                2016.08.09 
+                                   10:00
+                            </td>
+                            <td>
+                                提现-银行卡<Br />
+                                <span style="color:#bfbfbf">gxy ▏流水号: 1475632 ▏账户号185****3416</span>
+                            </td>
+                            <td style="text-align:center">
+                                提现金额<Br />
+                                688888.00
+                            </td>
+                            <td style="text-align:center;color:#fb8647">
+                                交易成功
+                            </td>
+                            <td style="text-align:center"><a>删除记录</a></td>
+                        </tr>
+                    </table>
                 </div>
             </i-col>
             <i-col ></i-col>
@@ -83,7 +189,7 @@ export default {
             pay_d:false,
             money_d:false,
             refund_d:false,
-            a:false
+
         }
     },
     methods: {
@@ -100,7 +206,6 @@ export default {
             this.pay_d = true;
             this.money_d = false;
             this.refund_d = false;
-            this.a = true;
             
         },
         // 提现记录
@@ -109,7 +214,6 @@ export default {
             this.pay_d = false;
             this.money_d = true;
             this.refund_d = false;
-            this.a = false;
         },
         //退款记录
         refund_m() {
@@ -117,7 +221,6 @@ export default {
             this.pay_d = false;
             this.money_d = false;
             this.refund_d = true;
-            this.a = false;
         }
          
     }

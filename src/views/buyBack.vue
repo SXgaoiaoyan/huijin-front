@@ -96,19 +96,16 @@
                         </div>
                         <div class="container" >
                             商品名称: &nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="商品名称不超过30个字"></Input><Br />
-                            商品Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Input type="text" style="width:300px" placeholder="请输入商品ID"></Input><Br />
                             生产日期: &nbsp;&nbsp;&nbsp;2013年1月1日 <Br />
                             产品规格: &nbsp;&nbsp;&nbsp;500ml
                             产品浓度: &nbsp;&nbsp;&nbsp;50° <Br />
                             产品类型: &nbsp;&nbsp;&nbsp;收藏版 原酒
                             产品年限: &nbsp;&nbsp;&nbsp;10年 <Br />
-                            收款银行卡:<Select style="width:300px">
+                            收款银行卡: <Select style="width:300px">
                                             
                                        </Select><Br />
                             购入价格: &nbsp;&nbsp;&nbsp;<span style="color:#f91515">￥123456.00</span><Br />
                             回购价格: &nbsp;&nbsp;&nbsp;<span style="color:#f91515">￥688888.00</span>  <span style="margin-left:50px">收益说明 <a>点击查看>></a></span>  <Br />           
-                            
-
                             回购说明: &nbsp;&nbsp;&nbsp;<Input type="textarea" :rows="4" placeholder="请输入回购原因,认真填写,更容易通过审核哟~" style="width:300px;" ></Input><Br />
                             商品位置: &nbsp;&nbsp;&nbsp;<Select style="width:300px">
                                             

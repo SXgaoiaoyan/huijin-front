@@ -1,5 +1,5 @@
 <template>
-     <div>
+     <div style="margin-left:160px">
         <Row>
             <i-col span="22" class="content">
                 <div class="bind">换绑手机号</div>

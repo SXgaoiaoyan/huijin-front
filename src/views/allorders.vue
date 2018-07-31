@@ -1,7 +1,7 @@
  <template>
      
         <!-- 内容 -->
-        <div>
+        <div style="margin-left:160px">
             <Row>
                 <i-col span="22" class="content">
                     <ul>

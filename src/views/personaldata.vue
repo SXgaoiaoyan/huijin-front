@@ -1,6 +1,6 @@
 <template>
         <!-- 中部 -->
-        <div>
+        <div style="margin-left:160px">
             <Row>
                 <i-col span="22" class="content">
                   <div style="font-weight:bold;padding-left:44px;height:120px;line-height:120px;font-size:16px">个人资料</div>
@@ -419,6 +419,7 @@ export default {
 </script>
 <style scoped>
 .content {
+  height:850px;
   margin-left: 24px;
   margin-top: 10px;
   background: url(http://static.huijinjiu.com/dw.png) no-repeat;
